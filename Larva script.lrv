@@ -1,0 +1,236 @@
+
+Imports{
+  
+  import elements.MethodCall;
+  import elements.EndOfTrace;
+  import java.util.Map;
+}
+
+
+Global{
+  
+    Variables {
+      MethodCall mcParent;
+      
+      Channel setup;
+      Channel step;
+      Channel abort;
+    }
+
+    Events {
+      sslimport() = {MethodCall mc.call(String n,*,*)} 
+      filter {n.equals("SSL_ImportFD")}
+      
+      prconnect() = {MethodCall mc.call(String n,*,*)} 
+      filter {n.equals("PR_Connect")}
+             
+      sslauthcertcompl() = {MethodCall mc.call(String n,*, Map params)} 
+      filter {n.equals("SSL_AuthCertificateComplete") && !((String)params.get("err")).equals("0x0")}
+      
+      destroypk(mc) = {MethodCall mc.call(String n,*,*)} 
+      filter {n.equals("SECKEY_DestroyPrivateKey")}   
+      
+      prclose(mc) = {MethodCall mc.call(String n,*,*)} 
+      filter {n.equals("PR_Close")} 
+      
+      eot() = {EndOfTrace eot.call()}
+      
+      
+      
+      createpk(mc) = {MethodCall mc.call(String n,*,*)} 
+      filter {n.equals("SECKEY_CreateECPrivateKey")}
+      
+      validatepk(mc,params) = {MethodCall mc.call(String n,*, Map params)} 
+      filter {n.equals("EC_ValidatePublicKey")}
+      
+      deriveKDF(mc) = {MethodCall mc.call(String n,*,*)} 
+      filter {n.equals("PK11_PubDeriveWithKDF")}
+      
+      
+      
+      %%channel event declarations
+      
+      setup() = {setup.receive()}
+      
+      step(ret) = {step.receive(Object ret)}
+      
+      abort() = {abort.receive()}
+      
+      
+      
+      destroypke5() = {MethodCall mc.call(String n,*, Map params)} 
+      filter {n.equals("SECKEY_DestroyPrivateKey") && ((String)params.get("privk")).contains("e5 e5 e5 e5")}   
+      
+      
+  }
+  
+ 
+ Property setup {
+
+     States {
+       Accepting { done }
+       Bad       {  }   
+       Normal    { newsession }
+       Starting  { start }
+     }
+
+     Transitions {
+       start -> newsession  [sslimport]
+       newsession -> done   [prconnect\\setup.send();] 
+     }
+ }
+ 
+  
+%% Rule 1: newsession[Start] ->  server_connect[Normal] -> failed_cert_auth[Normal] -> abort[Accepting]
+%% Rule 2: newsession[Start] ->  server_connect[Normal] -> failed_cert_auth[Normal] -> not abort[Bad]
+
+   Property certerr {
+
+     States {
+       Accepting { certerr_ok }
+       Bad       { certerr_bad }   
+       Normal    { newsession 
+                   server_connect 
+                   failed_cert_auth
+                   close }
+       Starting  { start }
+     }
+
+     Transitions {
+       start -> server_connect  	        [setup]
+       server_connect -> failed_cert_auth [sslauthcertcompl]
+       failed_cert_auth -> close          [prclose\\mcParent=mc;]
+       close -> certerr_ok 			          [destroypk\mc.hasParent(mcParent)]
+
+       failed_cert_auth -> certerr_bad    [eot]
+       close -> certerr_bad               [eot]
+     }
+   
+  }
+  
+  
+  %% Rule 3: newsession[Start] ->  server_connect[Normal] -> (localecvalid -> remoteecvalid OR remoteecvalid -> localecvalid) -> not abort[Accepting]
+  %% Rule 4: newsession[Start] ->  server_connect[Normal] -> (localecinvalid OR remoteecinvalid)  -> not abort[Bad]
+  
+  Property localecvalid {
+  
+  	States {
+  	  Accepting { ok }
+  	  Normal    { create }
+  	  Starting  { start }
+  	}
+  
+  	Transitions {
+  	  start -> create [createpk] 
+  	  create -> ok    [validatepk\\step.send(params.get("ret"));]
+  	}
+  }
+  
+  Property remoteecvalid {
+  
+  	States {
+  	  Accepting { ok }
+  	  Normal    { derive }
+  	  Starting  { start }
+  	}
+  
+  	Transitions {
+  	  start -> derive [deriveKDF] 
+  	  derive -> ok    [validatepk\\step.send(params.get("ret"));]
+  	}
+  }
+  
+  Property abort {
+  
+  	States {
+  	  Accepting { abort }
+  	  Normal    { close }
+  	  Starting  { start }
+  	}
+  
+  	Transitions {
+  	  start -> close [prclose\\mcParent=mc;] 
+  	  close -> abort [destroypk\mc.hasParent(mcParent)\abort.send();]
+  	}
+  
+  }
+  
+  
+   Property masterkeyderive {
+
+     States {
+       Accepting { masterkeyderive_ok }
+       Bad       { masterkeyderive_bad }   
+       Normal    { newsession 
+                   server_connect 
+                   step1
+                   step2
+                   invalid
+                   abort
+				 }
+       Starting  { start }
+     }
+
+     Transitions {
+       start -> server_connect   [setup]
+       
+       server_connect -> step1	 [step\((String)ret).equals("0x0")] 
+       server_connect -> invalid [step]
+       
+       step1 -> step2            [step\((String)ret).equals("0x0")]      
+       step1 -> invalid          [step]
+       
+       %% if aborted it doesn't accept or reject
+       start -> abort				   [abort]
+       newsession -> abort		 [abort]
+       server_connect -> abort [abort]
+       step1 -> abort				   [abort]
+       step2 -> abort				   [abort]
+       invalid -> abort				 [abort]				
+       
+       
+       step2 -> masterkeyderive_ok	  [eot]   
+
+       step1 -> masterkeyderive_bad		[eot]
+       invalid -> masterkeyderive_bad [eot]
+     }
+   
+  }
+  
+  
+  
+  %% Rule 5: newsession[Start] ->  server_connect[Normal] -> master_session_key_derive[Normal] -> scrub_priv_key[Normal] -> END[Accepting]
+  %% Rule 6: newsession[Start] ->  server_connect[Normal] -> master_session_key_derive[Normal] -> !scrub_priv_key -> END[Bad]
+
+Property scrubprivkey {
+
+     States {
+       Accepting { scrubprivkey_ok }
+       Bad       { scrubprivkey_bad }   
+       Normal    { newsession 
+                   server_connect 
+                   step1
+                   step2
+                   fail
+                   close }
+       Starting  { start }
+     }
+
+     Transitions {
+       start -> server_connect     [setup]
+       
+       server_connect -> step1		 [step\((String)ret).equals("0x0")] 
+       server_connect -> fail		   [step]
+       
+       step1 -> step2              [step\((String)ret).equals("0x0")]      
+       step1 -> fail               [step]
+       
+       step2 -> scrubprivkey_ok		 [destroypke5]   
+       step2 -> scrubprivkey_bad	 [eot]
+ 
+     }
+   
+  }
+
+   
+}

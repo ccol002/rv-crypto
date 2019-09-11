@@ -1,0 +1,139 @@
+  9680 ms  0x2a47 SSL_ImportFD()
+  9680 ms  0x2a47 ret:0x7fc03a8b32e0
+  9680 ms  0x2a47 SSL_AuthCertificateHook()
+  9680 ms  0x2a47 fd:0x7fc03a8b32e0
+  9680 ms  0x2a47 ret:0x0
+  9680 ms  0x2a47 PR_Connect()
+  9680 ms  0x2a47 fd:0x7fc03a8b32e0
+  9719 ms  0x2a47 SECKEY_CreateECPrivateKey()
+  9719 ms  0x2a47 cx:0x7fc033ad5c08
+  9720 ms     | 0x2a47 EC_ValidatePublicKey()
+  9720 ms     | 0x2a47 ret:0x0
+  9720 ms  0x2a47 ret:0x7fc03820d020::7fc03820d020  d0 d8 79 37                                      ..y7
+  9720 ms  0x2a47 SECKEY_CreateECPrivateKey()
+  9720 ms  0x2a47 cx:0x7fc033ad5c08
+  9721 ms     | 0x2a47 EC_ValidatePublicKey()
+  9723 ms     | 0x2a47 ret:0x0
+  9723 ms  0x2a47 ret:0x7fc038211020::7fc038211020  60 a0 7a 37                                      `.z7
+  9741 ms  0x2ab6 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  9741 ms  0x2ab6 ret:0x0
+  9741 ms  0x2ab6 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  9741 ms  0x2ab6 ret:0x0
+           /* TID 0x2a47 */
+  9752 ms  0x2a47 SECKEY_CreateECPrivateKey()
+  9752 ms  0x2a47 cx:0x7fc033ad5c08
+  9753 ms     | 0x2a47 EC_ValidatePublicKey()
+  9753 ms     | 0x2a47 ret:0x0
+  9753 ms  0x2a47 ret:0x7fc038888820::7fc038888820  c0 79 e8 3a                                      .y.:
+  9753 ms  0x2a47 PK11_PubDeriveWithKDF()
+  9753 ms  0x2a47 seckey:0x7fc038888820
+  9753 ms     | 0x2a47 EC_ValidatePublicKey()
+  9753 ms     | 0x2a47 ret:0x0
+  9753 ms  0x2a47 ret:0x7fc01c8e4b00
+  9753 ms  0x2a47 PK11_DeriveWithFlags()
+  9753 ms  0x2a47 basekey:0x7fc01c8e4b00
+  9753 ms     | 0x2a47 PK11_DeriveWithTemplate()
+  9753 ms  0x2a47 ret:0x7fc03bb1a280
+  9753 ms  0x2a47 PK11_Derive()
+  9753 ms  0x2a47 basekey:0x7fc03bb1a280
+  9753 ms     | 0x2a47 PK11_DeriveWithTemplate()
+  9753 ms  0x2a47 ret:0x7fc03bb1a580
+  9753 ms  0x2a47 SECKEY_DestroyPrivateKey()
+  9753 ms  0x2a47 privk:0x7fc038888820::7fc038888820  c0 79 e8 3a                                      .y.:
+  9753 ms  0x2a47 privk:0x7fc038888820::7fc038888820  e5 e5 e5 e5                                      ....
+  9754 ms  0x2a47 PK11_Encrypt()
+  9754 ms  0x2a47 symkey:0x7fc03bb67080
+  9757 ms  0x2a47 PK11_PubDeriveWithKDF()
+  9757 ms  0x2a47 seckey:0x7fc03888f820
+  9757 ms     | 0x2a47 EC_ValidatePublicKey()
+  9757 ms     | 0x2a47 ret:0x0
+  9757 ms  0x2a47 ret:0x7fc01c8e4b00
+  9757 ms  0x2a47 PK11_DeriveWithFlags()
+  9757 ms  0x2a47 basekey:0x7fc01c8e4b00
+  9757 ms     | 0x2a47 PK11_DeriveWithTemplate()
+  9757 ms  0x2a47 ret:0x7fc03bb67180
+  9757 ms  0x2a47 PK11_Derive()
+  9757 ms  0x2a47 basekey:0x7fc03bb67180
+  9757 ms     | 0x2a47 PK11_DeriveWithTemplate()
+  9758 ms  0x2a47 ret:0x7fc03bb67200
+  9758 ms  0x2a47 SECKEY_DestroyPrivateKey()
+  9758 ms  0x2a47 privk:0x7fc03888f820::7fc03888f820  a0 7b e8 3a                                      .{.:
+  9758 ms  0x2a47 privk:0x7fc03888f820::7fc03888f820  e5 e5 e5 e5                                      ....
+  9760 ms  0x2a47 PK11_PubDeriveWithKDF()
+  9760 ms  0x2a47 seckey:0x7fc03b860820
+  9760 ms     | 0x2a47 EC_ValidatePublicKey()
+  9760 ms     | 0x2a47 ret:0x0
+  9760 ms  0x2a47 ret:0x7fc01c8e4b00
+  9760 ms  0x2a47 PK11_DeriveWithFlags()
+  9760 ms  0x2a47 basekey:0x7fc01c8e4b00
+  9760 ms     | 0x2a47 PK11_DeriveWithTemplate()
+  9760 ms  0x2a47 ret:0x7fc03bb67480
+  9760 ms  0x2a47 PK11_Derive()
+  9760 ms  0x2a47 basekey:0x7fc03bb67480
+  9760 ms     | 0x2a47 PK11_DeriveWithTemplate()
+  9760 ms  0x2a47 ret:0x7fc03bb67500
+  9760 ms  0x2a47 SECKEY_DestroyPrivateKey()
+  9760 ms  0x2a47 privk:0x7fc03b860820::7fc03b860820  30 7d e8 3a                                      0}.:
+  9761 ms  0x2a47 privk:0x7fc03b860820::7fc03b860820  e5 e5 e5 e5                                      ....
+  9769 ms  0x2a47 PK11_PubDeriveWithKDF()
+  9769 ms  0x2a47 seckey:0x7fc03b872020
+  9769 ms     | 0x2a47 EC_ValidatePublicKey()
+  9769 ms     | 0x2a47 ret:0x0
+  9769 ms  0x2a47 ret:0x7fc01c8e4b00
+  9769 ms  0x2a47 PK11_DeriveWithFlags()
+  9769 ms  0x2a47 basekey:0x7fc01c8e4b00
+  9769 ms     | 0x2a47 PK11_DeriveWithTemplate()
+  9769 ms  0x2a47 ret:0x7fc03bb67780
+  9769 ms  0x2a47 PK11_Derive()
+  9769 ms  0x2a47 basekey:0x7fc03bb67780
+  9769 ms     | 0x2a47 PK11_DeriveWithTemplate()
+  9769 ms  0x2a47 ret:0x7fc03bb67800
+  9769 ms  0x2a47 SECKEY_DestroyPrivateKey()
+  9769 ms  0x2a47 privk:0x7fc03b872020::7fc03b872020  d0 7d e8 3a                                      .}.:
+  9769 ms  0x2a47 privk:0x7fc03b872020::7fc03b872020  e5 e5 e5 e5                                      ....
+ 10750 ms  0x2afa _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+ 10758 ms  0x2afa ret:0x0
+ 10758 ms  0x2afa _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+ 10758 ms  0x2afa ret:0x0
+ 10760 ms  0x2afa _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+ 10760 ms  0x2afa ret:0x0
+ 10760 ms  0x2afa _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+ 10761 ms  0x2afa ret:0x0
+           /* TID 0x2afb */
+ 10761 ms  0x2afb _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+ 10761 ms  0x2afb ret:0x0
+ 10761 ms  0x2afb _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+ 10762 ms  0x2afb ret:0x0
+           /* TID 0x2afc */
+ 10762 ms  0x2afc _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+           /* TID 0x2a47 */
+ 10767 ms  0x2a47 SSL_AuthCertificateComplete()
+ 10767 ms  0x2a47 fd:0x7fc03a8b32e0
+ 10767 ms  0x2a47 err:0x0
+ 10767 ms     | 0x2a47 SECKEY_DestroyPrivateKey()
+ 10767 ms     | 0x2a47 privk:0x7fc038211020::7fc038211020  60 a0 7a 37                                      `.z7
+ 10768 ms     | 0x2a47 privk:0x7fc038211020::7fc038211020  e5 e5 e5 e5                                      ....
+ 10768 ms     | 0x2a47 SECKEY_DestroyPrivateKey()
+ 10768 ms     | 0x2a47 privk:0x7fc03820d020::7fc03820d020  d0 d8 79 37                                      ..y7
+ 10768 ms     | 0x2a47 privk:0x7fc03820d020::7fc03820d020  e5 e5 e5 e5                                      ....
+           /* TID 0x2afc */
+ 10769 ms  0x2afc ret:0x0
+ 10769 ms  0x2afc _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+ 10769 ms  0x2afc ret:0x0
+           /* TID 0x2ab6 */
+ 10769 ms  0x2ab6 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+ 10770 ms  0x2ab6 ret:0x0
+ 10770 ms  0x2ab6 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+ 10770 ms  0x2ab6 ret:0x0
+           /* TID 0x2af9 */
+ 10770 ms  0x2af9 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+ 10770 ms  0x2af9 ret:0x0
+ 10770 ms  0x2af9 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+ 10771 ms  0x2af9 ret:0x0
+           /* TID 0x2a47 */
+ 10777 ms  0x2a47 PK11_Encrypt()
+ 10777 ms  0x2a47 symkey:0x7fc03bb67080
+ 10824 ms  0x2a47 PR_Close()
+ 10824 ms  0x2a47 fd:0x7fc03a8b32e0
+ 10824 ms     | 0x2a47 PK11_Encrypt()
+ 10824 ms     | 0x2a47 symkey:0x7fc03bb67080

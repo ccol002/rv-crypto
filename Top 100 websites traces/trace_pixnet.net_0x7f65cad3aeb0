@@ -1,0 +1,35 @@
+ 16143 ms  0x2621 SSL_ImportFD()
+ 16143 ms  0x2621 ret:0x7f65cad3aeb0
+ 16143 ms  0x2621 SSL_AuthCertificateHook()
+ 16143 ms  0x2621 fd:0x7f65cad3aeb0
+ 16143 ms  0x2621 ret:0x0
+ 16143 ms  0x2621 PR_Connect()
+ 16143 ms  0x2621 fd:0x7f65cad3aeb0
+           /* TID 0x2629 */
+ 16475 ms  0x2621 SECKEY_DestroyPrivateKey()
+ 16475 ms  0x2621 privk:0x7f65aa31f820::7f65aa31f820  20 44 23 ca                                       D#.
+ 16476 ms  0x2621 privk:0x7f65aa31f820::7f65aa31f820  e5 e5 e5 e5                                      ....
+ 16476 ms  0x2621 SECKEY_DestroyPrivateKey()
+ 16476 ms  0x2621 privk:0x7f65aa31d820::7f65aa31d820  80 2d 92 c7                                      .-..
+ 16477 ms  0x2621 privk:0x7f65aa31d820::7f65aa31d820  e5 e5 e5 e5                                      ....
+ 16478 ms  0x2621 SECKEY_CreateECPrivateKey()
+ 16478 ms  0x2621 cx:0x7f65caf793e8
+ 16480 ms     | 0x2621 EC_ValidatePublicKey()
+ 16480 ms     | 0x2621 ret:0x0
+ 16480 ms  0x2621 ret:0x7f65aa31d820::7f65aa31d820  30 2d 92 c7                                      0-..
+ 16480 ms  0x2621 SECKEY_CreateECPrivateKey()
+ 16480 ms  0x2621 cx:0x7f65caf793e8
+ 16482 ms     | 0x2621 EC_ValidatePublicKey()
+ 16490 ms     | 0x2621 ret:0x0
+ 16490 ms  0x2621 ret:0x7f65aa31f820::7f65aa31f820  90 42 23 ca                                      .B#.
+ 17095 ms  0x26c7 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+ 17095 ms  0x26c7 ret:0x0
+           /* TID 0x2621 */
+ 17129 ms  0x2621 PR_Close()
+ 17129 ms  0x2621 fd:0x7f65cad3aeb0
+ 17129 ms     | 0x2621 SECKEY_DestroyPrivateKey()
+ 17129 ms     | 0x2621 privk:0x7f65aa31f820::7f65aa31f820  90 42 23 ca                                      .B#.
+ 17129 ms     | 0x2621 privk:0x7f65aa31f820::7f65aa31f820  e5 e5 e5 e5                                      ....
+ 17129 ms     | 0x2621 SECKEY_DestroyPrivateKey()
+ 17129 ms     | 0x2621 privk:0x7f65aa31d820::7f65aa31d820  30 2d 92 c7                                      0-..
+ 17129 ms     | 0x2621 privk:0x7f65aa31d820::7f65aa31d820  e5 e5 e5 e5                                      ....

@@ -1,0 +1,108 @@
+  6442 ms  0x68ea SSL_ImportFD()
+  6442 ms  0x68ea ret:0x7f5fb5be5310
+  6442 ms  0x68ea SSL_AuthCertificateHook()
+  6442 ms  0x68ea fd:0x7f5fb5be5310
+  6442 ms  0x68ea ret:0x0
+  6442 ms  0x68ea PR_Connect()
+  6442 ms  0x68ea fd:0x7f5fb5be5310
+           /* TID 0x68f2 */
+  6525 ms  0x6948 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  6525 ms  0x6948 ret:0x0
+           /* TID 0x68ea */
+  6529 ms  0x68ea ret:0x7f5fb6886680
+  6529 ms  0x68ea PK11_DeriveWithFlags()
+  6529 ms  0x68ea basekey:0x7f5fb6886680
+  6529 ms     | 0x68ea PK11_DeriveWithTemplate()
+  6529 ms  0x68ea ret:0x7f5fb6885b80
+  6529 ms  0x68ea PK11_Derive()
+  6529 ms  0x68ea basekey:0x7f5fb6885b80
+  6529 ms     | 0x68ea PK11_DeriveWithTemplate()
+  6529 ms  0x68ea ret:0x7f5fc96e3c80
+  6529 ms  0x68ea PK11_Encrypt()
+  6529 ms  0x68ea symkey:0x7f5fb6886800
+           /* TID 0x68df */
+  6535 ms  0x68ea SSL_AuthCertificateComplete()
+  6535 ms  0x68ea fd:0x7f5fb5be5310
+  6535 ms  0x68ea err:0x0
+  6535 ms  0x68ea PK11_Encrypt()
+  6535 ms  0x68ea symkey:0x7f5fb6886800
+  6536 ms  0x68ea PK11_Encrypt()
+  6536 ms  0x68ea symkey:0x7f5fb6886800
+           /* TID 0x68df */
+  6538 ms  0x6948 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  6538 ms  0x6948 ret:0x0
+           /* TID 0x68ea */
+  6538 ms  0x68ea SECKEY_CreateECPrivateKey()
+  6538 ms  0x68ea cx:0x7f5fb5b0f248
+  6538 ms     | 0x68ea EC_ValidatePublicKey()
+  6540 ms     | 0x68ea ret:0x0
+  6540 ms  0x68ea ret:0x7f5fc7a35020::7f5fc7a35020  50 3b a2 c7                                      P;..
+  6540 ms  0x68ea PK11_PubDeriveWithKDF()
+  6540 ms  0x68ea seckey:0x7f5fc7a35020
+  6540 ms     | 0x68ea EC_ValidatePublicKey()
+  6541 ms     | 0x68ea ret:0x0
+  6543 ms  0x68ea ret:0x7f5fb6886680
+  6543 ms  0x68ea PK11_DeriveWithFlags()
+  6543 ms  0x68ea basekey:0x7f5fb6886680
+  6543 ms     | 0x68ea PK11_DeriveWithTemplate()
+  6543 ms  0x68ea ret:0x7f5fb690b200
+  6543 ms  0x68ea PK11_Derive()
+  6543 ms  0x68ea basekey:0x7f5fb690b200
+  6543 ms     | 0x68ea PK11_DeriveWithTemplate()
+  6543 ms  0x68ea ret:0x7f5fc96e3d80
+  6543 ms  0x68ea SECKEY_DestroyPrivateKey()
+  6543 ms  0x68ea privk:0x7f5fc7a35020::7f5fc7a35020  50 3b a2 c7                                      P;..
+           /* TID 0x68f2 */
+  6568 ms  0x68ea PK11_Encrypt()
+  6568 ms  0x68ea symkey:0x7f5fb6886800
+  6611 ms  0x68ea PK11_Encrypt()
+  6611 ms  0x68ea symkey:0x7f5fb6886800
+  6612 ms  0x68ea PK11_Encrypt()
+  6612 ms  0x68ea symkey:0x7f5fb6886800
+  6612 ms  0x68ea PK11_Encrypt()
+  6612 ms  0x68ea symkey:0x7f5fb6886800
+  6612 ms  0x68ea PK11_Encrypt()
+  6612 ms  0x68ea symkey:0x7f5fb6886800
+           /* TID 0x6955 */
+  6649 ms  0x68ea PK11_Encrypt()
+  6649 ms  0x68ea symkey:0x7f5fb6886800
+  6650 ms  0x68ea PK11_Encrypt()
+  6650 ms  0x68ea symkey:0x7f5fb6886800
+  6650 ms  0x68ea PK11_Encrypt()
+  6650 ms  0x68ea symkey:0x7f5fb6886800
+  6650 ms  0x68ea PK11_Encrypt()
+  6650 ms  0x68ea symkey:0x7f5fb6886800
+  6650 ms  0x68ea PK11_Encrypt()
+  6650 ms  0x68ea symkey:0x7f5fb6886800
+  6651 ms  0x68ea PK11_Encrypt()
+  6651 ms  0x68ea symkey:0x7f5fb6886800
+  6651 ms  0x68ea PK11_Encrypt()
+  6651 ms  0x68ea symkey:0x7f5fb6886800
+           /* TID 0x68f2 */
+  6651 ms  0x68ea PK11_Encrypt()
+  6651 ms  0x68ea symkey:0x7f5fb6886800
+  6652 ms  0x68ea PK11_Encrypt()
+  6652 ms  0x68ea symkey:0x7f5fb6886800
+  6653 ms  0x68ea PK11_Encrypt()
+  6653 ms  0x68ea symkey:0x7f5fb6886800
+  6653 ms  0x68ea PK11_Encrypt()
+  6653 ms  0x68ea symkey:0x7f5fb6886800
+  6653 ms  0x68ea PK11_Encrypt()
+  6653 ms  0x68ea symkey:0x7f5fb6886800
+  6653 ms  0x68ea PK11_Encrypt()
+  6653 ms  0x68ea symkey:0x7f5fb6886800
+           /* TID 0x68f2 */
+  6664 ms  0x68ea PK11_Encrypt()
+  6664 ms  0x68ea symkey:0x7f5fb6886800
+  6665 ms  0x68ea PK11_Encrypt()
+  6665 ms  0x68ea symkey:0x7f5fb6886800
+  6665 ms  0x68ea PK11_Encrypt()
+  6665 ms  0x68ea symkey:0x7f5fb6886800
+  6666 ms  0x68ea PK11_Encrypt()
+  6666 ms  0x68ea symkey:0x7f5fb6886800
+  6666 ms  0x68ea PK11_Encrypt()
+  6666 ms  0x68ea symkey:0x7f5fb6886800
+  6667 ms  0x68ea PR_Close()
+  6667 ms  0x68ea fd:0x7f5fb5be5310
+  6667 ms     | 0x68ea PK11_Encrypt()
+  6667 ms     | 0x68ea symkey:0x7f5fb6886800

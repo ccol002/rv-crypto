@@ -1,0 +1,77 @@
+  8017 ms  0xd28 SSL_ImportFD()
+  8017 ms  0xd28 ret:0x7ff19c1c0a60
+  8017 ms  0xd28 SSL_AuthCertificateHook()
+  8017 ms  0xd28 fd:0x7ff19c1c0a60
+  8017 ms  0xd28 ret:0x0
+  8017 ms  0xd28 PR_Connect()
+  8017 ms  0xd28 fd:0x7ff19c1c0a60
+  8078 ms  0xdc6 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  8078 ms  0xdc6 ret:0x0
+           /* TID 0xd28 */
+  8087 ms  0xd85 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  8087 ms  0xd85 ret:0x0
+           /* TID 0xd28 */
+  8115 ms  0xd28 SECKEY_CreateECPrivateKey()
+  8115 ms  0xd28 cx:0x7ff198df0908
+  8116 ms     | 0xd28 EC_ValidatePublicKey()
+  8116 ms     | 0xd28 ret:0x0
+  8116 ms  0xd28 ret:0x7ff19c254020::7ff19c254020  50 86 4b ae                                      P.K.
+  8116 ms  0xd28 SECKEY_CreateECPrivateKey()
+  8116 ms  0xd28 cx:0x7ff198df0908
+  8117 ms     | 0xd28 EC_ValidatePublicKey()
+  8118 ms     | 0xd28 ret:0x0
+  8118 ms  0xd28 ret:0x7ff1aceda020::7ff1aceda020  d0 88 4b ae                                      ..K.
+           /* TID 0xd1d */
+  8148 ms  0xdca _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  8148 ms     | SECKEY_ECParamsToBasePointOrderLen()
+  8148 ms     | 0xdca ret:0x180
+  8148 ms     | SECKEY_ECParamsToBasePointOrderLen()
+  8148 ms     | 0xdca ret:0x180
+  8148 ms     | 0xdca EC_ValidatePublicKey()
+           /* TID 0xd28 */
+  8194 ms  0xdc7 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  8194 ms     | SECKEY_ECParamsToBasePointOrderLen()
+  8194 ms     | 0xdc7 ret:0x180
+  8194 ms     | SECKEY_ECParamsToBasePointOrderLen()
+  8194 ms     | 0xdc7 ret:0x180
+  8194 ms     | 0xdc7 EC_ValidatePublicKey()
+  8195 ms     | 0xdc7 ret:0x0
+  8198 ms  0xdc7 ret:0x0
+           /* TID 0xd28 */
+  8257 ms  0xdc6 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  8257 ms     | SECKEY_ECParamsToBasePointOrderLen()
+  8257 ms     | 0xdc6 ret:0x180
+  8257 ms     | SECKEY_ECParamsToBasePointOrderLen()
+  8257 ms     | 0xdc6 ret:0x180
+  8257 ms     | 0xdc6 EC_ValidatePublicKey()
+  8258 ms     | 0xdc6 ret:0x0
+           /* TID 0xd28 */
+  8262 ms  0xd28 SECKEY_CreateECPrivateKey()
+  8262 ms  0xd28 cx:0x7ff198df0908
+  8263 ms     | 0xd28 EC_ValidatePublicKey()
+  8264 ms     | 0xd28 ret:0x0
+  8264 ms  0xd28 ret:0x7ff1b3606820::7ff1b3606820  e0 22 f2 9b                                      ."..
+  8264 ms  0xd28 PK11_PubDeriveWithKDF()
+  8264 ms  0xd28 seckey:0x7ff1b3606820
+  8264 ms     | 0xd28 EC_ValidatePublicKey()
+  8266 ms     | 0xd28 ret:0x0
+           /* TID 0xd8d */
+  8287 ms  0xd28 SECKEY_DestroyPrivateKey()
+  8287 ms  0xd28 privk:0x7ff1b3606820::7ff1b3606820  e0 22 f2 9b                                      ."..
+  8287 ms  0xd28 privk:0x7ff1b3606820::7ff1b3606820  e5 e5 e5 e5                                      ....
+  8295 ms  0xd85 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  8295 ms  0xd85 ret:0x0
+  8295 ms  0xd85 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  8295 ms  0xd85 ret:0x0
+           /* TID 0xd28 */
+  8300 ms  0xd28 SSL_AuthCertificateComplete()
+  8300 ms  0xd28 fd:0x7ff19c1c0a60
+  8300 ms  0xd28 err:0x0
+  8310 ms  0xd28 PR_Close()
+  8310 ms  0xd28 fd:0x7ff19c1c0a60
+  8311 ms     | 0xd28 SECKEY_DestroyPrivateKey()
+  8311 ms     | 0xd28 privk:0x7ff1aceda020::7ff1aceda020  d0 88 4b ae                                      ..K.
+  8311 ms     | 0xd28 privk:0x7ff1aceda020::7ff1aceda020  e5 e5 e5 e5                                      ....
+  8311 ms     | 0xd28 SECKEY_DestroyPrivateKey()
+  8311 ms     | 0xd28 privk:0x7ff19c254020::7ff19c254020  50 86 4b ae                                      P.K.
+  8311 ms     | 0xd28 privk:0x7ff19c254020::7ff19c254020  e5 e5 e5 e5                                      ....

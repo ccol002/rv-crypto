@@ -1,0 +1,25 @@
+  8218 ms  0x5fe SSL_ImportFD()
+  8218 ms  0x5fe ret:0x7fbdc6f50bb0
+  8218 ms  0x5fe SSL_AuthCertificateHook()
+  8218 ms  0x5fe fd:0x7fbdc6f50bb0
+  8218 ms  0x5fe ret:0x0
+  8218 ms  0x5fe PR_Connect()
+  8218 ms  0x5fe fd:0x7fbdc6f50bb0
+  8347 ms  0x5fe SECKEY_CreateECPrivateKey()
+  8347 ms  0x5fe cx:0x7fbdc710b728
+  8347 ms     | 0x5fe EC_ValidatePublicKey()
+  8348 ms     | 0x5fe ret:0x0
+  8348 ms  0x5fe ret:0x7fbdc7186020::7fbdc7186020  10 6a b2 c6                                      .j..
+  8348 ms  0x5fe SECKEY_CreateECPrivateKey()
+  8348 ms  0x5fe cx:0x7fbdc710b728
+  8348 ms     | 0x5fe EC_ValidatePublicKey()
+  8350 ms     | 0x5fe ret:0x0
+  8350 ms  0x5fe ret:0x7fbdc7461820::7fbdc7461820  80 6d b2 c6                                      .m..
+  8375 ms  0x5fe PR_Close()
+  8375 ms  0x5fe fd:0x7fbdc6f50bb0
+  8375 ms     | 0x5fe SECKEY_DestroyPrivateKey()
+  8375 ms     | 0x5fe privk:0x7fbdc7461820::7fbdc7461820  80 6d b2 c6                                      .m..
+  8375 ms     | 0x5fe privk:0x7fbdc7461820::7fbdc7461820  e5 e5 e5 e5                                      ....
+  8375 ms     | 0x5fe SECKEY_DestroyPrivateKey()
+  8375 ms     | 0x5fe privk:0x7fbdc7186020::7fbdc7186020  10 6a b2 c6                                      .j..
+  8375 ms     | 0x5fe privk:0x7fbdc7186020::7fbdc7186020  e5 e5 e5 e5                                      ....

@@ -1,0 +1,49 @@
+ 10294 ms  0x2cb2 SSL_ImportFD()
+ 10294 ms  0x2cb2 ret:0x7fc1458ee880
+ 10294 ms  0x2cb2 SSL_AuthCertificateHook()
+ 10294 ms  0x2cb2 fd:0x7fc1458ee880
+ 10294 ms  0x2cb2 ret:0x0
+ 10294 ms  0x2cb2 PR_Connect()
+ 10294 ms  0x2cb2 fd:0x7fc1458ee880
+ 10659 ms  0x2cb2 SECKEY_CreateECPrivateKey()
+ 10659 ms  0x2cb2 cx:0x7fc14d3f8128
+ 10660 ms     | 0x2cb2 EC_ValidatePublicKey()
+ 10660 ms     | 0x2cb2 ret:0x0
+ 10660 ms  0x2cb2 ret:0x7fc14815e820::7fc14815e820  b0 1a 7e 45                                      ..~E
+ 10660 ms  0x2cb2 SECKEY_CreateECPrivateKey()
+ 10660 ms  0x2cb2 cx:0x7fc14d3f8128
+ 10661 ms     | 0x2cb2 EC_ValidatePublicKey()
+ 10662 ms     | 0x2cb2 ret:0x0
+ 10662 ms  0x2cb2 ret:0x7fc148163020::7fc148163020  30 1d 7e 45                                      0.~E
+ 11350 ms  0x2cb2 SECKEY_CreateECPrivateKey()
+ 11350 ms  0x2cb2 cx:0x7fc14d3f8128
+ 11350 ms     | 0x2cb2 EC_ValidatePublicKey()
+ 11352 ms     | 0x2cb2 ret:0x0
+ 11352 ms  0x2cb2 ret:0x7fc1459ac020::7fc1459ac020  20 44 b2 40                                       D.@
+ 11352 ms  0x2cb2 PK11_PubDeriveWithKDF()
+ 11352 ms  0x2cb2 seckey:0x7fc1459ac020
+ 11352 ms     | 0x2cb2 EC_ValidatePublicKey()
+ 11354 ms     | 0x2cb2 ret:0x0
+ 11355 ms  0x2cb2 ret:0x7fc143ef3a00
+ 11355 ms  0x2cb2 PK11_DeriveWithFlags()
+ 11355 ms  0x2cb2 basekey:0x7fc143ef3a00
+ 11355 ms     | 0x2cb2 PK11_DeriveWithTemplate()
+ 11355 ms  0x2cb2 ret:0x7fc144e66b00
+ 11355 ms  0x2cb2 PK11_Derive()
+ 11355 ms  0x2cb2 basekey:0x7fc144e66b00
+ 11355 ms     | 0x2cb2 PK11_DeriveWithTemplate()
+ 11355 ms  0x2cb2 ret:0x7fc144e66d80
+ 11355 ms  0x2cb2 SECKEY_DestroyPrivateKey()
+ 11355 ms  0x2cb2 privk:0x7fc1459ac020::7fc1459ac020  20 44 b2 40                                       D.@
+ 11356 ms  0x2cb2 privk:0x7fc1459ac020::7fc1459ac020  e5 e5 e5 e5                                      ....
+ 11356 ms  0x2cb2 SSL_AuthCertificateComplete()
+ 11356 ms  0x2cb2 fd:0x7fc1458ee880
+ 11356 ms  0x2cb2 err:0x0
+ 11701 ms  0x2cb2 PR_Close()
+ 11701 ms  0x2cb2 fd:0x7fc1458ee880
+ 11701 ms     | 0x2cb2 SECKEY_DestroyPrivateKey()
+ 11701 ms     | 0x2cb2 privk:0x7fc148163020::7fc148163020  30 1d 7e 45                                      0.~E
+ 11701 ms     | 0x2cb2 privk:0x7fc148163020::7fc148163020  e5 e5 e5 e5                                      ....
+ 11701 ms     | 0x2cb2 SECKEY_DestroyPrivateKey()
+ 11701 ms     | 0x2cb2 privk:0x7fc14815e820::7fc14815e820  b0 1a 7e 45                                      ..~E
+ 11701 ms     | 0x2cb2 privk:0x7fc14815e820::7fc14815e820  e5 e5 e5 e5                                      ....

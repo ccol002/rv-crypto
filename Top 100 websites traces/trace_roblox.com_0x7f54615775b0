@@ -1,0 +1,55 @@
+  6650 ms  0x299b SSL_ImportFD()
+  6650 ms  0x299b ret:0x7f54615775b0
+  6650 ms  0x299b SSL_AuthCertificateHook()
+  6650 ms  0x299b fd:0x7f54615775b0
+  6650 ms  0x299b ret:0x0
+  6651 ms  0x299b PR_Connect()
+  6651 ms  0x299b fd:0x7f54615775b0
+  6738 ms  0x29f4 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  6738 ms  0x29f4 ret:0x0
+           /* TID 0x299b */
+  6747 ms  0x299b ret:0x7f5461288020::7f5461288020  10 7a 20 61                                      .z a
+  6747 ms  0x299b PK11_PubDeriveWithKDF()
+  6747 ms  0x299b seckey:0x7f5461288020
+  6747 ms     | 0x299b EC_ValidatePublicKey()
+  6749 ms     | 0x299b ret:0x0
+  6750 ms  0x299b ret:0x7f5472759c00
+  6750 ms  0x299b PK11_DeriveWithFlags()
+  6750 ms  0x299b basekey:0x7f5472759c00
+  6750 ms     | 0x299b PK11_DeriveWithTemplate()
+  6750 ms  0x299b ret:0x7f5475544600
+  6750 ms  0x299b PK11_Derive()
+  6750 ms  0x299b basekey:0x7f5475544600
+  6750 ms     | 0x299b PK11_DeriveWithTemplate()
+  6750 ms  0x299b ret:0x7f5475544880
+  6750 ms  0x299b SECKEY_DestroyPrivateKey()
+  6750 ms  0x299b privk:0x7f5461288020::7f5461288020  10 7a 20 61                                      .z a
+  6750 ms  0x299b privk:0x7f5461288020::7f5461288020  e5 e5 e5 e5                                      ....
+  6750 ms  0x299b PK11_Encrypt()
+  6750 ms  0x299b symkey:0x7f54755bb780
+  6752 ms  0x299b SSL_AuthCertificateComplete()
+  6752 ms  0x299b fd:0x7f54615775b0
+  6752 ms  0x299b err:0x0
+           /* TID 0x29a3 */
+  6756 ms  0x299b PK11_Encrypt()
+  6756 ms  0x299b symkey:0x7f54755bb780
+           /* TID 0x29a3 */
+  6789 ms  0x29f4 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  6789 ms  0x29f4 ret:0x0
+  6789 ms  0x29f4 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  6789 ms  0x29f4 ret:0x0
+           /* TID 0x299b */
+  6797 ms     | 0x299b ret:0x0
+  6799 ms  0x299b ret:0x7f5472759c00
+  6799 ms  0x299b PK11_DeriveWithFlags()
+  6799 ms  0x299b basekey:0x7f5472759c00
+  6799 ms     | 0x299b PK11_DeriveWithTemplate()
+  6799 ms  0x299b ret:0x7f5472593800
+  6799 ms  0x299b PK11_Derive()
+  6799 ms  0x299b basekey:0x7f5472593800
+  6799 ms     | 0x299b PK11_DeriveWithTemplate()
+  6799 ms  0x299b ret:0x7f54619d0780
+  6802 ms  0x299b PR_Close()
+  6802 ms  0x299b fd:0x7f54615775b0
+  6802 ms     | 0x299b PK11_Encrypt()
+  6802 ms     | 0x299b symkey:0x7f54755bb780

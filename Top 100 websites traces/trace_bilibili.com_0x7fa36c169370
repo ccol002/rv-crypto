@@ -1,0 +1,48 @@
+  9770 ms  0xc72 SSL_ImportFD()
+  9770 ms  0xc72 ret:0x7fa36c169370
+  9770 ms  0xc72 SSL_AuthCertificateHook()
+  9770 ms  0xc72 fd:0x7fa36c169370
+  9770 ms  0xc72 ret:0x0
+  9770 ms  0xc72 PR_Connect()
+  9770 ms  0xc72 fd:0x7fa36c169370
+           /* TID 0xc7a */
+  9838 ms  0xc72 SECKEY_CreateECPrivateKey()
+  9838 ms  0xc72 cx:0x7fa36c405588
+  9838 ms     | 0xc72 EC_ValidatePublicKey()
+  9838 ms     | 0xc72 ret:0x0
+  9838 ms  0xc72 ret:0x7fa36c44c820::7fa36c44c820  40 1c eb 7e                                      @..~
+  9838 ms  0xc72 SECKEY_CreateECPrivateKey()
+  9838 ms  0xc72 cx:0x7fa36c405588
+  9839 ms     | 0xc72 EC_ValidatePublicKey()
+  9840 ms     | 0xc72 ret:0x0
+  9840 ms  0xc72 ret:0x7fa36c462820::7fa36c462820  b0 e0 ef 7e                                      ...~
+           /* TID 0xc67 */
+ 11235 ms  0xc72 SECKEY_CreateECPrivateKey()
+ 11235 ms  0xc72 cx:0x7fa36c405588
+ 11236 ms     | 0xc72 EC_ValidatePublicKey()
+ 11236 ms     | 0xc72 ret:0x0
+ 11236 ms  0xc72 ret:0x7fa36c773020::7fa36c773020  b0 ea 32 6c                                      ..2l
+ 11236 ms  0xc72 PK11_PubDeriveWithKDF()
+ 11236 ms  0xc72 seckey:0x7fa36c773020
+ 11236 ms     | 0xc72 EC_ValidatePublicKey()
+ 11236 ms     | 0xc72 ret:0x0
+ 11237 ms  0xc72 ret:0x7fa36c1e8c00
+ 11237 ms  0xc72 PK11_DeriveWithFlags()
+ 11237 ms  0xc72 basekey:0x7fa36c1e8c00
+ 11237 ms     | 0xc72 PK11_DeriveWithTemplate()
+ 11237 ms  0xc72 ret:0x7fa36c1e8b80
+ 11237 ms  0xc72 PK11_Derive()
+ 11237 ms  0xc72 basekey:0x7fa36c1e8b80
+ 11237 ms     | 0xc72 PK11_DeriveWithTemplate()
+ 11237 ms  0xc72 ret:0x7fa37eca6c80
+ 11237 ms  0xc72 SECKEY_DestroyPrivateKey()
+ 11237 ms  0xc72 privk:0x7fa36c773020::7fa36c773020  b0 ea 32 6c                                      ..2l
+ 11237 ms  0xc72 privk:0x7fa36c773020::7fa36c773020  e5 e5 e5 e5                                      ....
+ 11242 ms  0xc72 PR_Close()
+ 11242 ms  0xc72 fd:0x7fa36c169370
+ 11242 ms     | 0xc72 SECKEY_DestroyPrivateKey()
+ 11242 ms     | 0xc72 privk:0x7fa36c462820::7fa36c462820  b0 e0 ef 7e                                      ...~
+ 11242 ms     | 0xc72 privk:0x7fa36c462820::7fa36c462820  e5 e5 e5 e5                                      ....
+ 11242 ms     | 0xc72 SECKEY_DestroyPrivateKey()
+ 11242 ms     | 0xc72 privk:0x7fa36c44c820::7fa36c44c820  40 1c eb 7e                                      @..~
+ 11242 ms     | 0xc72 privk:0x7fa36c44c820::7fa36c44c820  e5 e5 e5 e5                                      ....

@@ -1,0 +1,80 @@
+  9008 ms  0x7267 SSL_ImportFD()
+  9008 ms  0x7267 ret:0x7fe91fb7cd90
+  9008 ms  0x7267 SSL_AuthCertificateHook()
+  9008 ms  0x7267 fd:0x7fe91fb7cd90
+  9008 ms  0x7267 ret:0x0
+  9008 ms  0x7267 PR_Connect()
+  9008 ms  0x7267 fd:0x7fe91fb7cd90
+  9042 ms  0x7312 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  9042 ms  0x7312 ret:0x0
+  9042 ms  0x7312 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  9042 ms  0x7312 ret:0x0
+           /* TID 0x7267 */
+  9304 ms  0x7313 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  9304 ms  0x7313 ret:0x0
+  9304 ms  0x7313 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  9304 ms  0x7313 ret:0x0
+           /* TID 0x7312 */
+  9307 ms  0x7312 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  9307 ms  0x7312 ret:0x0
+  9307 ms  0x7312 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  9307 ms  0x7312 ret:0x0
+           /* TID 0x7267 */
+  9310 ms  0x7267 PK11_PubDeriveWithKDF()
+  9310 ms  0x7267 seckey:0x7fe91fb59820
+  9310 ms     | 0x7267 EC_ValidatePublicKey()
+  9312 ms     | 0x7267 ret:0x0
+  9314 ms  0x7267 ret:0x7fe91fb6f300
+  9314 ms  0x7267 PK11_DeriveWithFlags()
+  9314 ms  0x7267 basekey:0x7fe91fb6f300
+  9314 ms     | 0x7267 PK11_DeriveWithTemplate()
+  9314 ms  0x7267 ret:0x7fe91f8f2300
+  9314 ms  0x7267 PK11_Derive()
+  9314 ms  0x7267 basekey:0x7fe91f8f2300
+  9314 ms     | 0x7267 PK11_DeriveWithTemplate()
+  9314 ms  0x7267 ret:0x7fe91fb6f600
+  9314 ms  0x7267 SECKEY_DestroyPrivateKey()
+  9314 ms  0x7267 privk:0x7fe91fb59820::7fe91fb59820  20 19 ce 1f                                       ...
+  9315 ms  0x7267 privk:0x7fe91fb59820::7fe91fb59820  e5 e5 e5 e5                                      ....
+  9340 ms  0x7314 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  9340 ms  0x7314 ret:0x0
+  9340 ms  0x7314 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  9340 ms  0x7314 ret:0x0
+           /* TID 0x7267 */
+  9432 ms  0x72ce _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  9433 ms  0x72ce ret:0x0
+  9433 ms  0x72ce _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  9433 ms  0x72ce ret:0x0
+           /* TID 0x7267 */
+  9587 ms  0x7313 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  9587 ms  0x7313 ret:0x0
+  9587 ms  0x7313 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  9588 ms  0x7313 ret:0x0
+           /* TID 0x7267 */
+  9592 ms  0x7267 ret:0x7fe91fcf3780
+  9592 ms  0x7267 PK11_DeriveWithFlags()
+  9592 ms  0x7267 basekey:0x7fe91fcf3780
+  9592 ms     | 0x7267 PK11_DeriveWithTemplate()
+  9592 ms  0x7267 ret:0x7fe91fb6f280
+  9592 ms  0x7267 PK11_Derive()
+  9592 ms  0x7267 basekey:0x7fe91fb6f280
+  9592 ms     | 0x7267 PK11_DeriveWithTemplate()
+  9592 ms  0x7267 ret:0x7fe91fb6f300
+  9593 ms  0x7267 PK11_Encrypt()
+  9593 ms  0x7267 symkey:0x7fe91fb6f500
+  9593 ms  0x7267 SSL_AuthCertificateComplete()
+  9593 ms  0x7267 fd:0x7fe91fb7cd90
+  9593 ms  0x7267 err:0x0
+ 10295 ms  0x7267 PK11_DeriveWithFlags()
+ 10295 ms  0x7267 basekey:0x7fe922ab6f00
+ 10295 ms     | 0x7267 PK11_DeriveWithTemplate()
+ 10295 ms  0x7267 ret:0x7fe91fcf3080
+ 10295 ms  0x7267 PK11_Derive()
+ 10295 ms  0x7267 basekey:0x7fe91fcf3080
+ 10295 ms     | 0x7267 PK11_DeriveWithTemplate()
+ 10295 ms  0x7267 ret:0x7fe91fcf3780
+ 10935 ms  0x7267 PR_Close()
+ 10935 ms  0x7267 fd:0x7fe91fb7cd90
+ 10935 ms     | 0x7267 PK11_Encrypt()
+ 10935 ms     | 0x7267 symkey:0x7fe91fb6f500
+           /* TID 0x72c2 */

@@ -1,0 +1,51 @@
+ 28411 ms  0x2cb2 SSL_ImportFD()
+ 28411 ms  0x2cb2 ret:0x7fc14c1b2be0
+ 28411 ms  0x2cb2 SSL_AuthCertificateHook()
+ 28411 ms  0x2cb2 fd:0x7fc14c1b2be0
+ 28412 ms  0x2cb2 ret:0x0
+ 28412 ms  0x2cb2 PR_Connect()
+ 28412 ms  0x2cb2 fd:0x7fc14c1b2be0
+ 28509 ms  0x2d4b _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+ 28509 ms     | SECKEY_ECParamsToBasePointOrderLen()
+ 28509 ms     | 0x2d4b ret:0x180
+ 28509 ms     | SECKEY_ECParamsToBasePointOrderLen()
+ 28509 ms     | 0x2d4b ret:0x180
+ 28509 ms     | 0x2d4b EC_ValidatePublicKey()
+ 28510 ms     | 0x2d4b ret:0x0
+ 28513 ms  0x2d4b ret:0x0
+           /* TID 0x2cb2 */
+ 28516 ms  0x2cb2 ret:0x7fc12e2e8820::7fc12e2e8820  40 62 2b 49                                      @b+I
+ 28516 ms  0x2cb2 PK11_PubDeriveWithKDF()
+ 28516 ms  0x2cb2 seckey:0x7fc12e2e8820
+ 28516 ms     | 0x2cb2 EC_ValidatePublicKey()
+ 28518 ms     | 0x2cb2 ret:0x0
+ 28519 ms  0x2cb2 ret:0x7fc14d332e00
+ 28519 ms  0x2cb2 PK11_DeriveWithFlags()
+ 28519 ms  0x2cb2 basekey:0x7fc14d332e00
+ 28519 ms     | 0x2cb2 PK11_DeriveWithTemplate()
+ 28519 ms  0x2cb2 ret:0x7fc14c2a1100
+ 28519 ms  0x2cb2 PK11_Derive()
+ 28519 ms  0x2cb2 basekey:0x7fc14c2a1100
+ 28519 ms     | 0x2cb2 PK11_DeriveWithTemplate()
+ 28519 ms  0x2cb2 ret:0x7fc14c768300
+ 28519 ms  0x2cb2 SECKEY_DestroyPrivateKey()
+ 28519 ms  0x2cb2 privk:0x7fc12e2e8820::7fc12e2e8820  40 62 2b 49                                      @b+I
+ 28519 ms  0x2cb2 privk:0x7fc12e2e8820::7fc12e2e8820  e5 e5 e5 e5                                      ....
+ 28527 ms  0x2cb2 PK11_DeriveWithFlags()
+ 28527 ms  0x2cb2 basekey:0x7fc14d332e00
+ 28527 ms     | 0x2cb2 PK11_DeriveWithTemplate()
+ 28527 ms  0x2cb2 ret:0x7fc14d33f600
+ 28527 ms  0x2cb2 PK11_Derive()
+ 28527 ms  0x2cb2 basekey:0x7fc14d33f600
+ 28527 ms     | 0x2cb2 PK11_DeriveWithTemplate()
+ 28527 ms  0x2cb2 ret:0x7fc14d333280
+           /* TID 0x2cbf */
+ 28554 ms  0x2d4c _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+ 28554 ms  0x2d4c ret:0x0
+           /* TID 0x2cb2 */
+ 28555 ms  0x2cb2 SSL_AuthCertificateComplete()
+ 28555 ms  0x2cb2 fd:0x7fc14c1b2be0
+ 28555 ms  0x2cb2 err:0x0
+ 28699 ms  0x2cb2 PR_Close()
+ 28699 ms  0x2cb2 fd:0x7fc14c1b2be0
+           /* TID 0x2ca7 */
