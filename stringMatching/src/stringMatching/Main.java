@@ -42,7 +42,9 @@ public class Main {
 
 				if (count >=0)
 				{
-					count ++;//so far counter is only used as boolean
+					//so far counter is only used as boolean
+					//to check if first line has been encountered
+					count ++;
 					source += line.substring(59).trim();
 				}
 				
@@ -58,8 +60,12 @@ public class Main {
 			stringSlider ss = new stringSlider(source,sink);
 
 
-			System.out.println(Arrays.toString(ss.runThrough()));
+			//coarse-grained string matching
+			ss.runThrough();
 
+
+			
+			
 
 			}catch(Exception ex)
 			{

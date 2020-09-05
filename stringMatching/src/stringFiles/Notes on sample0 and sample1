@@ -1,0 +1,24 @@
+Hi Mark and Chris,
+
+I shared 2 samples with you. Each sample has 4 files:
+firefox_heap_XXXX.bin
+This is the complete heap region (SINK) where XXXX is the base address
+heap_strings.txt
+All the strings in the heap region
+decrypted_buffer.bin
+The plaintext buffer that was just decrypted (SRC)
+readable.txt
+A human readable version of the decrypted data including sslBuffer address (used to calculate offset from heap base address) and size of plainext
+My procedure to get these was as follows:
+Launch Firefox (using Selenium) with Frida injected in it
+Attach x64dbg to firefox parent process
+set breakpoint on the interesting function
+open the page (grc.com) in firefox
+on breakpoint, keep note of sslBuffer address and run until return
+on return dump the entire memory region to disk
+in the meantime Frida will generate (that readable text file)
+continue execution (it will either crash or break in interesting ways)
+Once Firefox is closed extract string and the src chuck from heap region (using a small python script i wrote)
+By observing it multiple times I noted that the first call is the certificate and the 4th an HTTP Moved packet. These are sample0 and sample1 respectively
+If you need any more samples let me know
+Robert

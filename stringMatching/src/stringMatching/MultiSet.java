@@ -37,6 +37,8 @@ public class MultiSet {
 		return chars[i];
 	}
 	
+	//returns the distance between this multiset and ms (passed as parameter)
+	//this is done by considering the different counts of characters
 	public int getDistance(MultiSet ms)
 	{
 		int total = 0;
