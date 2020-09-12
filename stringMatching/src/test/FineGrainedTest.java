@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import stringMatching.StringUtils;
+import byteMatching.StringUtils;
 
 class FineGrainedTest {
 

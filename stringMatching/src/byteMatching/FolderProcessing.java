@@ -1,13 +1,24 @@
-package stringFiles;
+package byteMatching;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-import stringMatching.stringSlider;
-
 public class FolderProcessing {
 
+	
+	private static byte[] stringToByteArray(String bin)
+	{
+		int len = bin.length();
+	    byte[] data = new byte[len / 2];
+	    for (int i = 0; i < len; i += 2) {
+	        data[i / 2] = (byte) ((Character.digit(bin.charAt(i), 16) << 4)
+	                             + Character.digit(bin.charAt(i+1), 16));
+	    }
+	    return data;
+	}
+	
+	
 	
 	public static void main(String[] args) {
 
@@ -19,7 +30,7 @@ public class FolderProcessing {
 			
 			int fileCount = 0;
 			
-			String fileName = String.format("%10s", ""+fileCount).replace(' ', '0');//pad with zeros
+			String fileName = String.format("%10s", ""+ (++fileCount)).replace(' ', '0');//pad with zeros
 			String heapFileName = fileName + "_heap.bin";
 			String bufferFileName = fileName + "_buffer.bin";
 			
@@ -28,53 +39,44 @@ public class FolderProcessing {
 			if (!f.exists()) //processed all available files
 				//break
 				;
-			else
-				System.out.println("Processing " + fileName);
+			//else
+			
+			System.out.println("Processing " + fileName);
 			
 			
-			
-			BufferedReader br = new BufferedReader(new FileReader(args[1]));
+			//sink file
+			BufferedReader br = new BufferedReader(new FileReader(folder + heapFileName));
 			String sink = "";
 			String line = br.readLine();
 			
 			while (line != null) {
 				
-				sink += line;
+				sink += line.replace(" ","");
 				line = br.readLine();
 			}
 			
 			br.close();
+			
 			
 			
 			//source file
-			br = new BufferedReader(new FileReader(args[0]));
+			br = new BufferedReader(new FileReader(folder + bufferFileName));
 			String source = "";
 			line = br.readLine();
 
-			int count = -1;
 			while (line != null) {
 				
-				if (line.indexOf("00000000") != -1)
-					count = 0;
-
-				if (count >=0)
-				{
-					//so far counter is only used as boolean
-					//to check if first line has been encountered
-					count ++;
-					source += line.substring(59).trim();
-				}
-				
+				source += line.replace(" ","");
 				line = br.readLine();
-
 			}
+			
 			br.close();
 			
-			System.out.println(source);
 			
 			
-
-			stringSlider ss = new stringSlider(source,sink);
+			//change to byte stream
+			
+			stringSlider ss = new stringSlider(stringToByteArray(source),stringToByteArray(sink));
 
 
 			//coarse-grained string matching
