@@ -11,9 +11,9 @@ public class ByteMultiSet {
 	
 	public ByteMultiSet (byte[] s)
 	{
-		//note switch to upper case
+
 		for (byte b: s)
-			chars[indx(b)] ++; //other characters are added in position 64
+			chars[indx(b)] ++;
 		
 	}
 	

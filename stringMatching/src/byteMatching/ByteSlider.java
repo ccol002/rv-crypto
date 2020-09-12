@@ -8,7 +8,7 @@ public class ByteSlider {
 	//set threshold to accept strings as matching (during fine-grained matching)
 	//these are the same threshold due to the "conservative" way coarse-grained edit distance is calculated
 	//ie if coarse-grained exceeds the threshold, fine-grained cannot be below it
-	private final double threshold = 0.7;
+	private final double threshold = 0.001;
 	//0.2 threshold worked fine for sample 0 (0.1 threshold also gave 1 match)
 	
 	private byte[] shorter;
@@ -44,7 +44,7 @@ public class ByteSlider {
 
 		
 		//distance at position zero
-		byte[] substring = Arrays.copyOfRange(longer, 0, windowLength);
+		byte[] substring = Arrays.copyOfRange(longer, 0, windowLength-1);
 		ByteMultiSet msShorter = new ByteMultiSet(shorter);
 		ByteMultiSet msLonger = new ByteMultiSet(substring);
 		
@@ -90,7 +90,6 @@ public class ByteSlider {
 			//sanity check
 //			if (distance != msShorter.getDistance(msLonger))
 //				System.out.println("Implementation of adding/dropping is buggy!");
-			//TODO we don't need to store all coarse-grained matching distances
 			windowDifferences[i] = distance;
 			
 			//switching to fine-grained matching
@@ -102,9 +101,9 @@ public class ByteSlider {
 			
 				if (fineGrainedDistance < threshold)
 				{
-					System.out.println(shorter);
-					System.out.println(" FOUND TO MATCH ");
-					System.out.println(window);
+					System.out.println(Arrays.toString(shorter));
+					//System.out.println(" FOUND TO MATCH ");
+					System.out.println(Arrays.toString(window));
 			
 				}
 			}
