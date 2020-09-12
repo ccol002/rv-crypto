@@ -11,6 +11,9 @@ public class ByteSlider {
 	public final static double threshold = 0.01;
 	//0.2 threshold worked fine for sample 0 (0.1 threshold also gave 1 match)
 	
+	public final static int optimisation = 1;//the bigger the number, the more finegrained the search is (1 = no optimisation)
+
+	
 	private byte[] shorter;
 	private byte[] longer;
 	
@@ -38,10 +41,15 @@ public class ByteSlider {
 	//coarse-grained string matching
 	public int[] runThrough()
 	{
-
+		
+		
 		int windowLength = shorter.length;
 		int comparisons = longer.length-shorter.length+1;
 
+		int optimised = 1;//windowLength/optimisation;
+		if (optimised < 1) optimised = 1;
+		if (optimised > 1) 
+			System.out.println("");
 		
 		//distance at position zero
 		byte[] substring = Arrays.copyOfRange(longer, 0, windowLength);
@@ -51,15 +59,16 @@ public class ByteSlider {
 		//note that both strings are of same length since we are considering a substring of window size length
 		int distance = msShorter.getDistance(msLonger);
 		
-		int[] windowDifferences = new int[comparisons];
-		windowDifferences[0] = distance;
+//		int[] windowDifferences = new int[(comparisons/optimised)+1];
+//		windowDifferences[0] = distance;
 		
-		int nonNormalisedThreshold = (int)(threshold * windowLength);
+		double nonNormalisedThreshold = threshold * windowLength;
 		
 		
 		boolean found = false;
+		int fineGrainedTries = 0;
 		//loop through comparisons
-		for (int i=1; i<comparisons; i++)//step 0 already done
+		for (int i=optimised; i<comparisons; i+=optimised)//step 0 already done
 		{
 //			if (i==comparisons-1)
 //			{
@@ -92,10 +101,14 @@ public class ByteSlider {
 			//sanity check
 //			if (distance != msShorter.getDistance(msLonger))
 //				System.out.println("Implementation of adding/dropping is buggy!");
-			windowDifferences[i] = distance;
+//			if (i/optimised > windowDifferences.length-1)
+//				System.out.println("consider here");
+			//windowDifferences[i/optimised] = distance;
 			
 			//switching to fine-grained matching
 			if (distance < nonNormalisedThreshold) {
+				
+				fineGrainedTries++;
 				
 				byte[] window = Arrays.copyOfRange(longer, i,i+windowLength);
 				double fineGrainedDistance = ByteUtils.taintDistance(shorter, window);
@@ -106,9 +119,10 @@ public class ByteSlider {
 //					break;
 //				}
 //				else 
-					if (fineGrainedDistance < threshold)
+			//		if (fineGrainedDistance < threshold)
 				{
-					//System.out.println(" Fine-grained distance: " + fineGrainedDistance);
+					System.out.println("* Fine-grained distance: " + fineGrainedDistance);
+					FolderProcessing.pw.print(","+fineGrainedTries);
 					FolderProcessing.pw.print(","+fineGrainedDistance);
 					found = true;
 					break;
@@ -122,9 +136,12 @@ public class ByteSlider {
 		}//forloop
 		
 		if (!found)
+		{
+			FolderProcessing.pw.print(","+fineGrainedTries);
 			FolderProcessing.pw.print(", n/a");
+		}
 		
-		return windowDifferences;
+		return null;//windowDifferences;
 	}
 	
 }

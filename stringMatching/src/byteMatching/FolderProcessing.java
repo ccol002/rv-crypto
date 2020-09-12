@@ -32,26 +32,23 @@ public class FolderProcessing {
 	}
 	
 	
-	
-	
-	public static void main(String[] args) {
-
-
-
+	public static void processFolder(String folderName)
+	{
 		try {
 			// folder
-			String folder = args[0];
+			System.out.println("Starting folder: " + folderName);
 
 			int fileCount = 0;
 
-			pw = new PrintWriter(folder.substring(0,folder.length()-1) + ".csv");
+			pw = new PrintWriter(folderName + ".csv");
 
 			System.out.println("Starting Experiment with Threshold "+ ByteSlider.threshold);
 			System.out.println("Stopping on first fine-grained match below threshold");
 			
 			pw.println("Starting Experiment with Threshold "+ ByteSlider.threshold);
+			pw.println("Optimisation "+ ByteSlider.optimisation);
 			pw.println("Stopping on first fine-grained match below threshold");
-			pw.println("Filename, Measure, Buffer size (bytes), Heap size (bytes), time taken (ms)");
+			pw.println("Filename, Fine-grained tries, Measure, Buffer size (bytes), Heap size (bytes), time taken (ms)");
 
 
 			while (true) {
@@ -62,7 +59,7 @@ public class FolderProcessing {
 				String heapFileName = fileName + "_heap.bin";
 				String bufferFileName = fileName + "_buffer.bin";
 
-				File f = new File(folder + heapFileName);
+				File f = new File(folderName + "/"+ heapFileName);
 				if (!f.exists()) //processed all available files
 					break;
 				//else
@@ -72,9 +69,9 @@ public class FolderProcessing {
 				pw.flush();
 
 				//sink file			
-				byte[] sinkBytes= readBytesFromFile(folder + heapFileName);
+				byte[] sinkBytes= readBytesFromFile(folderName + "/" + heapFileName);
 				//source file
-				byte[] bufferBytes= readBytesFromFile(folder + bufferFileName);
+				byte[] bufferBytes= readBytesFromFile(folderName + "/" + bufferFileName);
 
 
 				ByteSlider ss = new ByteSlider(bufferBytes,sinkBytes);
@@ -83,9 +80,9 @@ public class FolderProcessing {
 				ss.runThrough();
 
 
-				//System.out.println("Buffer size (bytes) " + bufferBytes.length);
+				System.out.println("Buffer size (bytes) " + bufferBytes.length);
 				pw.print("," +bufferBytes.length);
-				//System.out.println("Heap size (bytes) " + sinkBytes.length);
+				System.out.println("Heap size (bytes) " + sinkBytes.length);
 				pw.print("," +sinkBytes.length);
 				//System.out.println("Time taken (ms) " + (System.currentTimeMillis()-lastTimeStamp));
 				pw.println("," +(System.currentTimeMillis()-lastTimeStamp));
@@ -99,6 +96,18 @@ public class FolderProcessing {
 			}
 
 
+	}
+ 	
+ 	
+	
+	public static void main(String[] args) {
+
+		String[] folders = {"amazon", "facebook", "google", "live", "twitter", "wikipedia", "yahoo","youtube"};
+		
+		for (String f: folders)
+			processFolder(args[0] + f);
+		
+		
 		}
 
 	
