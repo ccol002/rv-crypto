@@ -1,6 +1,6 @@
 package byteMatching;
 
-public class StringUtils {
+public class ByteUtils {
 
 	
 	private final static int INSERTION = 1;

@@ -2,14 +2,14 @@ package byteMatching;
 
 import java.util.Arrays;
 
-public class MultiSet {
+public class ByteMultiSet {
 
 
 	private final int ALPHABET_SIZE = 256;
 	
 	private int[] chars = new int[ALPHABET_SIZE];
 	
-	public MultiSet (byte[] s)
+	public ByteMultiSet (byte[] s)
 	{
 		//note switch to upper case
 		for (byte b: s)
@@ -39,7 +39,7 @@ public class MultiSet {
 	
 	//returns the distance between this multiset and ms (passed as parameter)
 	//this is done by considering the different counts of characters
-	public int getDistance(MultiSet ms)
+	public int getDistance(ByteMultiSet ms)
 	{
 		int total = 0;
 		for (int i=0; i<ALPHABET_SIZE; i++)

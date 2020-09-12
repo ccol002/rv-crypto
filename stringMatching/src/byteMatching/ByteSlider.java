@@ -2,7 +2,7 @@ package byteMatching;
 
 import java.util.Arrays;
 
-public class stringSlider {
+public class ByteSlider {
 
 	//set threshold for fine-grained string matching
 	//set threshold to accept strings as matching (during fine-grained matching)
@@ -18,7 +18,7 @@ public class stringSlider {
 	//ensures "shorter" points to the shorter string
 	// note that the edit distance we have is not symmetric: 
 	// prefixes and suffixes of the longer string do not carry a cost
-	public stringSlider(byte[] s1, byte[] s2)
+	public ByteSlider(byte[] s1, byte[] s2)
 	{
 		if (s1.length < s2.length)
 		{
@@ -45,8 +45,8 @@ public class stringSlider {
 		
 		//distance at position zero
 		byte[] substring = Arrays.copyOfRange(longer, 0, windowLength);
-		MultiSet msShorter = new MultiSet(shorter);
-		MultiSet msLonger = new MultiSet(substring);
+		ByteMultiSet msShorter = new ByteMultiSet(shorter);
+		ByteMultiSet msLonger = new ByteMultiSet(substring);
 		
 		//note that both strings are of same length since we are considering a substring of window size length
 		int distance = msShorter.getDistance(msLonger);
@@ -97,7 +97,7 @@ public class stringSlider {
 			if (distance < nonNormalisedThreshold) {
 				
 				byte[] window = Arrays.copyOfRange(longer, i,i+windowLength-1);
-				double fineGrainedDistance = StringUtils.taintDistance(shorter, window);
+				double fineGrainedDistance = ByteUtils.taintDistance(shorter, window);
 				System.out.println(" Applied fine-grained matching and obtained distance: " + fineGrainedDistance);
 			
 				if (fineGrainedDistance < threshold)

@@ -76,7 +76,7 @@ public class FolderProcessing {
 			
 			//change to byte stream
 			
-			stringSlider ss = new stringSlider(stringToByteArray(source),stringToByteArray(sink));
+			ByteSlider ss = new ByteSlider(stringToByteArray(source),stringToByteArray(sink));
 
 
 			//coarse-grained string matching
