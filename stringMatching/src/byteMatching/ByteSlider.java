@@ -8,7 +8,7 @@ public class ByteSlider {
 	//set threshold to accept strings as matching (during fine-grained matching)
 	//these are the same threshold due to the "conservative" way coarse-grained edit distance is calculated
 	//ie if coarse-grained exceeds the threshold, fine-grained cannot be below it
-	private final double threshold = 0.001;
+	public final static double threshold = 0.01;
 	//0.2 threshold worked fine for sample 0 (0.1 threshold also gave 1 match)
 	
 	private byte[] shorter;
@@ -44,7 +44,7 @@ public class ByteSlider {
 
 		
 		//distance at position zero
-		byte[] substring = Arrays.copyOfRange(longer, 0, windowLength-1);
+		byte[] substring = Arrays.copyOfRange(longer, 0, windowLength);
 		ByteMultiSet msShorter = new ByteMultiSet(shorter);
 		ByteMultiSet msLonger = new ByteMultiSet(substring);
 		
@@ -56,6 +56,8 @@ public class ByteSlider {
 		
 		int nonNormalisedThreshold = (int)(threshold * windowLength);
 		
+		
+		boolean found = false;
 		//loop through comparisons
 		for (int i=1; i<comparisons; i++)//step 0 already done
 		{
@@ -95,20 +97,32 @@ public class ByteSlider {
 			//switching to fine-grained matching
 			if (distance < nonNormalisedThreshold) {
 				
-				byte[] window = Arrays.copyOfRange(longer, i,i+windowLength-1);
+				byte[] window = Arrays.copyOfRange(longer, i,i+windowLength);
 				double fineGrainedDistance = ByteUtils.taintDistance(shorter, window);
-				System.out.println(" Applied fine-grained matching and obtained distance: " + fineGrainedDistance);
 			
-				if (fineGrainedDistance < threshold)
+//				if (fineGrainedDistance==0) 
+//				{
+//					System.out.println("!!!Exact MATCH FOUND!!!");
+//					break;
+//				}
+//				else 
+					if (fineGrainedDistance < threshold)
 				{
-					System.out.println(Arrays.toString(shorter));
-					//System.out.println(" FOUND TO MATCH ");
-					System.out.println(Arrays.toString(window));
-			
+					//System.out.println(" Fine-grained distance: " + fineGrainedDistance);
+					FolderProcessing.pw.print(","+fineGrainedDistance);
+					found = true;
+					break;
+//					System.out.println(Arrays.toString(shorter));
+//					//System.out.println(" FOUND TO MATCH ");
+//					System.out.println(Arrays.toString(window));
+//			
 				}
 			}
 			
-		}
+		}//forloop
+		
+		if (!found)
+			FolderProcessing.pw.print(", n/a");
 		
 		return windowDifferences;
 	}
