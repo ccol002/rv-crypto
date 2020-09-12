@@ -8,7 +8,7 @@ public class ByteSlider {
 	//set threshold to accept strings as matching (during fine-grained matching)
 	//these are the same threshold due to the "conservative" way coarse-grained edit distance is calculated
 	//ie if coarse-grained exceeds the threshold, fine-grained cannot be below it
-	public final static double threshold = 0.01;
+	public final static double threshold = 0.001;
 	//0.2 threshold worked fine for sample 0 (0.1 threshold also gave 1 match)
 	
 	public final static int optimisation = 1;//the bigger the number, the more finegrained the search is (1 = no optimisation)
@@ -108,10 +108,11 @@ public class ByteSlider {
 			//switching to fine-grained matching
 			if (distance < nonNormalisedThreshold) {
 				
-				fineGrainedTries++;
+//				fineGrainedTries++;
 				
-				byte[] window = Arrays.copyOfRange(longer, i,i+windowLength);
-				double fineGrainedDistance = ByteUtils.taintDistance(shorter, window);
+//				//calculate fine-grained distance
+//				byte[] window = Arrays.copyOfRange(longer, i,i+windowLength);
+//				double fineGrainedDistance = ByteUtils.taintDistance(shorter, window);
 			
 //				if (fineGrainedDistance==0) 
 //				{
@@ -121,9 +122,10 @@ public class ByteSlider {
 //				else 
 			//		if (fineGrainedDistance < threshold)
 				{
-					System.out.println("* Fine-grained distance: " + fineGrainedDistance);
+					System.out.println("* Coarse-grained distance: " + distance/(1.0*shorter.length));
 					FolderProcessing.pw.print(","+fineGrainedTries);
-					FolderProcessing.pw.print(","+fineGrainedDistance);
+					FolderProcessing.pw.print(","+distance/(1.0*shorter.length));
+					FolderProcessing.pw.print(","+i);
 					found = true;
 					break;
 //					System.out.println(Arrays.toString(shorter));

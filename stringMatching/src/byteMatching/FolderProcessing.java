@@ -48,7 +48,7 @@ public class FolderProcessing {
 			pw.println("Starting Experiment with Threshold "+ ByteSlider.threshold);
 			pw.println("Optimisation "+ ByteSlider.optimisation);
 			pw.println("Stopping on first fine-grained match below threshold");
-			pw.println("Filename, Fine-grained tries, Measure, Buffer size (bytes), Heap size (bytes), time taken (ms)");
+			pw.println("Filename, Fine-grained tries, Coarse-grained Measure, comparisons#, Buffer size (bytes), Heap size (bytes), time taken (ms)");
 
 
 			while (true) {
