@@ -11,8 +11,7 @@ public class ByteSlider {
 	public final static double threshold = 0.001;
 	//0.2 threshold worked fine for sample 0 (0.1 threshold also gave 1 match)
 	
-	public final static int optimisation = 1;//the bigger the number, the more finegrained the search is (1 = no optimisation)
-
+	
 	
 	private byte[] shorter;
 	private byte[] longer;
@@ -39,6 +38,7 @@ public class ByteSlider {
 	
 	
 	//coarse-grained string matching
+	//with fine grained matching if below threshold
 	public int[] runThrough()
 	{
 		
@@ -46,10 +46,10 @@ public class ByteSlider {
 		int windowLength = shorter.length;
 		int comparisons = longer.length-shorter.length+1;
 
-		int optimised = 1;//windowLength/optimisation;
-		if (optimised < 1) optimised = 1;
-		if (optimised > 1) 
-			System.out.println("");
+//		int optimised = 1;//windowLength/optimisation;
+//		if (optimised < 1) optimised = 1;
+//		if (optimised > 1) 
+//			System.out.println("");
 		
 		//distance at position zero
 		byte[] substring = Arrays.copyOfRange(longer, 0, windowLength);
@@ -62,13 +62,17 @@ public class ByteSlider {
 //		int[] windowDifferences = new int[(comparisons/optimised)+1];
 //		windowDifferences[0] = distance;
 		
-		double nonNormalisedThreshold = threshold * windowLength;
+		double normalisedThreshold = threshold * windowLength;
 		
 		
 		boolean found = false;
 		int fineGrainedTries = 0;
+		
+		boolean matchInProgress = false;
+		int matchProgress = 0;
+		
 		//loop through comparisons
-		for (int i=optimised; i<comparisons; i+=optimised)//step 0 already done
+		for (int i=1; i<comparisons; i++)//step 0 already done
 		{
 //			if (i==comparisons-1)
 //			{
@@ -106,46 +110,65 @@ public class ByteSlider {
 			//windowDifferences[i/optimised] = distance;
 			
 			//switching to fine-grained matching
-			if (distance < nonNormalisedThreshold) {
-				
-//				fineGrainedTries++;
-				
-//				//calculate fine-grained distance
-//				byte[] window = Arrays.copyOfRange(longer, i,i+windowLength);
-//				double fineGrainedDistance = ByteUtils.taintDistance(shorter, window);
-			
-//				if (fineGrainedDistance==0) 
-//				{
-//					System.out.println("!!!Exact MATCH FOUND!!!");
-//					break;
-//				}
-//				else 
-			//		if (fineGrainedDistance < threshold)
+			if (distance < normalisedThreshold) {
+
+				if (matchInProgress)
 				{
+					matchProgress ++;
+				}
+				else {
+					matchInProgress = true;
+					matchProgress = 0;
+				}
+			} else if (matchInProgress)
+			{
+				matchInProgress = false;
+
+				fineGrainedTries++;
+
+				//			//calculate fine-grained distance
+				//apply finegrained algorithm to i-matchProgress
+				int offset = i-matchProgress; 
+				byte[] window = Arrays.copyOfRange(longer, offset,offset+windowLength);
+				double fineGrainedDistance = ByteUtils.taintDistance(shorter, window);
+
+				//			if (fineGrainedDistance==0) 
+				//			{
+				//				System.out.println("!!!Exact MATCH FOUND!!!");
+				//				break;
+				//			}
+				//			else 
+				if (fineGrainedDistance < threshold)
+				{
+					System.out.println("* Fine-grained tries: " + fineGrainedTries);
 					System.out.println("* Coarse-grained distance: " + distance/(1.0*shorter.length));
+					System.out.println("* Fine-grained distance: " + fineGrainedDistance/(1.0*shorter.length));
+					System.out.println("* Offset: " + offset);
+					
 					FolderProcessing.pw.print(","+fineGrainedTries);
 					FolderProcessing.pw.print(","+distance/(1.0*shorter.length));
-					FolderProcessing.pw.print(","+i);
+					
+					FolderProcessing.pw.print(","+fineGrainedDistance/(1.0*shorter.length));
+					FolderProcessing.pw.print(","+offset);
 					found = true;
 					break;
-//					System.out.println(Arrays.toString(shorter));
-//					//System.out.println(" FOUND TO MATCH ");
-//					System.out.println(Arrays.toString(window));
-//			
+					//				System.out.println(Arrays.toString(shorter));
+					//				//System.out.println(" FOUND TO MATCH ");
+					//				System.out.println(Arrays.toString(window));
 				}
 			}
-			
+
 		}//forloop
-		
+
 		if (!found)
 		{
 			FolderProcessing.pw.print(","+fineGrainedTries);
-			FolderProcessing.pw.print(", n/a");
+			FolderProcessing.pw.print(",,,");
 		}
-		
+
 		return null;//windowDifferences;
 	}
-	
+
 }
 
 

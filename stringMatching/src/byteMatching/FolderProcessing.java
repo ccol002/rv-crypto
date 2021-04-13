@@ -46,14 +46,12 @@ public class FolderProcessing {
 			System.out.println("Stopping on first fine-grained match below threshold");
 			
 			pw.println("Starting Experiment with Threshold "+ ByteSlider.threshold);
-			pw.println("Optimisation "+ ByteSlider.optimisation);
 			pw.println("Stopping on first fine-grained match below threshold");
-			pw.println("Filename, Fine-grained tries, Coarse-grained Measure, comparisons#, Buffer size (bytes), Heap size (bytes), time taken (ms)");
+			pw.println("Buffers sized less than 10 are discarded");
+			pw.println("Filename, Fine-grained tries, Coarse-grained Measure, Fine-grained Measure, offset, Buffer size (bytes), Heap size (bytes), time taken (ms)");
 
-
+			//loop through files in folder
 			while (true) {
-
-				long lastTimeStamp = System.currentTimeMillis();
 
 				String fileName = String.format("%10s", ""+ (++fileCount)).replace(' ', '0');//pad with zeros
 				String heapFileName = fileName + "_heap.bin";
@@ -68,23 +66,32 @@ public class FolderProcessing {
 				pw.print(fileName);
 				pw.flush();
 
-				//sink file			
-				byte[] sinkBytes= readBytesFromFile(folderName + "/" + heapFileName);
 				//source file
 				byte[] bufferBytes= readBytesFromFile(folderName + "/" + bufferFileName);
+				
+				//sink file			
+				byte[] sinkBytes= readBytesFromFile(folderName + "/" + heapFileName);
 
+				long lastTimeStamp = System.currentTimeMillis();
 
-				ByteSlider ss = new ByteSlider(bufferBytes,sinkBytes);
+				
+				if (bufferBytes.length < 10) 
+				{					
+					//skip buffers which are very small
+					pw.print(",,,,");
+				} else {
+					
+					ByteSlider ss = new ByteSlider(bufferBytes,sinkBytes);
 
-				//string matching
-				ss.runThrough();
-
+					//string matching
+					ss.runThrough();
+				}
 
 				System.out.println("Buffer size (bytes) " + bufferBytes.length);
 				pw.print("," +bufferBytes.length);
 				System.out.println("Heap size (bytes) " + sinkBytes.length);
 				pw.print("," +sinkBytes.length);
-				//System.out.println("Time taken (ms) " + (System.currentTimeMillis()-lastTimeStamp));
+				System.out.println("Time taken (ms) " + (System.currentTimeMillis()-lastTimeStamp));
 				pw.println("," +(System.currentTimeMillis()-lastTimeStamp));
 			}
 			pw.close();
@@ -99,7 +106,7 @@ public class FolderProcessing {
 	}
  	
  	
-	
+	//pass root folder as parameter
 	public static void main(String[] args) {
 
 		String[] folders = {"amazon", "facebook", "google", "live", "twitter", "wikipedia", "yahoo","youtube"};

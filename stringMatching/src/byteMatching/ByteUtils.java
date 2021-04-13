@@ -1,11 +1,16 @@
 package byteMatching;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class ByteUtils {
 
 	
 	private final static int INSERTION = 1;
 	private final static int DELETION = 1;
 	private final static int SUBSTITUTION = 2;
+	
+	private static Random r = new Random();
 	
 	
 	public static int S(byte a, byte b)
@@ -51,9 +56,9 @@ public class ByteUtils {
 		//initialisation
 		// this follows directly from paper in paragraph just above definition of TD
 		for (int i = 0; i < n; i++)
-			M[i][0] = i;
+			M[i][0] = i*DELETION; //cost of deleting Si
 		for (int j = 0; j < m; j++)
-			M[0][j] = j;
+			M[0][j] = 0;//skipping j characters of T is ok
 		
 		//dynamically calculate all distances
 		for (int i = 1; i < n; i++)
@@ -63,8 +68,8 @@ public class ByteUtils {
 				byte Tj = t[j];
 				
 				M[i][j] = Math.min(M[i-1][j-1] + S(Si,Tj)
-						, Math.min(M[i-1][j] + D(Si)
-								 , M[i][j-1] + I(Tj)));
+								  , Math.min(M[i-1][j] + D(Si)
+								  		   , M[i][j-1] + I(Tj)));
 			}
 		
 		//find minimum
@@ -75,13 +80,25 @@ public class ByteUtils {
 		
 		//return normalised distance
 		//divide by D(s) - the cost of deleting s
-		return d/n;
-		
-		
+		return d/(n*DELETION);
+	
 	}
 	
 	
-	
+	public static byte[] randomByteArray(int length)
+	{
+//	this doesn't give a pseudorandom sequence when length is not exactly divisible by 4 
+//	(random generate 4 random bytes at a time and discards the extras)
+// https://stackoverflow.com/questions/51132512/random-nextbytesbyte-behavious-in-java
+//		byte[] randomByteArray = new byte[length];
+//		r.nextBytes(randomByteArray);
+		
+		byte[] rands = new byte[length];
+		for (int i=0;i<length; i++)
+			rands[i] = (byte)r.nextInt(256);
+		
+		return rands;
+	}
 	
 	
 	
