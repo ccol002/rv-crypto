@@ -1,5 +1,7 @@
 package byteMatching;
 
+import java.util.Arrays;
+
 public class Experiment {
 	
 	
@@ -14,11 +16,16 @@ public class Experiment {
 			byte[] t = ByteUtils.randomByteArray(length);
 			//System.out.println( Arrays.toString(t));
 			
-			double distance = ByteUtils.taintDistance(s, t);
+			double distance = ByteUtils.editDistance(s, t);
 			
-			if (distance < threshold)
+			if (distance <= threshold)
+			{
+//				System.out.println(distance);
+//				System.out.println(Arrays.toString(s));
+//				System.out.println(Arrays.toString(t));
+//				System.out.println();
 				matches ++;
-			
+			}
 		}
 		System.out.println("\r\nString length: " + length);
 		System.out.println("Threshold: " + threshold);
@@ -27,13 +34,13 @@ public class Experiment {
 
 	public static void main(String[] args)
 	{
-		long tests = 1*100000l;
-		int length = 0;
+		long tests = 10*1000000l;
+		//int length = 0;
 		
 		double threshold = 0.9;
 		
-		for (int i=2; i<=40; i+=1)
-			experiment(tests, length+i, threshold);
+		for (int i=2; i<=10; i+=1)
+			experiment(tests, i, threshold);
 		
 
 	}
