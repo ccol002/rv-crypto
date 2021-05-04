@@ -93,13 +93,6 @@ public class ByteUtils {
 		
 		double d=0;
 		
-//		//initialisation
-//		// this follows directly from paper in paragraph just above definition of TD
-//		for (int i = 1; i < n; i++)
-//			M[i][0] = (i+1)*DELETION; //cost of deleting S
-//		for (int j = 1; j < m; j++)
-//			M[0][j] = (j+1)*DELETION;//cost of deleting T
-//		
 		byte Si = s[0];
 		byte Tj = t[0];
 		
@@ -135,7 +128,7 @@ public class ByteUtils {
 	}
 	
 	
-	public static byte[] randomByteArray(int length)
+	public static byte[] randomByteArray(int length, int alphabet)
 	{
 //	this has been replaced as it doesn't give a pseudorandom sequence when length is not exactly divisible by 4 
 //	(random generate 4 random bytes at a time and discards the extras)
@@ -146,7 +139,7 @@ public class ByteUtils {
 		
 		byte[] rands = new byte[length];
 		for (int i=0;i<length; i++)
-			rands[i] = (byte)r.nextInt(256);
+			rands[i] = (byte)r.nextInt(alphabet);
 		
 		return rands;
 	}

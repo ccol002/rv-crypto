@@ -1,5 +1,6 @@
 package byteMatching;
 
+import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class ByteSlider {
@@ -8,7 +9,7 @@ public class ByteSlider {
 	//set threshold to accept strings as matching (during fine-grained matching)
 	//these are the same threshold due to the "conservative" way coarse-grained edit distance is calculated
 	//ie if coarse-grained exceeds the threshold, fine-grained cannot be below it
-	public final static double threshold = 0.001;
+	public final static double threshold = 0.1;
 	//0.2 threshold worked fine for sample 0 (0.1 threshold also gave 1 match)
 	
 	
@@ -34,12 +35,17 @@ public class ByteSlider {
 		}
 	}
 	
-	
+	public void displayArray(byte[] array)
+	{
+		for (byte b: array)
+			System.out.print(String.format("%4s", b)+",");
+		System.out.println();
+	}
 	
 	
 	//coarse-grained string matching
 	//with fine grained matching if below threshold
-	public int[] runThrough()
+	public int[] runThrough(PrintWriter pw)
 	{
 		
 		
@@ -110,10 +116,9 @@ public class ByteSlider {
 			//windowDifferences[i/optimised] = distance;
 			
 			//switching to fine-grained matching
-			if (distance < normalisedThreshold) {
+			if (distance <= normalisedThreshold) {
 
-				if (matchInProgress)
-				{
+				if (matchInProgress) {
 					matchProgress ++;
 				}
 				else {
@@ -123,12 +128,15 @@ public class ByteSlider {
 			} else if (matchInProgress)
 			{
 				matchInProgress = false;
-
 				fineGrainedTries++;
 
-				//			//calculate fine-grained distance
+				//			
+				//calculate fine-grained distance
 				//apply finegrained algorithm to i-matchProgress
-				int offset = i-matchProgress; 
+				//perhaps consider multiple checking attempts for very long substrings?
+				//NOTE: since we are using matchProgress/2, the fineGrainedDistance obtained doesn't correspond to the last coarseGrained obtained
+				// this explains why sometimes the fineGrainedDistance will be smaller than the coarseGrained one
+				int offset = i-(matchProgress/2); 
 				byte[] window = Arrays.copyOfRange(longer, offset,offset+windowLength);
 				double fineGrainedDistance = ByteUtils.taintDistance(shorter, window);
 
@@ -138,32 +146,42 @@ public class ByteSlider {
 				//				break;
 				//			}
 				//			else 
-				if (fineGrainedDistance < threshold)
+				if (fineGrainedDistance <= threshold)
 				{
-					System.out.println("* Fine-grained tries: " + fineGrainedTries);
+					System.out.println("* MATCH after fine-grained tries: " + fineGrainedTries);
 					System.out.println("* Coarse-grained distance: " + distance/(1.0*shorter.length));
-					System.out.println("* Fine-grained distance: " + fineGrainedDistance/(1.0*shorter.length));
+					System.out.println("* Fine-grained distance: " + fineGrainedDistance);//note this is already normalised
 					System.out.println("* Offset: " + offset);
+					displayArray(shorter);
+					//System.out.println(" FOUND TO MATCH ");
+					displayArray(window);
 					
-					FolderProcessing.pw.print(","+fineGrainedTries);
-					FolderProcessing.pw.print(","+distance/(1.0*shorter.length));
+					pw.print(","+fineGrainedTries);
+					pw.print(","+distance/(1.0*shorter.length));
 					
-					FolderProcessing.pw.print(","+fineGrainedDistance/(1.0*shorter.length));
-					FolderProcessing.pw.print(","+offset);
+					pw.print(","+fineGrainedDistance);
+					pw.print(","+offset);
 					found = true;
 					break;
-					//				System.out.println(Arrays.toString(shorter));
-					//				//System.out.println(" FOUND TO MATCH ");
-					//				System.out.println(Arrays.toString(window));
+					
 				}
+//				else {
+//					System.out.println("* ATTEMPT: " + fineGrainedTries);
+//					System.out.println("* Coarse-grained distance: " + distance/(1.0*shorter.length));
+//					System.out.println("* Fine-grained distance: " + fineGrainedDistance);
+//					System.out.println("* Offset: " + offset);
+//					displayArray(shorter);
+//					//System.out.println("NOT FOUND TO MATCH ");
+//					displayArray(window);
+//				}
 			}
 
 		}//forloop
 
 		if (!found)
 		{
-			FolderProcessing.pw.print(","+fineGrainedTries);
-			FolderProcessing.pw.print(",,,");
+			pw.print(","+fineGrainedTries);
+			pw.print(",,,");
 		}
 
 		return null;//windowDifferences;

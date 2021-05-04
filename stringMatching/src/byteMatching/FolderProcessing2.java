@@ -6,10 +6,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 
-public class FolderProcessing {
+public class FolderProcessing2 {
 
 	
- 	private static byte[] readBytesFromFile(String fileName)
+	private static byte[] sinkBytes;
+	
+	
+	
+ 	private static byte[] readBytesFromFile(String fileName) throws Exception
 	{
 		byte[] bytes= null;
 		
@@ -23,12 +27,28 @@ public class FolderProcessing {
 	            inputStream.close();
 	       	 
 	        } catch (IOException ex) {
-	            ex.printStackTrace();
+	            throw ex;
 	        } 
 		
 		return bytes;
 	}
 	
+ 	
+ 	public static void dumpFile(String folderName) throws Exception
+ 	{
+ 		String dumpFileName = "firefox.dmp";
+		
+ 		File f = new File(folderName + "/"+ dumpFileName);
+		if (!f.exists()) //processed all available files
+			throw new Exception("Dump file not found!");
+
+		//sink file			
+		sinkBytes= readBytesFromFile(folderName + "/" + dumpFileName);
+
+
+ 		
+ 		
+ 	}
 	
 	public static void processFolder(String folderName)
 	{
@@ -36,10 +56,16 @@ public class FolderProcessing {
 			
 			PrintWriter pw = null;
 			
+			//process dump file
+			dumpFile(folderName);
+			
+			folderName += "/buffers";
+			
 			// folder
 			System.out.println("Starting folder: " + folderName);
+			
 
-			int fileCount = 0;
+			int fileCount = 9024;//6780;
 
 			pw = new PrintWriter(folderName + ".csv");
 
@@ -54,33 +80,28 @@ public class FolderProcessing {
 			//loop through files in folder
 			while (true) {
 
-				String fileName = String.format("%10s", ""+ (++fileCount)).replace(' ', '0');//pad with zeros
-				String heapFileName = fileName + "_heap.bin";
+				String fileName = "000000"+ (--fileCount);//pad with zeros
 				String bufferFileName = fileName + "_buffer.bin";
-
-				File f = new File(folderName + "/"+ heapFileName);
-				if (!f.exists()) //processed all available files
-					break;
-				//else
-
+				
 				System.out.println("\r\n\r\n************* Processing file " + fileName);
 				pw.print(fileName);
 				pw.flush();
 
+				try {
 				//source file
 				byte[] bufferBytes= readBytesFromFile(folderName + "/" + bufferFileName);
 				
-				//sink file			
-				byte[] sinkBytes= readBytesFromFile(folderName + "/" + heapFileName);
-
 				long lastTimeStamp = System.currentTimeMillis();
 
 				
-				if (bufferBytes.length < 10) 
-				{					
+				if (bufferBytes.length < 20) 
+				{			
+					System.out.println("SKIPPED due to short length");
 					//skip buffers which are very small
 					pw.print(",,,,");
 				} else {
+					//what is the relationship between buffer? are they to be found ordered in the dump?
+					//if so, when there is a match, I can progress the offset
 					
 					ByteSlider ss = new ByteSlider(bufferBytes,sinkBytes);
 
@@ -94,6 +115,12 @@ public class FolderProcessing {
 				pw.print("," +sinkBytes.length);
 				System.out.println("Time taken (ms) " + (System.currentTimeMillis()-lastTimeStamp));
 				pw.println("," +(System.currentTimeMillis()-lastTimeStamp));
+				
+				}catch(Exception ex)
+				{
+					ex.printStackTrace();
+					break;
+				}
 			}
 			pw.close();
 
@@ -108,13 +135,10 @@ public class FolderProcessing {
  	
  	
 	//pass root folder as parameter
-	//this assumes a buffer file and a corresponding heap file
+	//this assumes a single dump file and a list of buffer files
 	public static void main(String[] args) {
 
-		String[] folders = {"amazon", "facebook", "google", "live", "twitter", "wikipedia", "yahoo","youtube"};
-
-		for (String f: folders)
-			processFolder(args[0] + f);
+		processFolder(args[0]);
 
 
 	}
