@@ -35,7 +35,7 @@ public class ByteSlider {
 		}
 	}
 	
-	public void displayArray(byte[] array)
+	public static void displayArray(byte[] array)
 	{
 		for (byte b: array)
 			System.out.print(String.format("%4s", b)+",");
@@ -45,9 +45,10 @@ public class ByteSlider {
 	
 	//coarse-grained string matching
 	//with fine grained matching if below threshold
-	public int[] runThrough(PrintWriter pw)
+	
+	//returns true if a match is found
+	public boolean runThrough(PrintWriter pw)
 	{
-		
 		
 		int windowLength = shorter.length;
 		int comparisons = longer.length-shorter.length+1;
@@ -136,7 +137,7 @@ public class ByteSlider {
 				//perhaps consider multiple checking attempts for very long substrings?
 				//NOTE: since we are using matchProgress/2, the fineGrainedDistance obtained doesn't correspond to the last coarseGrained obtained
 				// this explains why sometimes the fineGrainedDistance will be smaller than the coarseGrained one
-				int offset = i-(matchProgress/2); 
+				int offset = i-(matchProgress); 
 				byte[] window = Arrays.copyOfRange(longer, offset,offset+windowLength);
 				double fineGrainedDistance = ByteUtils.taintDistance(shorter, window);
 
@@ -165,15 +166,15 @@ public class ByteSlider {
 					break;
 					
 				}
-//				else {
-//					System.out.println("* ATTEMPT: " + fineGrainedTries);
-//					System.out.println("* Coarse-grained distance: " + distance/(1.0*shorter.length));
-//					System.out.println("* Fine-grained distance: " + fineGrainedDistance);
-//					System.out.println("* Offset: " + offset);
-//					displayArray(shorter);
-//					//System.out.println("NOT FOUND TO MATCH ");
-//					displayArray(window);
-//				}
+				else {
+					System.out.println("* ATTEMPT: " + fineGrainedTries);
+					System.out.println("* Coarse-grained distance: " + distance/(1.0*shorter.length));
+					System.out.println("* Fine-grained distance: " + fineGrainedDistance);
+					System.out.println("* Offset: " + offset);
+					displayArray(shorter);
+					//System.out.println("NOT FOUND TO MATCH ");
+					displayArray(window);
+				}
 			}
 
 		}//forloop
@@ -184,7 +185,7 @@ public class ByteSlider {
 			pw.print(",,,");
 		}
 
-		return null;//windowDifferences;
+		return found;//windowDifferences;
 	}
 
 }
