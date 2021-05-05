@@ -7,7 +7,7 @@ For more information about Larva please visit https://github.com/ccol002/larva-r
 
 ## RV - Function Call Tracing
 
-We ran two experiments: one involving BadSSL traces, and another involving the top 100 websites. All these traces which have been obtained through binary instrumentation can be found in this repository.
+We ran two experiments: one involving BadSSL traces, and another involving the top 100 websites. All these traces which have been obtained through binary instrumentation, along with the corresponding recorded timings, can be found in this repository.
 
 ## RV - Taint Inference
 
