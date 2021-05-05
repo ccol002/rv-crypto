@@ -1,0 +1,15 @@
+urn!this.contains(b)},this))};
+g.k.PD=function(){return g.Je(this.Vg(!0),function(a){return!!this.i.i[a.id]},this)};
+g.k.QD=function(a,b,c,d,e,f){var h=this;this.info("getDialScreenByPairingCode "+a+" / "+b);var l=new X5(this.B,a,b,c,d);l.subscribe("pairingComplete",function(m,n){g.Di(l);e(g6(h,m),n)});
+l.subscribe("pairingFailed",function(m){g.Di(l);f(m)});
+l.start();return(0,g.C)(l.stop,l)};
+g.k.PL=function(a,b,c,d){g.op(P5(this.B,"/pairing/get_screen"),{method:"POST",postParams:{pairing_code:a},timeout:5E3,onSuccess:(0,g.C)(function(e,f){e=new M4(f.screen||{});if(!e.name||ULa(this,e.name)){a:{f=e.name;for(var h=2,l=b(f,h);ULa(this,l);){h++;if(20<h)break a;l=b(f,h)}f=l}e.name=f}c(g6(this,e))},this),
+onError:(0,g.C)(function(e){d(Error("pairing request failed: "+e.status))},this),
+onTimeout:(0,g.C)(function(){d(Error("pairing request timed out."))},this)})};
+g.k.va=function(){g.Di(this.l);g.Di(this.i);f6.Fd.va.call(this)};
+g.k.DN=function(){WLa(this);this.W("screenChange");this.i.update()};
+f6.prototype.dispose=f6.prototype.dispose;g.Ta(i6,g.O);g.k=i6.prototype;g.k.getScreen=function(){return this.B};
+g.k.Zf=function(a){this.Ga()||(a&&k6(this,""+a),this.B=null,this.W("sessionScreen",null))};
+g.k.info=function(a){S5(this.xa,a)};
+g.k.RD=function(){return null};
+g.k.XB=function(a){var b=this.i;a?(b.displayStatus=new chrome.cast.ReceiverDisplayStatus(a,[]),b.displayStatus.showStop=!0):b.d

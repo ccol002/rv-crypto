@@ -1,0 +1,7 @@
+,a);break;case "autoplayDismissed":this.W("autoplayDismissed");break;case "autoplayUpNext":this.G=a.params.videoId||null;this.W("autoplayUpNext",this.G);break;case "onAutoplayModeChanged":this.B=
+a.params.autoplayMode;this.W("autoplayModeChange",this.B);"DISABLED"==this.B&&this.W("autoplayDismissed");break;case "onHasPreviousNextChanged":NMa(this,a);break;case "requestAssistedSignIn":this.W("assistedSignInRequested",a.params.authCode);break;default:Y6("Unrecognized action: "+a.action)}};
+g.k.fS=function(){if(this.u){var a=this.u;this.u=null;this.Zb.videoId!=a&&c7(this,"getNowPlaying")}};
+g.k.oN=function(){var a=3;this.Ga()||(a=0,isNaN(this.zs())?N5(this.i)&&isNaN(this.C)&&(a=1):a=2);return a};
+g.k.Qp=function(a){Y6("Disconnecting with "+a);$6(this);this.W("beforeDisconnect",a);1==a&&X4();DLa(this.i,a);this.dispose()};
+g.k.mN=function(){var a=this.Zb;this.u&&(a=this.Zb.clone(),M6(a,this.u,a.index));return N6(a)};
+g.k.qS=function(a){var b=new H6(a);b.videoId&&b.videoId!=this.Zb.videoId&&(this.u=b.videoId,g.jp(this.J),this.J=g.hp((0,g.C)(this.fS,this),5E3));var c=[];this.Zb.listId==b.listId&&this.Zb.videoId==b.videoId&&this.Zb.index==b.index||c.push("remoteQueueChange");this.Zb.playerState==b.playerState&&this.Zb.volume==b.volume&&this.Zb.muted==b.muted&&L6(this.Zb)==L6(b)&&g.Hj(this.Zb.trackData)==g.Hj(b.trackData)||c.push("remotePlayerChange");this.Zb.reset(a);g.zb(c,function(d){this.W(

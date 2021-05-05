@@ -1,0 +1,11 @@
+.jp(a.C);
+a.C=0;var c=null;if(b)if(b.loungeToken){var d;(null==(d=a.getScreen())?void 0:d.token)==b.loungeToken&&(c="staleLoungeToken")}else c="missingLoungeToken";else c="noLoungeTokenResponse";c?(a.info("Did not receive a new lounge token in onLoungeToken_ with data: "+(JSON.stringify(b)+", error: "+c)),a.V=c,m6(a,3E4)):(YLa(a,b.loungeToken),a.ma=!1,a.V="unknown",m6(a,b.loungeTokenRefreshIntervalMs))},cMa=function(a,b,c,d){g.jp(a.G);
+a.G=0;VLa(a.u,b,function(e){e||0>d?c(e):a.G=g.hp(function(){cMa(a,b,c,d-1)},300)})},eMa=function(a){g.jp(a.L);
+a.L=0;g.jp(a.G);a.G=0;g.jp(a.X);a.X=0;g.jp(a.C);a.C=0;g.jp(a.J);a.J=0},o6=function(a,b,c,d){i6.call(this,a,b,"DialSession");
+this.Ea=d;this.l=this.L=null;this.ra="";this.Fa=c;this.Ba=null;this.X=g.Ia;this.V=NaN;this.Ca=(0,g.C)(this.RL,this);this.C=g.Ia;this.J=this.G=0;this.Y=!1;this.ma="unknown"},p6=function(a){var b;
+return!!(a.Ea.enableDialLoungeToken&&(null==(b=a.l)?0:b.getDialAppInfo))},fMa=function(a){a.C=a.u.QD(a.ra,a.i.label,a.i.friendlyName,p6(a),function(b,c){a.C=g.Ia;
+a.Y=!0;j6(a,b);"shortLived"==b.idType&&0<c&&q6(a,c)},function(b){a.C=g.Ia;
+a.Zf(b)})},gMa=function(a){var b={};
+b.pairingCode=a.ra;b.theme=a.Fa;FKa()&&(b.env_useStageMdx=1);return g.Jd(b)},r6=function(a){return new Promise(function(b){a.ra=Q4();
+if(a.Ba){var c=new chrome.cast.DialLaunchResponse(!0,gMa(a));b(c);fMa(a)}else a.X=function(){g.jp(a.V);a.X=function(){};
+a.V=NaN

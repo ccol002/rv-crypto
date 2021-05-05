@@ -1,0 +1,9 @@
+(x6("Requesting cast selector."),B6().requestSession()):(x6("Wait for cast API to be ready to request the session."),C6.push(g.Mq("yt-remote-cast2-api-ready",F6))):z6("requestCastSelector: Cast is not initialized."):z6("requestCastSelector: Cast API is not installed!")},G6=
+function(a,b){E6()?B6().setConnectedScreenStatus(a,b):z6("setConnectedScreenStatus called before ready.")},oMa=function(){var a=0<=g.Uc.search(/ (CrMo|Chrome|CriOS)\//);
+return g.TA||a},xMa=function(a,b){B6().init(a,b)},pMa=function(a,b){var c=!1;
+B6()||(a=new t6(a,b),a.subscribe("yt-remote-cast2-availability-change",function(d){g.Su("yt-remote-cast-available",d);K4("yt-remote-cast2-availability-change",d)}),a.subscribe("yt-remote-cast2-receiver-selected",function(d){x6("onReceiverSelected: "+d.friendlyName);
+g.Su("yt-remote-cast-receiver",d);K4("yt-remote-cast2-receiver-selected",d)}),a.subscribe("yt-remote-cast2-receiver-resumed",function(d){x6("onReceiverResumed: "+d.friendlyName);
+g.Su("yt-remote-cast-receiver",d);K4("yt-remote-cast2-receiver-resumed",d)}),a.subscribe("yt-remote-cast2-session-change",function(d){x6("onSessionChange: "+O4(d));
+d||g.Vu("yt-remote-cast-receiver");K4("yt-remote-cast2-session-change",d)}),g.Ga("yt.mdx.remote.cloudview.instance_",a,void 0),c=!0);
+x6("cloudview.createSingleton_: "+c);return c},B6=function(){return g.Ha("yt.mdx.remote.cloudview.instance_")},qMa=function(a,b){A6(!0);
+y6(

@@ -1,0 +1,10 @@
+));break;case 1083:case 0:this.Hb(new g.aJ(2));this.J.stop();this.Sb(this.I.getVideoData().lengthSeconds);break;case 1084:this.Hb(new g.aJ(4));break;case 2:this.Hb(new g.aJ(4));this.Sb(L6(a));
+break;case -1:this.Hb(new g.aJ(64));break;case -1E3:this.Hb(new g.aJ(128,{errorCode:"mdx.remoteerror",errorMessage:"This video is not available for remote playback."}))}a=Q6(this.Ob).trackData;var b=this.B;(a||b?a&&b&&a.trackName==b.trackName&&a.languageCode==b.languageCode&&a.languageName==b.languageName&&a.kind==b.kind:1)||(this.B=a,YMa(this,a));a=Q6(this.Ob);-1===a.volume||Math.round(this.I.getVolume())===a.volume&&this.I.isMuted()===a.muted||this.V.isActive()||this.CJ()}else XMa(this)};
+g.k.VH=function(){this.I.W("mdxpreviousnextchange")};
+g.k.Kw=function(){y7(this)||XMa(this)};
+g.k.PH=function(a){isNaN(a)||this.I.W("mdxnowautoplaying",a)};
+g.k.oH=function(){this.I.W("mdxautoplaycanceled")};
+g.k.setAudioTrack=function(a){y7(this)&&this.Ob.setAudioTrack(this.I.getVideoData(1).videoId,a)};
+g.k.seekTo=function(a,b){-1===Q6(this.Ob).playerState?A7(this,a):b&&this.Ob.seekTo(a)};
+g.k.CJ=function(){var a=this;if(y7(this)){var b=Q6(this.Ob);this.events.ac(this.X);b.muted?this.I.mute():this.I.unMute();this.I.setVolume(b.volume);this.X=this.events.N(this.I,"onVolumeChange",function(c){WMa(a,c)})}};
+g.k.bJ=function(){this.i.stop();if(!this.Ob.Ga()){var a=Q6(this.Ob);a.lc()&&this.Hb(new g.aJ(8));this.Sb(

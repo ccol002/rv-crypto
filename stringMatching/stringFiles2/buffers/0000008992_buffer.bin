@@ -1,0 +1,10 @@
+ome.cast.Receiver(c.uuid?
+c.uuid:c.id,c.name),a.receiverType=chrome.cast.ReceiverType.CUSTOM,this.u.push(a),chrome.cast.setCustomReceivers(this.u,g.Ia,(0,g.C)(function(d){this.Gd("Failed to set initial custom receivers: "+g.Hj(d))},this)));
+u6("setConnectedScreenStatus: new active receiver: "+a.friendlyName);w6(this,new s6(this.l,a),!0)}this.i.XB(b)}else u6("setConnectedScreenStatus: no screen.")};
+g.k.pS=function(a){this.Ga()?this.Gd("Setting connection data on disposed cast v2"):this.i?this.i.oq(a):this.Gd("Setting connection data without a session")};
+g.k.TL=function(){this.Ga()?this.Gd("Stopping session on disposed cast v2"):this.i?(this.i.stop(),w6(this,null)):u6("Stopping non-existing session")};
+g.k.requestSession=function(){chrome.cast.requestSession((0,g.C)(this.aI,this),(0,g.C)(this.bR,this))};
+g.k.va=function(){this.l.unsubscribe("onlineScreenChange",(0,g.C)(this.SD,this));window.chrome&&chrome.cast&&chrome.cast.removeReceiverActionListener(this.G);var a=ELa,b=g.Ha("yt.mdx.remote.debug.handlers_");g.kb(b||[],a);g.Di(this.i);g.O.prototype.va.call(this)};
+g.k.Gd=function(a){S5("Controller",a)};
+g.k.cI=function(a,b){this.i==a&&(b||w6(this,null),this.W("yt-remote-cast2-session-change",b))};
+g.k.FQ=function(a,b){if(!this.Ga())if(a)switch(a.friendlyName=chrome.cast.unescape(a.friendlyName),u6("onReceiverAction_ "+a.label+" / "+a.friendlyName+"-- "+b),b){case chrome.cast.ReceiverAc

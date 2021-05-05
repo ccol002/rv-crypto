@@ -1,0 +1,7 @@
++){var d=ca[b[c]];"function"===typeof d&&"function"!=typeof d.prototype[a]&&aa(d.prototype,a,{configurable:!0,writable:!0,value:function(){return fa(ea(this))}})}return a});function fa(a){a={next:a};a[Symbol.iterator]=function(){return this};return a}
+function ha(a,b){a instanceof String&&(a+="");var c=0,d=!1,e={next:function(){if(!d&&c<a.length){var f=c++;return{value:b(f,a[f]),done:!1}}d=!0;return{done:!0,value:void 0}}};e[Symbol.iterator]=function(){return e};return e}da("Array.prototype.keys",function(a){return a?a:function(){return ha(this,function(b){return b})}});/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+var ia=this||self;function ja(a,b){function c(){}c.prototype=b.prototype;a.Y=b.prototype;a.prototype=new c;a.prototype.constructor=a;a.X=function(d,e,f){for(var g=Array(arguments.length-2),h=2;h<arguments.length;h++)g[h-2]=arguments[h];return b.prototype[e].apply(d,g)}}function ka(a){return a};function la(a){if(Error.captureStackTrace)Error.captureStackTrace(this,la);else{var b=Error().stack;b&&(this.stack=b)}a&&(this.message=String(a))}ja(la,Error);la.prototype.name="CustomError";function ma(a,b){a=a.split("%s");for(var c="",d=a.length-1,e=0;e<d;e++)c+=a[e]+(e<b.length?b[e]:"%s");la.call(this,c+a[d])}ja(ma,la);ma.prototype.name="AssertionError";function na(a,b){throw new ma("Failure"+(a?": "+a:""),Array.prototype.slice.call(arguments,1)

@@ -1,0 +1,11 @@
+();E(b,a)}
+function ia(a){var b=V();if(0>a)delete b.i[-a];else{var c=O[a];c?(delete b.i[c],delete O[a]):window.clearTimeout(a)}}
+function W(a){var b=q("ytcsi.tick");b&&b(a)}
+function ja(){W("jse");X()}
+function X(){window.clearTimeout(T);V().start()}
+function ka(){var a=V();I(a);a.D=!0;window.clearTimeout(T);T=window.setTimeout(ja,P)}
+function Y(){window.clearTimeout(U);U=window.setTimeout(function(){W("jset");Z(0)},P)}
+function Z(a){Y();var b=V();b.j=a;b.start()}
+function la(a){Y();var b=V();b.j>a&&(b.j=a,b.start())}
+function ma(){window.clearTimeout(U);var a=V();a.j=0;a.start()}
+;q("yt.scheduler.initialized")||(t("yt.scheduler.instance.dispose",da),t("yt.scheduler.instance.addJob",fa),t("yt.scheduler.instance.addImmediateJob",ha),t("yt.scheduler.instance.cancelJob",ia),t("yt.scheduler.instance.cancelAllJobs",ea),t("yt.scheduler.instance.start",X),t("yt.scheduler.instance.pause",ka),t("yt.scheduler.instance.setPriorityThreshold",Z),t("yt.scheduler.instance.enablePriorityThreshold",la),t("yt.scheduler.instance.clearPriorityThreshold",ma),t("yt.scheduler.initialized",!0));}).call(this);

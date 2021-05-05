@@ -1,0 +1,10 @@
+w.navigator.userAgent.match(/Chrome\/([0-9]+)/);
+return a?parseInt(a[1],10):0},GKa=function(a){return!!document.currentScript&&(-1!=document.currentScript.src.indexOf("?"+a)||-1!=document.currentScript.src.indexOf("&"+a))},HKa=function(){return"function"==typeof window.__onGCastApiAvailable?window.__onGCastApiAvailable:null},$4=function(a){a.length?IKa(a.shift(),function(){$4(a)}):a5()},JKa=function(a){return"chrome-extension://"+a+"/cast_sender.js"},IKa=function(a,b,c){var d=document.createElement("script");
+d.onerror=b;c&&(d.onload=c);g.id(d,g.hg(a));(document.head||document.documentElement).appendChild(d)},KKa=function(){var a=Z4(),b=[];
+if(1<a){var c=a-1;b.push("//www.gstatic.com/eureka/clank/"+a+"/cast_sender.js");b.push("//www.gstatic.com/eureka/clank/"+c+"/cast_sender.js")}return b},a5=function(){var a=HKa();
+a&&a(!1,"No cast extension found")},b5=function(){if(LKa){var a=2,b=HKa(),c=function(){a--;
+0==a&&b&&b(!0)};
+window.__onGCastApiAvailable=c;IKa("//www.gstatic.com/cast/sdk/libs/sender/1.0/cast_framework.js",a5,c)}},MKa=function(){b5();
+var a=KKa();a.push("//www.gstatic.com/eureka/clank/cast_sender.js");$4(a)},OKa=function(){b5();
+var a=KKa();a.push.apply(a,g.la(NKa.map(JKa)));a.push("//www.gstatic.com/eureka/clank/cast_sender.js");$4(a)},c5=function(a,b,c){g.F.call(this);
+this.G=null!=c?(0,g.C)(a,c):a;this.Ef=b;this.C=(0,g.C)(this.LL,this);this.i=!1;this.l=0;this.u=this.yb=

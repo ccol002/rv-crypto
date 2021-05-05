@@ -1,0 +1,10 @@
+(){Y6("Timing out waiting for a screen.");this.Qp(1)},this),15E3));
+DKa(CLa(this.i),this.Ca)};
+g.k.iP=function(){Y6("Channel closed");isNaN(this.C)?X4(!0):X4();this.dispose()};
+g.k.jP=function(a,b){X4();isNaN(this.zs())?(b&&"shortLived"==this.ra&&this.W("browserChannelAuthError",a),Y6("Channel error: "+a+" without reconnection"),this.dispose()):(this.ma=!0,Y6("Channel error: "+a+" with reconnection in "+this.zs()+" ms"),Z6(this,2))};
+g.k.kP=function(a){a.params?Y6("Received: action="+a.action+", params="+g.Hj(a.params)):Y6("Received: action="+a.action+" {}");switch(a.action){case "loungeStatus":a=f5(a.params.devices);this.l=g.Oc(a,function(c){return new L4(c)});
+a=!!g.bb(this.l,function(c){return"LOUNGE_SCREEN"==c.type});
+FMa(this,a);break;case "loungeScreenDisconnected":g.lb(this.l,function(c){return"LOUNGE_SCREEN"==c.type});
+FMa(this,!1);break;case "remoteConnected":var b=new L4(f5(a.params.device));g.bb(this.l,function(c){return b?c.id==b.id:!1})||jKa(this.l,b);
+break;case "remoteDisconnected":b=new L4(f5(a.params.device));g.lb(this.l,function(c){return b?c.id==b.id:!1});
+break;case "gracefulDisconnect":break;case "playlistModified":HMa(this,a);break;case "nowPlaying":JMa(this,a);break;case "onStateChange":IMa(this,a);break;case "onAdStateChange":KMa(this,a);break;case "onVolumeChanged":LMa(this,a);break;case "onSubtitlesTrackChanged":GMa(this,a);break;case "nowAutoplaying":MMa(this

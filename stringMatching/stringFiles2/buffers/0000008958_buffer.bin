@@ -1,0 +1,9 @@
+,function(b){a.info("getDialAppInfo error: "+b);
+a.ma="noLoungeTokenResponse";q6(a,3E4)})},lMa=function(a){g.jp(a.G);
+a.G=0;g.jp(a.J);a.J=0;a.C();a.C=function(){};
+g.jp(a.V)},s6=function(a,b){i6.call(this,a,b,"ManualSession");
+this.l=g.hp((0,g.C)(this.oq,this,null),150)},t6=function(a,b){g.O.call(this);
+this.B=b;this.l=a;this.L=b.appId||"233637DE";this.C=b.theme||"cl";this.V=b.disableCastApi||!1;this.i=null;this.J=!1;this.u=[];this.G=(0,g.C)(this.FQ,this)},mMa=function(a,b){return b?g.bb(a.u,function(c){return N4(b,c.label)},a):null},u6=function(a){S5("Controller",a)},ELa=function(a){window.chrome&&chrome.cast&&chrome.cast.logMessage&&chrome.cast.logMessage(a)},v6=function(a){return a.J||!!a.u.length||!!a.i},w6=function(a,b,c){b!=a.i&&(g.Di(a.i),(a.i=b)?(c?a.W("yt-remote-cast2-receiver-resumed",
+b.i):a.W("yt-remote-cast2-receiver-selected",b.i),b.subscribe("sessionScreen",(0,g.C)(a.cI,a,b)),b.getScreen()?a.W("yt-remote-cast2-session-change",b.getScreen()):c&&a.i.oq(null)):a.W("yt-remote-cast2-session-change",null))},nMa=function(a){var b=a.l.PD(),c=a.i&&a.i.i;
+a=g.Oc(b,function(d){c&&N4(d,c.label)&&(c=null);var e=d.uuid?d.uuid:d.id,f=mMa(this,d);f?(f.label=e,f.friendlyName=d.name):(f=new chrome.cast.Receiver(e,d.name),f.receiverType=chrome.cast.ReceiverType.CUSTOM);return f},a);
+c&&(c.receiverType!=chrome.cast.ReceiverType.CUSTOM&&(c=new chrome.cast.Receiver(c.label,c.friendlyName),c.r

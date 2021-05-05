@@ -1,0 +1,11 @@
+a))return[];
+var b=a[0].indexOf("#"),c=-1==b?a[0]:a[0].substring(0,b);return g.Oc(a,function(d,e){return 0==e?d:d.substring(c.length)})},yKa=function(a){g.Su("yt-remote-connected-devices",a,86400)},V4=function(){if(U4)return U4;
+var a=g.Tu("yt-remote-device-id");a||(a=Q4(),g.Su("yt-remote-device-id",a,31536E3));for(var b=T4(),c=1,d=a;g.fb(b,d);)c++,d=a+"#"+c;return U4=d},W4=function(){var a=T4(),b=V4();
+g.fb(a,b);g.Wu()&&g.yb(a,b);a=xKa(a);if(g.gb(a))try{g.zo("remote_sid")}catch(c){}else try{g.xo("remote_sid",a.join(","),-1)}catch(c){}},zKa=function(){return g.Tu("yt-remote-session-browser-channel")},AKa=function(){return g.Tu("yt-remote-local-screens")||[]},BKa=function(){g.Su("yt-remote-lounge-token-expiration",!0,86400)},CKa=function(a){5<a.length&&(a=a.slice(a.length-5));
+var b=g.Oc(AKa(),function(d){return d.loungeToken}),c=g.Oc(a,function(d){return d.loungeToken});
+g.hh(c,function(d){return!g.fb(b,d)})&&BKa();
+g.Su("yt-remote-local-screens",a,31536E3)},DKa=function(a,b){g.Su("yt-remote-session-browser-channel",a);
+g.Su("yt-remote-session-screen-id",b);a=T4();b=V4();g.fb(a,b)||a.push(b);yKa(a);W4()},X4=function(a){a||(g.Vu("yt-remote-session-screen-id"),g.Vu("yt-remote-session-video-id"));
+W4();a=T4();g.kb(a,V4());yKa(a)},EKa=function(){if(!Y4){var a=g.$n();
+a&&(Y4=new g.Kn(a))}},FKa=function(){EKa();
+return Y4?!!Y4.get("yt-remote-use-staging-server"):!1},Z4=function(){var a=windo

@@ -1,0 +1,10 @@
+function(){if(!a||"function"!=typeof a||!a.prototype.entries||"function"!=typeof Object.seal)return!1;try{var e=Object.seal({x:4}),d=new a(w([[e,"s"]]));if("s"!=d.get(e)||1!=d.size||d.get({x:4})||d.set({x:4},"t")!=d||2!=d.size)return!1;var f=d.entries(),k=f.next();if(k.done||k.value[0]!=e||"s"!=k.value[1])return!1;k=f.next();return k.done||4!=k.value[0].x||"t"!=k.value[1]||!f.next().done?!1:!0}catch(r){return!1}}())return a;
+var l=new WeakMap;h.prototype.set=function(e,d){e=0===e?0:e;var f=g(this,e);f.list||(f.list=this.i[f.id]=[]);f.h?f.h.value=d:(f.h={next:this.g,previous:this.g.previous,head:this.g,key:e,value:d},f.list.push(f.h),this.g.previous.next=f.h,this.g.previous=f.h,this.size++);return this};
+h.prototype.delete=function(e){e=g(this,e);return e.h&&e.list?(e.list.splice(e.index,1),e.list.length||delete this.i[e.id],e.h.previous.next=e.h.next,e.h.next.previous=e.h.previous,e.h.head=null,this.size--,!0):!1};
+h.prototype.clear=function(){this.i={};this.g=this.g.previous=b();this.size=0};
+h.prototype.has=function(e){return!!g(this,e).h};
+h.prototype.get=function(e){return(e=g(this,e).h)&&e.value};
+h.prototype.entries=function(){return c(this,function(e){return[e.key,e.value]})};
+h.prototype.keys=function(){return c(this,function(e){return e.key})};
+h.prototype.values=function(){return c(this,function(e){return e.value})};
+h.prototype.forEach=function(e,d){for(var f=this.entries(),

@@ -1,0 +1,7 @@
+.N(b,"mdxautoplaycancel",function(){d.Ob.uF()});
+a=this.Ob;a.Ga();a.subscribe("proxyStateChange",this.YH,this);a.subscribe("remotePlayerChange",this.jt,this);a.subscribe("remoteQueueChange",this.Kw,this);a.subscribe("previousNextChange",this.VH,this);a.subscribe("nowAutoplaying",this.PH,this);a.subscribe("autoplayDismissed",this.oH,this);g.H(this,this.i);g.H(this,this.u);g.H(this,this.L);g.H(this,this.V);g.H(this,this.J);this.hJ();this.Kw();this.jt()},WMa=function(a,b){if(y7(a)){a.Ob.unsubscribe("remotePlayerChange",a.jt,a);
+var c=Math.round(b.volume);b=!!b.muted;var d=Q6(a.Ob);if(c!==d.volume||b!==d.muted)a.Ob.setVolume(c,b),a.V.start();a.Ob.subscribe("remotePlayerChange",a.jt,a)}},XMa=function(a){a.Sb(0);
+a.i.stop();a.Hb(new g.aJ(64))},z7=function(a,b){if(y7(a)&&!a.C){var c=null;
+b&&(c={style:a.I.getSubtitlesUserSettings()},g.Vb(c,b));a.Ob.TD(a.I.getVideoData(1).videoId,c);a.B=Q6(a.Ob).trackData}},A7=function(a,b){var c=a.I.getPlaylist();
+if(null===c||void 0===c?0:c.listId){var d=c.index;var e=c.listId.toString()}c=a.I.getVideoData(1);a.Ob.playVideo(c.videoId,b,d,e,c.playerParams,c.Ca,iKa(c));a.Hb(new g.aJ(1))},YMa=function(a,b){if(b){var c=a.I.getOption("captions","tracklist",{qG:1});
+c&&c.length?(a.I.setOption("captions","track",b),a.C=!1):(a.I.loadModule("captions"),a.C=!0)}else a.I.setOption("captions","track",{})},y7=function(a){return Q6(a.Ob).videoId===a.I.getVideoData(1).vide

@@ -5,7 +5,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
-import java.util.Scanner;
+
+///////////////////////////////////
+//
+//assumes a folder with buffer files and a single large dump file
+//
+///////////////////////////////////
 
 public class FolderProcessing3 {
 

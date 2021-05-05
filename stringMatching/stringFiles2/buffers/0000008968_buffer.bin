@@ -1,0 +1,11 @@
+=n7();
+b||(b=l7());return g.bb(a,function(c){return b&&N4(b,c.key)?!0:!1})},n7=function(){var a=h7();
+if(!a)return null;var b=g7().Vg();return S4(b,a)},PMa=function(a){i7("remote.onCastSessionChange_: "+O4(a));
+if(a){var b=n7();if(b&&b.id==a.id){if(G6(b.id,"YouTube TV"),"shortLived"==a.idType&&(a=a.token))q7&&(q7.token=a),(b=o7())&&b.hx(a)}else b&&r7(),s7(a,1)}else o7()&&r7()},r7=function(){E6()?B6().stopSession():z6("stopSession called before API ready.");
+var a=o7();a&&(a.disconnect(1),t7(null))},u7=function(){var a=o7();
+return!!a&&3!=a.getProxyState()},i7=function(a){S5("remote",a)},g7=function(){if(!v7){var a=g.Ha("yt.mdx.remote.screenService_");
+v7=a?new d7(a):null}return v7},h7=function(){return g.Ha("yt.mdx.remote.currentScreenId_")},UMa=function(a){g.Ga("yt.mdx.remote.currentScreenId_",a,void 0)},VMa=function(){return g.Ha("yt.mdx.remote.connectData_")},k7=function(a){g.Ga("yt.mdx.remote.connectData_",a,void 0)},o7=function(){return g.Ha("yt.mdx.remote.connection_")},t7=function(a){var b=o7();
+k7(null);a||UMa("");g.Ga("yt.mdx.remote.connection_",a,void 0);f7&&(g.zb(f7,function(c){c(a)}),f7.length=0);
+b&&!a?K4("yt-remote-connection-change",!1):!b&&a&&K4("yt-remote-connection-change",!0)},l7=function(){var a=g.Wu();
+if(!a)return null;var b=g7();if(!b)return null;b=b.Vg();return S4(b,a)},s7=function(a,b){h7();
+n7()&&n7();w7?q7=a:(UMa(a.id),a=new X6(e7,a,m7()),a.connect(b,VMa()),a

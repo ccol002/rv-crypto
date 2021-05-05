@@ -1,0 +1,12 @@
+s":ZLa(this,b);break;case "loungeToken":bMa(this,b);break;default:k6(this,"Unknown youtube message: "+a)}else k6(this,"Unable to parse message.");else k6(this,"No data in message.")};
+g.k.ZF=function(a,b,c,d){g.jp(this.L);this.L=0;TLa(this.u,this.i.label,a,this.i.friendlyName,(0,g.C)(function(e){e?b(e):0<=d?(k6(this,"Screen "+a+" appears to be offline. "+d+" retries left."),this.L=g.hp((0,g.C)(this.ZF,this,a,b,c,d-1),300)):c(Error("Unable to fetch screen."))},this),c)};
+g.k.RD=function(){return this.l};
+g.k.QL=function(a){this.Ga()||a||(k6(this,"Cast session died."),this.Zf())};g.v(o6,i6);g.k=o6.prototype;g.k.WB=function(a){this.l=a;this.l.addUpdateListener(this.Ca)};
+g.k.oq=function(a){this.Ba=a;this.X()};
+g.k.stop=function(){lMa(this);this.l?this.l.stop((0,g.C)(this.Zf,this,null),(0,g.C)(this.Zf,this,"Failed to stop DIAL device.")):this.Zf()};
+g.k.va=function(){lMa(this);this.l&&this.l.removeUpdateListener(this.Ca);this.l=null;i6.prototype.va.call(this)};
+g.k.RL=function(a){this.Ga()||a||(k6(this,"DIAL session died."),this.C(),this.C=g.Ia,this.Zf())};g.v(s6,i6);s6.prototype.stop=function(){this.Zf()};
+s6.prototype.WB=function(){};
+s6.prototype.oq=function(){g.jp(this.l);this.l=NaN;var a=S4(this.u.Vg(),this.i.label);a?j6(this,a):this.Zf(Error("No such screen"))};
+s6.prototype.va=function(){g.jp(this.l);this.l=NaN;i6.prototype.va.call(this)};g.v(t6,g.O);g.k=t6.prototype;
+g.k.init=funct

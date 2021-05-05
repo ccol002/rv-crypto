@@ -1,0 +1,9 @@
+R=Q.shift(),S=d.i[R];delete d.i[R];if(S){d=S;break a}}d=null}d&&F(d)}while(d&&Date.now()<b)}a.l=!1;N(a);a.o=A;K(a)&&a.start()}
+f.start=function(){this.D=!1;if(0==this.h)switch(this.m=H(this),this.m){case 1:var a=this.K;this.h=this.I?window.requestIdleCallback(a,{timeout:3E3}):window.setTimeout(a,ca);break;case 2:this.h=window.setTimeout(this.M,this.N);break;case 3:this.h=window.requestAnimationFrame(this.L);break;case 4:this.h=window.setTimeout(this.J,0)}};
+function I(a){if(a.h){switch(a.m){case 1:var b=a.h;a.I?window.cancelIdleCallback(b):window.clearTimeout(b);break;case 2:case 4:window.clearTimeout(a.h);break;case 3:window.cancelAnimationFrame(a.h)}a.h=0}}
+f.G=function(){J(this);I(this);this.v&&document.removeEventListener("visibilitychange",this.H);u.prototype.G.call(this)};var O=q("yt.scheduler.instance.timerIdMap_")||{},P=x("kevlar_tuner_scheduler_soft_state_timer_ms",800),T=0,U=0;function V(){var a=q("ytglobal.schedulerInstanceInstance_");if(!a||a.s)a=new B(w("scheduler",void 0)||{}),t("ytglobal.schedulerInstanceInstance_",a);return a}
+function da(){var a=q("ytglobal.schedulerInstanceInstance_");a&&(a&&"function"==typeof a.dispose&&a.dispose(),t("ytglobal.schedulerInstanceInstance_",null))}
+function ea(){J(V())}
+function fa(a,b,c){if(0==c||void 0===c)return c=void 0===c,-G(V(),a,b,c);var d=window.setTimeout(function(){var e=G(V(),a,b);O[d]=e},c);
+return d}
+function ha(a){var b=V

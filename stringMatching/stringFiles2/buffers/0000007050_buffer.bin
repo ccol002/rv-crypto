@@ -1,0 +1,8 @@
+Sb(b.url,b.name):Tb(b.url):b.text&&(b.name?Db("css",b.text,b.name):Fb("css",b.text))})}function gc(a){0>=a.styles.length||(a=Da(a.styles,function(b){return b.url}),Ub(a))}function Xb(a){0>=a.links.length||(a=Da(a.links,function(b){return"spf-preconnect"==b.rel?b.url:""}),Gb(a))}
+function bc(a,b,c,d,e){var f=parseInt(A["animation-duration"],10);this.g=a;this.U=b;this.duration=f;this.reverse=e;b=document.body;b=(b.dataset?b.dataset.spfName:b.getAttribute("data-"+Ga()))||"";f=parseInt(x.uid,10)||0;f++;this.key=a["spf-key"]||(a["spf-key"]=""+w("uid",f));this.L=b&&c+"-from-"+b;this.T=d&&c+"-to-"+d;this.u=null;this.W=c+"-old";this.j=null;this.V=c+"-new";this.B=c+(e?"-reverse":"-forward");this.P=c+"-start";this.S=this.B+"-start";this.J=c+"-end";this.K=this.B+"-end"}
+function ic(){this.html="";this.scripts=[];this.styles=[];this.links=[]}
+var ac=function(){var a=document.createElement("div");return"transition"in a.style?!0:Ba(["webkit","Moz","Ms","O","Khtml"],function(b){return b+"Transition"in a.style})}(),oc=/\x3clink([\s\S]*?)\x3e/ig,jc=/\x3c(script|style)([\s\S]*?)\x3e([\s\S]*?)\x3c\/\1\x3e/ig,mc=/(?:\s|^)async(?:\s|=|$)/i,qc=/(?:\s|^)href\s*=\s*["']?([^\s"']+)/i,kc=/(?:\s|^)name\s*=\s*["']?([^\s"']+)/i,pc=/(?:\s|^)rel\s*=\s*["']?([^\s"']+)/i,lc=/(?:\s|^)src\s*=\s*["']?([^\s"']+)/i,nc=/(?:\s|^)type\s*=\s*["']([^"']+)["']/i;/*
+
+ SPF
+ (c) 2012-2017 Google Inc.
+ https://ajax.googleapis.com/aj

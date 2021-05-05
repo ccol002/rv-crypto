@@ -1,0 +1,7 @@
+ar c=N5(a.i)&&isNaN(a.C);b==c?b&&(Z6(a,1),c7(a,"getSubtitlesTrack")):b?(a.YF()&&a.Zb.reset(),Z6(a,1),c7(a,"getNowPlaying"),EMa(a)):a.Qp(1)},GMa=function(a,b){var c=b.params.videoId;
+delete b.params.videoId;c==a.Zb.videoId&&(g.Ob(b.params)?a.Zb.trackData=null:a.Zb.trackData=b.params,a.W("remotePlayerChange"))},HMa=function(a,b){var c=b.params.videoId||b.params.video_id,d=parseInt(b.params.currentIndex,10);
+a.Zb.listId=b.params.listId||a.Zb.listId;M6(a.Zb,c,d);a.W("remoteQueueChange")},JMa=function(a,b){b.params=b.params||{};
+HMa(a,b);IMa(a,b);a.W("autoplayDismissed")},IMa=function(a,b){var c=parseInt(b.params.currentTime||b.params.current_time,10);
+K6(a.Zb,isNaN(c)?0:c);c=parseInt(b.params.state,10);c=isNaN(c)?-1:c;-1==c&&-1E3==a.Zb.playerState&&(c=-1E3);a.Zb.playerState=c;c=Number(b.params.loadedTime);a.Zb.L=isNaN(c)?0:c;c=Number(b.params.duration);a.Zb.C=isNaN(c)?0:c;c=a.Zb;var d=Number(b.params.liveIngestionTime);c.u=d;c.l=isNaN(d)?!1:!0;c=a.Zb;d=Number(b.params.seekableStartTime);b=Number(b.params.seekableEndTime);c.B=isNaN(d)?0:d;c.i=isNaN(b)?0:b;1==a.Zb.playerState?DMa(a):b7(a);a.W("remotePlayerChange")},KMa=function(a,b){if(-1E3!=a.Zb.playerState){var c=
+1085;
+switch(parseInt(b.params.adState,10)){case 1:c=1081;break;case 2:c=1084;break;case 0:c=1083}a.Zb.playerState=c;b=parseInt(b.params.currentTime,10);K6(a.Zb,isNaN(b)?0:b);a.W("remotePlayerChange")}},LMa=function(a,b){var c="t

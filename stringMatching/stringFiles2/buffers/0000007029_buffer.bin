@@ -1,0 +1,9 @@
+a=document.createElement("div");return"transition"in a.style?!0:x(["webkit","Moz","Ms","O","Khtml"],function(b){return b+"Transition"in a.style})})();
+var qa=/\x3clink([\s\S]*?)\x3e/ig,ma=/\x3c(script|style)([\s\S]*?)\x3e([\s\S]*?)\x3c\/\1\x3e/ig,oa=/(?:\s|^)async(?:\s|=|$)/i,sa=/(?:\s|^)href\s*=\s*["']?([^\s"']+)/i,X=/(?:\s|^)name\s*=\s*["']?([^\s"']+)/i,ra=/(?:\s|^)rel\s*=\s*["']?([^\s"']+)/i,na=/(?:\s|^)src\s*=\s*["']?([^\s"']+)/i,pa=/(?:\s|^)type\s*=\s*["']([^"']+)["']/i;/*
+
+ SPF
+ (c) 2012-2017 Google Inc.
+ https://ajax.googleapis.com/ajax/libs/spf/2.4.0/LICENSE
+*/
+function ta(a,b,c,e){var d=e||{},f=!1,h=0,k,g=new XMLHttpRequest;g.open(a,b,!0);g.timing={};var m=g.abort;g.abort=function(){clearTimeout(k);g.onreadystatechange=null;m.call(g)};g.onreadystatechange=function(){var q=g.timing;if(2==g.readyState){q.responseStart=q.responseStart||v();if("json"==g.responseType)f=!1;else if(C["assume-all-json-requests-chunked"]||-1<(g.getResponseHeader("Transfer-Encoding")||"").toLowerCase().indexOf("chunked"))f=!0;else{q=g.getResponseHeader("X-Firefox-Spdy");var B=window.chrome&&
+chrome.loadTimes&&chrome.loadTimes();B=B&&B.wasFetchedViaSpdy;f=!(!q&&!B)}d.u&&d.u(g)}else 3==g.readyState?f&&d.l&&(q=g.responseText.substring(h),h=g.responseText.length,d.l(g,q)):4==g.readyState&&(q.responseEnd=q.responseEnd||v(),window.performance&&window.performance.getEntriesByName&&(g.resourceTiming=window.perf

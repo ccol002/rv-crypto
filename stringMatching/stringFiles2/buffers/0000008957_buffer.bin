@@ -1,0 +1,7 @@
+;var d=new chrome.cast.DialLaunchResponse(!0,gMa(a));b(d);fMa(a)},a.V=g.hp(function(){a.X()},100)})},iMa=function(a,b,c){a.info("initOnConnectedScreenDataPromise_: Received screenData: "+JSON.stringify(b));
+var d=new M4(b);return(new Promise(function(e){hMa(a,d,function(f){f?(a.Y=!0,g6(a.u,d),j6(a,d),q6(a,c)):g.No(Error("DialSession, RemoteScreen from screenData: "+JSON.stringify(b)+" is not online."));e(f)},5)})).then(function(e){return e?new chrome.cast.DialLaunchResponse(!1):r6(a)})},jMa=function(a,b){var c=a.L.receiver.label,d=a.i.friendlyName;
+return(new Promise(function(e){TLa(a.u,c,b,d,function(f){f&&f.token&&j6(a,f);e(f)},function(f){k6(a,"Failed to get DIAL screen: "+f);
+e(null)})})).then(function(e){return e&&e.token?new chrome.cast.DialLaunchResponse(!1):r6(a)})},hMa=function(a,b,c,d){g.jp(a.G);
+a.G=0;VLa(a.u,b,function(e){e||0>d?c(e):a.G=g.hp(function(){hMa(a,b,c,d-1)},300)})},q6=function(a,b){a.info("getDialAppInfoWithTimeout_ "+b);
+p6(a)&&(g.jp(a.J),a.J=0,0==b?kMa(a):a.J=g.hp(function(){kMa(a)},b))},kMa=function(a){p6(a)&&a.l.getDialAppInfo(function(b){a.info("getDialAppInfo dialLaunchData: "+JSON.stringify(b));
+b=b.extraData||{};var c=null;if(b.loungeToken){var d;(null==(d=a.getScreen())?void 0:d.token)==b.loungeToken&&(c="staleLoungeToken")}else c="missingLoungeToken";c?(a.ma=c,q6(a,3E4)):(a.Y=!1,a.ma="unknown",YLa(a,b.loungeToken),q6(a,b.loungeTokenRefreshIntervalMs))}

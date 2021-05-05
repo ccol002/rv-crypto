@@ -1,0 +1,10 @@
+izing with "+P4(this.screens))},OLa=function(a){if(a.screens.length){var b=g.Oc(a.screens,function(d){return d.id}),c=P5(a.l,"/pairing/get_lounge_token_batch");
+Q5(a.l,c,{screen_ids:b.join(",")},(0,g.C)(a.xN,a),(0,g.C)(a.wN,a))}},Y5=function(a){if(g.Io("deprecate_pair_servlet_enabled"))return MLa(a,[]);
+var b=uKa(AKa());b=g.Je(b,function(c){return!c.uuid});
+return MLa(a,b)},$5=function(a,b){CKa(g.Oc(a.screens,sKa));
+b&&BKa()},b6=function(a,b){g.O.call(this);
+this.G=b;b=(b=g.Tu("yt-remote-online-screen-ids")||"")?b.split(","):[];for(var c={},d=this.G(),e=0,f=d.length;e<f;++e){var h=d[e].id;c[h]=g.fb(b,h)}this.i=c;this.C=a;this.u=this.B=NaN;this.l=null;a6("Initialized with "+g.Hj(this.i))},c6=function(a,b,c){var d=P5(a.C,"/pairing/get_screen_availability");
+Q5(a.C,d,{lounge_token:b.token},(0,g.C)(function(e){e=e.screens||[];for(var f=0,h=e.length;f<h;++f)if(e[f].loungeToken==b.token){c("online"==e[f].status);return}c(!1)},a),(0,g.C)(function(){c(!1)},a))},d6=function(a,b){a:if(I4(b)!=I4(a.i))var c=!1;
+else{c=g.Jb(b);for(var d=0,e=c.length;d<e;++d)if(!a.i[c[d]]){c=!1;break a}c=!0}c||(a6("Updated online screens: "+g.Hj(a.i)),a.i=b,a.W("screenChange"));PLa(a)},e6=function(a){isNaN(a.u)||g.jp(a.u);
+a.u=g.hp((0,g.C)(a.NB,a),0<a.B&&a.B<g.Sa()?2E4:1E4)},a6=function(a){S5("OnlineScreenService",a)},QLa=function(a){var b={};
+g.zb(a.G(),function(c){c.token?b[c.token]=c.id:this.Gd("Requesting availa

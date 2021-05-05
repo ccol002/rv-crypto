@@ -1,0 +1,15 @@
+this);this.player.Vj(5);G7(this)};
+g.k.va=function(){g.Nq(this.subscriptions);g.fM.prototype.va.call(this)};
+g.k.Qj=function(a,b){for(var c=[],d=1;d<arguments.length;++d)c[d-1]=arguments[d];this.loaded&&this.nh.VD.apply(this.nh,[a].concat(g.la(c)))};
+g.k.getAdState=function(){return this.Oe};
+g.k.pN=function(){return this.loaded?this.nh.suggestion:null};
+g.k.Fj=function(){return this.Ob?Q6(this.Ob).Fj:!1};
+g.k.hasNext=function(){return this.Ob?Q6(this.Ob).hasNext:!1};
+g.k.Sb=function(a,b){this.LG=a||0;this.player.W("progresssync",a,b)};
+g.k.getCurrentTime=function(){return this.LG};
+g.k.getProgressState=function(){var a=Q6(this.Ob),b=this.player.getVideoData();return{allowSeeking:g.S(this.player.T().experiments,"web_player_mdx_allow_seeking_change_killswitch")?this.player.Ne():!a.isAdPlaying()&&this.player.Ne(),clipEnd:b.clipEnd,clipStart:b.clipStart,current:this.getCurrentTime(),displayedStart:-1,duration:a.getDuration(),ingestionTime:a.l?a.u+J6(a):a.u,isAtLiveHead:1>=(a.l?a.i+J6(a):a.i)-this.getCurrentTime(),loaded:a.L,seekableEnd:a.l?a.i+J6(a):a.i,seekableStart:0<a.B?a.B+
+J6(a):a.B}};
+g.k.nextVideo=function(){this.Ob&&this.Ob.nextVideo()};
+g.k.Ow=function(){this.Ob&&this.Ob.Ow()};
+g.k.dP=function(a){1===a&&(this.CB=this.Ob?Q6(this.Ob):null)};
+g.k.JQ=function(){var a=u7()?new P6(o7(),void 0):null;if(a){var b=this.Kl;this.loaded&&this.unload();this.Ob=a;this.CB=null;b.key!==this.Di.ke

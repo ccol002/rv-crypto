@@ -1,0 +1,9 @@
+(2!=this.Ob.eb)if(y7(this)){if(!Q6(this.Ob).isAdPlaying()||"control_seek"!==a)switch(a){case "control_toggle_play_pause":Q6(this.Ob).lc()?this.Ob.pause():this.Ob.play();break;case "control_play":this.Ob.play();break;case "control_pause":this.Ob.pause();break;case "control_seek":this.J.xg(c[0],c[1]);break;case "control_subtitles_set_track":z7(this,c[0]);break;case "control_set_audio_track":this.setAudioTrack(c[0])}}else switch(a){case "control_toggle_play_pause":case "control_play":case "control_pause":c=
+this.I.getCurrentTime();A7(this,0===c?void 0:c);break;case "control_seek":A7(this,c[0]);break;case "control_subtitles_set_track":z7(this,c[0]);break;case "control_set_audio_track":this.setAudioTrack(c[0])}};
+g.k.eP=function(a){this.L.xg(a)};
+g.k.US=function(a){this.VD("control_subtitles_set_track",g.Ob(a)?null:a)};
+g.k.hJ=function(){var a=this.I.getOption("captions","track");g.Ob(a)||z7(this,a)};
+g.k.Sb=function(a){this.l.Sb(a,this.I.getVideoData().lengthSeconds)};
+g.k.RP=function(){g.Ob(this.B)||YMa(this,this.B);this.C=!1};
+g.k.YH=function(a,b){this.u.stop();2===b&&this.cJ()};
+g.k.jt=function(){if(y7(this)){this.i.stop();var a=Q6(this.Ob);switch(a.playerState){case 1080:case 1081:case 1084:case 1085:this.l.Oe=1;break;case 1082:case 1083:this.l.Oe=0;break;default:this.l.Oe=-1}switch(a.playerState){case 1081:case 1:this.Hb(new g.aJ(8));this.bJ();break;case 1085:case 3:this.Hb(new g.aJ(9

@@ -1,0 +1,11 @@
+bility of screen w/o lounge token.")});
+return b},PLa=function(a){a=g.Jb(g.Cb(a.i,function(b){return b}));
+g.wb(a);a.length?g.Su("yt-remote-online-screen-ids",a.join(","),60):g.Vu("yt-remote-online-screen-ids")},f6=function(a,b){b=void 0===b?!1:b;
+W5.call(this,"ScreenService");this.B=a;this.J=b;this.i=this.l=null;this.u=[];this.C={};RLa(this)},TLa=function(a,b,c,d,e,f){a.info("getAutomaticScreenByIds "+c+" / "+b);
+c||(c=a.C[b]);var h=a.Vg(),l=c?S4(h,c):null;c&&(a.J||l)||(l=S4(h,b));if(l){l.uuid=b;var m=g6(a,l);c6(a.i,m,function(n){e(n?m:null)})}else c?SLa(a,c,(0,g.C)(function(n){var p=g6(this,new M4({name:d,
+screenId:c,loungeToken:n,dialId:b||""}));c6(this.i,p,function(r){e(r?p:null)})},a),f):e(null)},ULa=function(a,b){for(var c=0,d=a.screens.length;c<d;++c)if(a.screens[c].name==b)return a.screens[c];
+return null},VLa=function(a,b,c){c6(a.i,b,c)},SLa=function(a,b,c,d){a.info("requestLoungeToken_ for "+b);
+var e={postParams:{screen_ids:b},method:"POST",context:a,onSuccess:function(f,h){f=h&&h.screens||[];f[0]&&f[0].screenId==b?c(f[0].loungeToken):d(Error("Missing lounge token in token response"))},
+onError:function(){d(Error("Request screen lounge token failed"))}};
+g.op(P5(a.B,"/pairing/get_lounge_token_batch"),e)},WLa=function(a){a.screens=a.l.Vg();
+var b=a.C,c={},d;for(d in b)c[b[d]]=d;b=0;for(d=a.screens.length;b<d;++b){var e=a.screens[b];e.uuid=c[e.id]||""}a.info("Updated manual sc

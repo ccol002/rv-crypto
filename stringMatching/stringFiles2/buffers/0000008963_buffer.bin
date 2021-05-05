@@ -1,0 +1,8 @@
+his.V=(0,g.C)(this.oP,this);var c=0;a?(c=a.getProxyState(),3!=c&&(a.subscribe("proxyStateChange",this.ZB,this),yMa(this))):c=3;0!=c&&(b?this.ZB(c):g.hp((0,g.C)(function(){this.ZB(c)},this),0));
+(a=wMa())&&O6(this,a);this.subscribe("yt-remote-cast2-session-change",this.V)},Q6=function(a){return new H6(a.u.getPlayerContextData())},yMa=function(a){g.zb("nowAutoplaying autoplayDismissed remotePlayerChange remoteQueueChange autoplayModeChange autoplayUpNext previousNextChange".split(" "),function(b){this.C.push(this.u.subscribe(b,g.Pa(this.CQ,b),this))},a)},zMa=function(a){g.zb(a.C,function(b){this.u.unsubscribeByKey(b)},a);
+a.C.length=0},R6=function(a){return 1==a.getState()},S6=function(a,b){var c=a.B;
+50>c.i.length+c.l.length&&a.B.l.push(b)},U6=function(a,b,c){var d=Q6(a);
+K6(d,c);-1E3!=d.playerState&&(d.playerState=b);T6(a,d)},V6=function(a,b,c){a.u.sendMessage(b,c)},T6=function(a,b){zMa(a);
+a.u.setPlayerContextData(N6(b));yMa(a)},O6=function(a,b){a.l&&(a.l.removeUpdateListener(a.L),a.l.removeMediaListener(a.G),a.Xs(null));
+a.l=b;a.l&&(S5("CP","Setting cast session: "+a.l.sessionId),a.l.addUpdateListener(a.L),a.l.addMediaListener(a.G),a.l.media.length&&a.Xs(a.l.media[0]))},AMa=function(a){var b=a.i.media,c=a.i.customData;
+if(b&&c){var d=Q6(a);b.contentId!=d.videoId&&S5("CP","Cast changing video to: "+b.contentId);d.videoId=b.contentId;d.playerState=c.playerState;K6(d,a.i.getEstimatedTim

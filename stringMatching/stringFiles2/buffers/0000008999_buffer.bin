@@ -1,0 +1,12 @@
+this),this.W("remotePlayerChange")};
+g.k.gP=function(a){a?(AMa(this),this.W("remotePlayerChange")):this.Xs(null)};
+g.k.sC=function(){V6(this,"sendDebugCommand",{debugCommand:"stats4nerds "})};
+g.k.oP=function(){var a=wMa();a&&O6(this,a)};
+g.k.Gd=function(a){S5("CP",a)};g.v(X6,g.O);g.k=X6.prototype;
+g.k.connect=function(a,b){if(b){var c=b.listId,d=b.videoId,e=b.playerParams,f=b.clickTrackingParams,h=b.index,l={videoId:d},m=b.currentTime;b=b.locationInfo;void 0!==m&&(l.currentTime=5>=m?0:m);e&&(l.playerParams=e);b&&(l.locationInfo=b);f&&(l.clickTrackingParams=f);c&&(l.listId=c);void 0!==h&&(l.currentIndex=h);c&&(this.Zb.listId=c);this.Zb.videoId=d;this.Zb.index=h||0;this.Zb.state=3;K6(this.Zb,m);this.B="UNSUPPORTED";Y6("Connecting with setPlaylist and params: "+g.Hj(l));this.i.connect({method:"setPlaylist",
+params:g.Hj(l)},a,zKa())}else Y6("Connecting without params"),this.i.connect({},a,zKa());CMa(this)};
+g.k.hx=function(a){this.i.hx(a)};
+g.k.dispose=function(){this.Ga()||(this.W("beforeDispose"),Z6(this,3));g.O.prototype.dispose.call(this)};
+g.k.va=function(){$6(this);b7(this);a7(this);g.jp(this.J);this.J=NaN;g.jp(this.L);this.L=NaN;this.u=null;g.Op(this.V);this.V.length=0;this.i.dispose();g.O.prototype.va.call(this);this.B=this.G=this.l=this.Zb=this.i=null};
+g.k.tN=function(){this.Qp(2)};
+g.k.lP=function(){Y6("Channel opened");this.ma&&(this.ma=!1,a7(this),this.Y=g.hp((0,g.C)(function

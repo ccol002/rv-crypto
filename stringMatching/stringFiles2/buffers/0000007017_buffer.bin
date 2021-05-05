@@ -1,0 +1,11 @@
+tion(c,g){return c&&c[g]},window);
+if(!b)return a+" is missing";b=Function.prototype.toString.call(b).replace(/\n/g," ").replace(/  +/g," ");return b!="function "+a+"() { [native code] }"?a+" is not native, prologue: "+b.slice(0,50):null}
+function K(a){var b=a.match(B)[1]||null;return H.some(function(c){return b==c})}
+function L(a){var b=C(a.match(B)[3]||null);return!b||K(a)?!0:E.some(function(c){return b==c})||G.some(function(c){return b.endsWith(c)})}
+function M(a){if(!K(a))return null;var b=C(a.match(B)[3]||null);return b?F.some(function(c){return b==c})?null:b:null}
+function N(){var a=new Set;[].concat(x(document.querySelectorAll("script"))).forEach(function(b){b.src&&!L(b.src)&&a.add(b.src)});
+[].concat(x(document.querySelectorAll("link[href]"))).forEach(function(b){"alternate"==b.rel||L(b.href)||a.add(b.href)});
+return[].concat(x(a)).sort()}
+function O(){var a=new Set;[].concat(x(document.querySelectorAll("script"))).forEach(function(b){b.src&&(b=M(b.src))&&a.add(b)});
+return[].concat(x(a)).sort()}
+;A("ytbin.polymer.shared.lib.tampering.info",function(){var a=N(),b=I(),c=O(),g=[];c.length&&g.push("extensions",c);a.length&&g.push("suspiciousIncludes",a);b.length&&g.push("suspiciousApis",b);return g.length?g:null});}).call(this);

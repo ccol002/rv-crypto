@@ -1,0 +1,10 @@
+e());T6(a,d)}else S5("CP","No cast media video. Ignoring state update.")},W6=function(a,b,c){return(0,g.C)(function(d){this.Gd("Failed to "+b+" with cast v2 channel. Error code: "+d.code);
+d.code!=chrome.cast.ErrorCode.TIMEOUT&&(this.Gd("Retrying "+b+" using MDx browser channel."),V6(this,b,c))},a)},X6=function(a,b,c){g.O.call(this);
+this.C=NaN;this.ma=!1;this.L=this.J=this.X=this.Y=NaN;this.V=[];this.B=this.G=this.u=this.Zb=this.i=null;this.xa=a;this.V.push(g.Np(window,"beforeunload",(0,g.C)(this.tN,this)));this.l=[];this.Zb=new H6;this.Ca=b.id;this.ra=b.idType;this.i=BMa(this,c);this.i.subscribe("handlerOpened",this.lP,this);this.i.subscribe("handlerClosed",this.iP,this);this.i.subscribe("handlerError",this.jP,this);this.i.subscribe("handlerMessage",this.kP,this);this.i.hx(b.token);this.subscribe("remoteQueueChange",function(){var d=
+this.Zb.videoId;g.Wu()&&g.Su("yt-remote-session-video-id",d)},this)},Y6=function(a){S5("conn",a)},BMa=function(a,b){return new L5(P5(a.xa,"/bc"),b,!1,function(){return a.UD()},"shortLived"==a.ra)},Z6=function(a,b){a.W("proxyStateChange",b)},CMa=function(a){a.C=g.hp((0,g.C)(function(){Y6("Connecting timeout");
+this.Qp(1)},a),2E4)},$6=function(a){g.jp(a.C);
+a.C=NaN},a7=function(a){g.jp(a.Y);
+a.Y=NaN},DMa=function(a){b7(a);
+a.X=g.hp((0,g.C)(function(){c7(this,"getNowPlaying")},a),2E4)},b7=function(a){g.jp(a.X);
+a.X=NaN},FMa=function(a,b){b&&($6(a),a7(a));
+v

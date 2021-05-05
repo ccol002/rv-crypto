@@ -6,6 +6,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 
+///////////////////////////////////
+//
+//  assumes pairs of buffer-heap files
+//
+///////////////////////////////////
+
 public class FolderProcessing {
 
 	

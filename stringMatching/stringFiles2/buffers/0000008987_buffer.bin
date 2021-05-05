@@ -1,0 +1,11 @@
+ction(){a6("Updating availability on schedule.");var a=this.G(),b=g.Cb(this.i,function(c,d){return c&&!!S4(a,d)},this);
+d6(this,b)};
+g.k.va=function(){g.jp(this.u);this.u=NaN;this.l&&(this.l.abort(),this.l=null);g.O.prototype.va.call(this)};
+g.k.NB=function(){g.jp(this.u);this.u=NaN;this.l&&this.l.abort();var a=QLa(this);if(I4(a)){var b=P5(this.C,"/pairing/get_screen_availability");this.l=Q5(this.C,b,{lounge_token:g.Jb(a).join(",")},(0,g.C)(this.YQ,this,a),(0,g.C)(this.XQ,this))}else d6(this,{}),e6(this)};
+g.k.YQ=function(a,b){this.l=null;var c=g.Jb(QLa(this));if(g.xb(c,g.Jb(a))){b=b.screens||[];c={};for(var d=0,e=b.length;d<e;++d)c[a[b[d].loungeToken]]="online"==b[d].status;d6(this,c);e6(this)}else this.Gd("Changing Screen set during request."),this.NB()};
+g.k.XQ=function(a){this.Gd("Screen availability failed: "+a);this.l=null;e6(this)};
+g.k.Gd=function(a){S5("OnlineScreenService",a)};g.Ta(f6,W5);g.k=f6.prototype;g.k.start=function(){this.l.start();this.i.start();this.screens.length&&(this.W("screenChange"),this.i.isEmpty()||this.W("onlineScreenChange"))};
+g.k.add=function(a,b,c){this.l.add(a,b,c)};
+g.k.remove=function(a,b,c){this.l.remove(a,b,c);this.i.update()};
+g.k.Ex=function(a,b,c,d){this.l.contains(a)?this.l.Ex(a,b,c,d):(a="Updating name of unknown screen: "+a.name,S5(this.G,a),d(Error(a)))};
+g.k.Vg=function(a){return a?this.screens:g.nb(this.screens,g.Je(this.u,function(b){ret

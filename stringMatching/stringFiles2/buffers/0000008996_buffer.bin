@@ -1,0 +1,10 @@
+sNext,this.J=a.playerTime,this.G=a.playerTimeAt,this.B=a.seekableStart,this.i=a.seekableEnd,this.C=a.duration,this.L=a.loadedTime,this.u=a.liveIngestionTime,this.l=
+!isNaN(this.u))};
+g.k.lc=function(){return 1==this.playerState};
+g.k.isAdPlaying=function(){return 1081==this.playerState};
+g.k.getDuration=function(){return this.l?this.C+J6(this):this.C};
+g.k.clone=function(){return new H6(N6(this))};g.v(P6,g.O);g.k=P6.prototype;g.k.getState=function(){return this.eb};
+g.k.play=function(){R6(this)?(this.i?this.i.play(null,g.Ia,W6(this,"play")):V6(this,"play"),U6(this,1,L6(Q6(this))),this.W("remotePlayerChange")):S6(this,this.play)};
+g.k.pause=function(){R6(this)?(this.i?this.i.pause(null,g.Ia,W6(this,"pause")):V6(this,"pause"),U6(this,2,L6(Q6(this))),this.W("remotePlayerChange")):S6(this,this.pause)};
+g.k.seekTo=function(a){if(R6(this)){if(this.i){var b=Q6(this),c=new chrome.cast.media.SeekRequest;c.currentTime=a;b.lc()||3==b.playerState?c.resumeState=chrome.cast.media.ResumeState.PLAYBACK_START:c.resumeState=chrome.cast.media.ResumeState.PLAYBACK_PAUSE;this.i.seek(c,g.Ia,W6(this,"seekTo",{newTime:a}))}else V6(this,"seekTo",{newTime:a});U6(this,3,a);this.W("remotePlayerChange")}else S6(this,g.Pa(this.seekTo,a))};
+g.k.stop=function(){if(R6(this)){this.i?this.i.stop(null,g.Ia,W6(this,"stopVideo")):V6(this,"stopVideo");var a=Q6(this);a.index=-1;a.videoId="";I6(a);T6(this,a);this.W("remotePla

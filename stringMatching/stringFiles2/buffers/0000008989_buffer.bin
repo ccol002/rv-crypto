@@ -1,0 +1,7 @@
+isplayStatus=null;chrome.cast.setReceiverDisplayStatus(b,(0,g.C)(function(){this.info("Updated receiver status for "+b.friendlyName+": "+a)},this),(0,g.C)(function(){k6(this,"Failed to update receiver status for: "+b.friendlyName)},this))};
+g.k.va=function(){this.XB("");i6.Fd.va.call(this)};g.v(l6,i6);g.k=l6.prototype;g.k.WB=function(a){if(this.l){if(this.l==a)return;k6(this,"Overriding cast session with new session object");eMa(this);this.ma=!1;this.V="unknown";this.l.removeUpdateListener(this.Y);this.l.removeMessageListener("urn:x-cast:com.google.youtube.mdx",this.ra)}this.l=a;this.l.addUpdateListener(this.Y);this.l.addMessageListener("urn:x-cast:com.google.youtube.mdx",this.ra);aMa(this,"getMdxSessionStatus")};
+g.k.oq=function(a){this.info("launchWithParams no-op for Cast: "+g.Hj(a))};
+g.k.stop=function(){this.l?this.l.stop((0,g.C)(function(){this.Zf()},this),(0,g.C)(function(){this.Zf(Error("Failed to stop receiver app."))},this)):this.Zf(Error("Stopping cast device without session."))};
+g.k.XB=function(){};
+g.k.va=function(){this.info("disposeInternal");eMa(this);this.l&&(this.l.removeUpdateListener(this.Y),this.l.removeMessageListener("urn:x-cast:com.google.youtube.mdx",this.ra));this.l=null;i6.prototype.va.call(this)};
+g.k.JR=function(a,b){if(!this.Ga())if(b)if(b=f5(b),g.Ma(b))switch(a=""+b.type,b=b.data||{},this.info("onYoutubeMessage_: "+a+" "+g.Hj(b)),a){case "mdxSessionStatu
