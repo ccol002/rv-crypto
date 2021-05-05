@@ -11,7 +11,7 @@ We ran two experiments: one involving BadSSL traces, and another involving the t
 
 ## RV - Taint Inference
 
-The stringMatching directory contains: the source code for the implementation of the taint inference RV monitor; along with source and sink buffers for the overheads and false positives experimentation; as well as those used for the malware case study; and the recorded timings
+The stringMatching directory contains: the source code for the implementation of the taint inference RV monitor; along with source/sink buffers for: the overheads experimentation and the associated recorded timings; false positives experimentation; and those generated during the malware case study.
 
 
 ## SECube HSM
