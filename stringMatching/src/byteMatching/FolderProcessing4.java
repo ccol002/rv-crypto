@@ -19,9 +19,14 @@ import java.util.List;
 public class FolderProcessing4 {
 
 	
+	private final static long SINK_LENGTH = 1000000;//~1Mb
 	private static byte[] sinkBytes;
 	private static BufferedReader br;
 	private static long fileSize;
+	private static long previousFileSize = -1;
+	private static Dump d = null;
+		
+	
 	
 	private static void loadBigFile(String fileName)
 	{
@@ -46,17 +51,7 @@ public class FolderProcessing4 {
 			ex.printStackTrace();
 		}
 	}
-	private static final char[] HEX_ARRAY = "0123456789abcdef".toCharArray();
 	
-	public static String bytesToHex(byte[] bytes) {
-	    char[] hexChars = new char[bytes.length * 2];
-	    for (int j = 0; j < bytes.length; j++) {
-	        int v = bytes[j] & 0xFF;
-	        hexChars[j * 2] = HEX_ARRAY[v >>> 4];
-	        hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
-	    }
-	    return new String(hexChars);
-	}
 	
 	private static byte[] readAllBytesFromFile(String fileName) throws Exception
 	{
@@ -77,11 +72,14 @@ public class FolderProcessing4 {
 					fileSize += bytes.length;
 					for (int i=0; i<length; i++)
 						list.add(bytes[i]);
-					representation += bytesToHex(bytes) + " ";
+					representation += ByteUtils.bytesToHex(bytes);
+					//System.out.println(fileSize);
 
 				}
 			} while (length >0);
+			
 	        System.out.println("Bufferfile: " + representation);
+	        System.out.println(ByteUtils.hexToAscii(representation));
 	        inputStream.close();
 	       	 
 	        } catch (IOException ex) {
@@ -97,10 +95,17 @@ public class FolderProcessing4 {
 	}
 	
 	
- 	private static byte[] getNextDump() throws Exception
+ 	private static Dump getNextDump() throws Exception
 	{
- 		Dump d = null;
+ 		//reset dump
+ 		d = new Dump();
+ 		if (previousFileSize == -1)
+ 			System.out.print(".");
+ 		else
+ 			System.out.print("\r" + fileSize/(double)previousFileSize + "%");
  		
+ 		while (fileSize< SINK_LENGTH && br.ready()) {
+ 			
 		try {
 
 			String st = br.readLine();
@@ -125,9 +130,10 @@ public class FolderProcessing4 {
 		} catch (IOException ex) {
 			throw ex;
 		} 
+ 		}
 		
-		System.out.println("Sink file: "+ d);
-		return d.getByteArray();
+		//System.out.println("Sink file: "+ d);
+		return d;
 	}
 	
  	
@@ -154,7 +160,17 @@ public class FolderProcessing4 {
 			// folder
 			System.out.println("Starting folder: " + folderName);
 			
-
+			//test
+//			String s = "123235adebd45d68034092";
+//			System.out.println(s);
+//			//get bytes
+//			byte[] b = ByteUtils.hexStringToByteArray(s);
+//			//get string
+//			
+//			System.out.println((ByteUtils.bytesToHex(b)));
+			
+			
+			
 			int fileCount = 0;//6780;
 
 			pw = new PrintWriter(folderName + ".csv");
@@ -198,28 +214,33 @@ public class FolderProcessing4 {
 					while (!found)
 					{
 						try {
-							sinkBytes = getNextDump();//get next bytes from large file
+							Dump d = getNextDump();
+							sinkBytes = d.getByteArray();//get next bytes from large file
 
 							//skip this sink if smaller than buffer we are looking for
-							if (sinkBytes.length != bufferBytes.length)
+							if (sinkBytes.length < bufferBytes.length)
 								continue;
 							
 //							System.out.println("sinkBytes: ");
 //							ByteSlider.displayArray(sinkBytes);
 //							System.out.println("bufferBytes: ");
 //							ByteSlider.displayArray(bufferBytes);
-
+							
+							//System.out.println("Sink file: "+ d);
 							ByteSlider ss = new ByteSlider(bufferBytes,sinkBytes);
 							//string matching
 							ss.runThrough(pw);
 						}
 						catch (Exception ex)
 						{
+							
+							ex.printStackTrace();
 							//reached end of file
 							break;
+							
 						}
 					}
-					
+					previousFileSize = fileSize;
 					closeBigFile();
 				}//big file loop
 

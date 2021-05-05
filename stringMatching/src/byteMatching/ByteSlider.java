@@ -35,12 +35,7 @@ public class ByteSlider {
 		}
 	}
 	
-	public static void displayArray(byte[] array)
-	{
-		for (byte b: array)
-			System.out.print(String.format("%4s", b)+",");
-		System.out.println();
-	}
+	
 	
 	
 	//coarse-grained string matching
@@ -153,9 +148,9 @@ public class ByteSlider {
 					System.out.println("* Coarse-grained distance: " + distance/(1.0*shorter.length));
 					System.out.println("* Fine-grained distance: " + fineGrainedDistance);//note this is already normalised
 					System.out.println("* Offset: " + offset);
-					displayArray(shorter);
+					ByteUtils.displayArray(shorter);
 					//System.out.println(" FOUND TO MATCH ");
-					displayArray(window);
+					ByteUtils.displayArray(window);
 					
 					pw.print(","+fineGrainedTries);
 					pw.print(","+distance/(1.0*shorter.length));
@@ -171,9 +166,9 @@ public class ByteSlider {
 					System.out.println("* Coarse-grained distance: " + distance/(1.0*shorter.length));
 					System.out.println("* Fine-grained distance: " + fineGrainedDistance);
 					System.out.println("* Offset: " + offset);
-					displayArray(shorter);
+					ByteUtils.displayArray(shorter);
 					//System.out.println("NOT FOUND TO MATCH ");
-					displayArray(window);
+					ByteUtils.displayArray(window);
 				}
 			}
 

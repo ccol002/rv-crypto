@@ -144,9 +144,52 @@ public class ByteUtils {
 		return rands;
 	}
 	
+private static final char[] HEX_ARRAY = "0123456789abcdef".toCharArray();
 	
+	public static String bytesToHex(byte[] bytes) {
+	    char[] hexChars = new char[bytes.length * 2];
+	    for (int j = 0; j < bytes.length; j++) {
+	        int v = bytes[j] & 0xFF;
+	        hexChars[j * 2] = HEX_ARRAY[v >>> 4];
+	        hexChars[j * 2 + 1] = HEX_ARRAY[v & 0x0F];
+	    }
+	    return new String(hexChars);
+	}
 	
+	public static void displayArray(byte[] array)
+	{
+		for (byte b: array)
+			System.out.print(String.format("%4s", b)+",");
+		System.out.println();
+	}
 	
+//	public static byte[] hexToBytes(String s)
+//	{
+//		dump.add( (byte) ((Character.digit(dumpLine.charAt(i), 16) << 4)
+//                + Character.digit(dumpLine.charAt(i+1), 16))
+//	);
+//	}
 	
+	/* s must be an even-length string. */
+	public static byte[] hexStringToByteArray(String s) {
+	    int len = s.length();
+	    byte[] data = new byte[len / 2];
+	    for (int i = 0; i < len; i += 2) {
+	        data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
+	                             + Character.digit(s.charAt(i+1), 16));
+	    }
+	    return data;
+	}
 	
+	/* s must be an even-length string. */
+	public static String hexToAscii(String hexStr) {
+	    StringBuilder output = new StringBuilder("");
+	    
+	    for (int i = 0; i < hexStr.length()-1; i += 2) {
+	        String str = hexStr.substring(i, i + 2);
+	        output.append((char) Integer.parseInt(str, 16));
+	    }
+	    
+	    return output.toString();
+	}
 }
