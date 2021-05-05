@@ -174,13 +174,14 @@ public class ByteSlider {
 
 		}//forloop
 
-		if (!found)
-		{
-			pw.print(","+fineGrainedTries);
-			pw.print(",,,");
-		}
+		//these are now managed from the outer loop since we can find a match in the next batch
+//		if (!found)
+//		{
+//			pw.print(","+fineGrainedTries);
+//			pw.print(",,,");
+//		}
 
-		return found;//windowDifferences;
+		return found;
 	}
 
 }

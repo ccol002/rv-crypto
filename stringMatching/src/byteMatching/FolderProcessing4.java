@@ -19,10 +19,10 @@ import java.util.List;
 public class FolderProcessing4 {
 
 	
-	private final static long SINK_LENGTH = 1000000;//~1Mb
+	private final static long SINK_LENGTH = 100000000;//~100Mb
 	private static byte[] sinkBytes;
 	private static BufferedReader br;
-	private static long fileSize;
+	private static long fileSize = 0;
 	private static long previousFileSize = -1;
 	private static Dump d = null;
 		
@@ -99,12 +99,14 @@ public class FolderProcessing4 {
 	{
  		//reset dump
  		d = new Dump();
- 		if (previousFileSize == -1)
+ 		//if (previousFileSize == -1)
  			System.out.print(".");
- 		else
- 			System.out.print("\r" + fileSize/(double)previousFileSize + "%");
+ 			System.out.flush();
+ 		//else
+ 		//	System.out.write(("\r" + fileSize*100/previousFileSize + "%").getBytes());
  		
- 		while (fileSize< SINK_LENGTH && br.ready()) {
+ 		int thisRun = 0;
+ 		while (thisRun < SINK_LENGTH && br.ready()) {
  			
 		try {
 
@@ -114,9 +116,8 @@ public class FolderProcessing4 {
 				int eSize = st.indexOf(",",iSize);
 				int size = Integer.parseInt(st.substring(iSize + 6, eSize));
 
-				fileSize += size;
+				thisRun += size;
 
-				d = new Dump();
 				for (int i = 0; i< size; i+=16)
 				{
 					st = br.readLine();
@@ -132,6 +133,7 @@ public class FolderProcessing4 {
 		} 
  		}
 		
+ 		fileSize += thisRun;
 		//System.out.println("Sink file: "+ d);
 		return d;
 	}
@@ -185,14 +187,14 @@ public class FolderProcessing4 {
 
 			boolean found = false; //i.e. match not yet found
 			
-			//loop through files in folder
+			//loop through buffer files in folder
 			while (!found) {
 
 				String fileName = String.format("%10s", ""+ (++fileCount)).replace(' ', '0');//pad with zeros
 				String bufferFileName = fileName + "_buffer.bin";
 				
 				System.out.println("\r\n\r\n************* Processing file " + fileName);
-				pw.print(fileName);
+				pw.println(fileName);
 				pw.flush();
 
 				try {
@@ -207,6 +209,7 @@ public class FolderProcessing4 {
 					System.out.println("SKIPPED due to short length");
 					//skip buffers which are very small
 					pw.print(",,,,");
+					continue;//skip this buffer file
 				} else {
 					
 					loadBigFile(folderName + "/"+ "frida.out");//load the big file frida.out
@@ -217,6 +220,8 @@ public class FolderProcessing4 {
 							Dump d = getNextDump();
 							sinkBytes = d.getByteArray();//get next bytes from large file
 
+							if (sinkBytes.length == 0)
+								break;
 							//skip this sink if smaller than buffer we are looking for
 							if (sinkBytes.length < bufferBytes.length)
 								continue;
@@ -229,7 +234,7 @@ public class FolderProcessing4 {
 							//System.out.println("Sink file: "+ d);
 							ByteSlider ss = new ByteSlider(bufferBytes,sinkBytes);
 							//string matching
-							ss.runThrough(pw);
+							found = ss.runThrough(pw);
 						}
 						catch (Exception ex)
 						{
@@ -239,15 +244,24 @@ public class FolderProcessing4 {
 							break;
 							
 						}
-					}
+					}//end of big file loop
 					previousFileSize = fileSize;
+					fileSize = 0;
 					closeBigFile();
-				}//big file loop
+				}//else of big enough buffer
 
+
+				if (!found)
+				{
+					pw.print(",,,,");
+				}
+
+				
+				System.out.println();
 				System.out.println("Buffer size (bytes) " + bufferBytes.length);
 				pw.print("," +bufferBytes.length);
-				System.out.println("Heap size (bytes) " + fileSize);
-				pw.print("," +fileSize);
+				System.out.println("Heap size (bytes) " + previousFileSize);
+				pw.print("," +previousFileSize);
 				System.out.println("Time taken (ms) " + (System.currentTimeMillis()-lastTimeStamp));
 				pw.println("," +(System.currentTimeMillis()-lastTimeStamp));
 				
