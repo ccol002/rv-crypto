@@ -1,0 +1,95 @@
+GET https://www.google.cn/ HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Host: www.google.cn
+
+
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Vary: Accept-Encoding
+Content-Type: text/html
+Content-Security-Policy-Report-Only: script-src 'nonce-nT3BJdF39sPFpHF6UawTkw' 'report-sample' 'strict-dynamic' 'unsafe-eval' 'unsafe-inline' http: https:; object-src 'none'; report-uri https://csp.withgoogle.com/csp/static-on-bigtable; base-uri 'none'
+Cross-Origin-Resource-Policy: cross-origin
+Date: Wed, 21 Apr 2021 22:39:32 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Last-Modified: Fri, 19 Jun 2020 10:30:00 GMT
+X-Content-Type-Options: nosniff
+Server: sffe
+X-XSS-Protection: 0
+Set-Cookie: CONSENT=PENDING+960; expires=Fri, 01-Jan-2038 00:00:00 GMT; path=/; domain=.google.cn
+P3P: CP="This is not a P3P policy! See g.co/p3phelp for more info."
+Alt-Svc: h3-29=":443"; ma=2592000,h3-T051=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+
+<!DOCTYPE html>
+<html lang="zh">
+  <meta charset="utf-8">
+  <title>Google</title>
+  <style>
+    html { background: #fff; margin: 0 1em; }
+    body { font: .8125em/1.5 arial, sans-serif; text-align: center; }
+    h1 { font-size: 1.5em; font-weight: normal; margin: 1em 0 0; }
+    p#footer { color: #767676; font-size: .77em; }
+    p#footer a { background: url(//www.google.cn/intl/zh-CN_cn/images/cn_icp.gif) top right no-repeat; padding: 5px 20px 5px 0; }
+    ul { margin: 2em; padding: 0; }
+    li { display: inline; padding: 0 2em; }
+    div { -moz-border-radius: 20px; -webkit-border-radius: 20px; border: 1px solid #ccc; border-radius: 20px; margin: 2em auto 1em; max-width: 650px; min-width: 544px; }
+    div:hover, div:hover * { cursor: pointer; }
+    div:hover { border-color: #999; }
+    div p { margin: .5em 0 1.5em; }
+    img { border: 0; }
+  </style>
+  <div>
+    <a href="http://www.google.com.hk/webhp?hl=zh-CN&amp;sourceid=cnhp">
+      <img src="//www.google.cn/landing/cnexp/google-search.png" alt="Google" width="586" height="257">
+    </a>
+    <h1><a href="http://www.google.com.hk/webhp?hl=zh-CN&amp;sourceid=cnhp"><strong id="target">google.com.hk</strong></a></h1>
+    <p>????????
+  </div>
+  <ul>
+    <li><a href="http://translate.google.cn/?sourceid=cnhp">??</a>
+  </ul>
+  <p id="footer">
+    &copy;2011 - <span>ICP???B2-20070004?</span>
+  <script nonce="nT3BJdF39sPFpHF6UawTkw">
+    var gcn=gcn||{};gcn.IS_IMAGES=(/images\.google\.cn/.exec(window.location)||window.location.hash=='#images'||window.location.hash=='images');gcn.HOMEPAGE_DEST='http://www.google.com.hk/webhp?hl=zh-CN&sourceid=cnhp';gcn.IMAGES_DEST='http://images.google.com.hk/imghp?'+'hl=zh-CN&sourceid=cnhp';gcn.DEST_URL=gcn.IS_IMAGES?gcn.IMAGES_DEST:gcn.HOMEPAGE_DEST;gcn.READABLE_HOMEPAGE_URL='google.com.hk';gcn.READABLE_IMAGES_URL='images.google.com.hk';gcn.redirectIfLocationHasQueryParams=function(){if(window.location.search&&/google\.cn/.exec(window.location)&&!/webhp/.exec(window.location)){window.location=String(window.location).replace('google.cn','google.com.hk')}}();gcn.replaceHrefsWithImagesUrl=function(){if(gcn.IS_IMAGES){var a=document.getElementsByTagName('a');for(var i=0,len=a.length;i<len;i++){if(a[i].href==gcn.HOMEPAGE_DEST){a[i].href=gcn.IMAGES_DEST}}}}();gcn.listen=function(a,e,b){if(a.addEventListener){a.addEventListener(e,b,false)}else if(a.attachEvent){var r=a.attachEvent('on'+e,b);return r}};gcn.stopDefaultAndProp=function(e){if(e&&e.preventDefault){e.preventDefault()}else if(window.event&&window.event.returnValue){window.eventReturnValue=false;return false}if(e&&e.stopPropagation){e.stopPropagation()}else if(window.event&&window.event.cancelBubble){window.event.cancelBubble=true;return false}};gcn.resetChildElements=function(a){var b=a.childNodes;for(var i=0,len=b.length;i<len;i++){gcn.listen(b[i],'click',gcn.stopDefaultAndProp)}};gcn.redirect=function(){window.location=gcn.DEST_URL};gcn.setInnerHtmlInEl=function(a){if(gcn.IS_IMAGES){var b=document.getElementById(a);if(b){b.innerHTML=b.innerHTML.replace(gcn.READABLE_HOMEPAGE_URL,gcn.READABLE_IMAGES_URL)}}};
+    gcn.listen(document, 'click', gcn.redirect);
+    gcn.setInnerHtmlInEl('target');
+  </script>
+
+POST https://privacyportal.onetrust.com/request/v1/consentreceipts HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 5637
+Origin: https://www.salesforce.com
+Connection: keep-alive
+Referer: https://www.salesforce.com/
+Host: privacyportal.onetrust.com
+
+{"requestInformation":"eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6ImYzMzQ2NzRkLTkwZDItNGQxNy1hNGM2LWVmNGQyYjUwZTUxOCIsInByb2Nlc3NWZXJzaW9uIjoyMCwiaWF0IjoiMjAyMS0wMy0wNFQxNzozMzowNi4yNTciLCJtb2MiOiJDT09LSUUiLCJzdWIiOiJDb29raWUgVW5pcXVlIElkIiwiaXNzIjpudWxsLCJ0ZW5hbnRJZCI6ImRkYjkwNmM5LWY1N2ItNDBmYy04NWExLWM4YmNiYzM3MWIwZCIsImRlc2NyaXB0aW9uIjoiVGhpcyBjb2xsZWN0aW9uIHBvaW50IGNhcHR1cmVzIHRoZSBjdXJyZW50IHNpdGUgdmlzaXRvciBjb25zZW50IHByZWZlcmVuY2VzIGZvciB0aGUgZG9tYWluOiB3d3cuc2FsZXNmb3JjZS5jb20tZW4gc3BlY2lmaWVkLiIsImNvbnNlbnRUeXBlIjoiQ09PS0lFQkFOTkVSIiwiZG91YmxlT3B0SW4iOmZhbHNlLCJyZWNvbmZpcm1BY3RpdmVQdXJwb3NlIjpmYWxzZSwiYXR0cmlidXRlVmFsdWVzIjp7fSwiZHluYW1pY0NvbGxlY3Rpb25Qb2ludCI6ZmFsc2UsImF1dGhlbnRpY2F0aW9uUmVxdWlyZWQiOmZhbHNlLCJwb2xpY3lfdXJpIjoid3d3LnNhbGVzZm9yY2UuY29tIiwiYWxsb3dOb3RHaXZlbkNvbnNlbnRzIjpmYWxzZSwicHVycG9zZXMiOlt7ImlkIjoiMzFkMTM0NGUtNzI3Ni00MmMxLTgyZTgtMDcyOTNiODZkZTlmIiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiNWVhMDNlOTMtMTcyNy00ZTYxLTllOTktMTE2OTQwNDczNzcwIiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiYTU0NTA2MDYtM2U4ZC00MTZhLTg1ZDMtMTY1ODZkNWM0YjcwIiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiZmZlZjJiOWYtOTdkYS00NmMxLTllMmYtMWVmMjBhNjUxYzAxIiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiYzg5MDRhODQtZTUxNy00ZjIzLTliNDctMmE2MzVmZGY1YWQ1IiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiYWU5YTUyOTAtNzBiZi00ZjFmLWI1MzYtMzRkMDMyNGE1NjdhIiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiNDUyMTA1NzItZjgzMS00OGY0LTlkYTktNDgxMzlkMmEzNGM0IiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiOTk1OTViNjItMmZhNi00ZDgwLTgwNzgtNDk2Mjk4MjljMWFlIiwidmVyc2lvbiI6MiwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiMDRkOTUzYTItNzcwNi00YzY1LTllNDItNGIwNzcxYjk2YzRhIiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiZjVhMzgwZWYtNjVhYi00MDA0LTk3NzEtNThlMWNhOWNmMjk0IiwidmVyc2lvbiI6MzgsInRvcGljcyI6W10sImN1c3RvbVByZWZlcmVuY2VzIjpbXX0seyJpZCI6ImQwMGFkMjUwLWQ5ZjQtNGM2Yy1iYmM1LTU4ZmZiODEzZWYzNyIsInZlcnNpb24iOjEsInRvcGljcyI6W10sImN1c3RvbVByZWZlcmVuY2VzIjpbXX0seyJpZCI6IjZhNDAwZjJlLTFjYTUtNGJiOS05Y2RlLTVjMWVjMmY2YzI1NSIsInZlcnNpb24iOjQwLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119LHsiaWQiOiIyY2RkODJhZC1kNWFhLTRhMTEtOGU4MS02MGUzZDA2NTU3NDUiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119LHsiaWQiOiIyZDFkMDJiMi0zZGQ3LTQzMWUtYTk1Zi02MTVkOWQyZTQxOTEiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119LHsiaWQiOiJmODUyMTAzOS0yYWNlLTQxZTgtYmM1MS03NTZkZjZlMDRkMDEiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119LHsiaWQiOiJjMjM4ODExZC05ZjdjLTQwOTAtOGZhNC04ZDU5NTY3NGUxMjgiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119LHsiaWQiOiJmNzc3MTU3NC02YmYyLTQ0NDAtODhiOS1hOGRhNjgzODBjMWEiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119LHsiaWQiOiI0MThhZGJlZi0zZWZmLTQ5ZTYtYjU0My1iMWEyMTczY2Q3NzYiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119LHsiaWQiOiJjODMwYTdiMC04MDJmLTQzMWQtYjFmOS1iOWU5N2VlMTc2ZjciLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119LHsiaWQiOiI0OTQ4YmQ3ZS04ZmY0LTQ4YjAtOWI0ZC1jNDA4MDg3MTYwNzUiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119LHsiaWQiOiIyYWU1NWM2NC04YmQ3LTQ3NzItYmY1Yy1jYmYxMDhkZTkxOWEiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119LHsiaWQiOiJiOTgyNzEyNi1iM2I0LTQxMmMtOTkwMS1kYTRmM2IzNGMzN2EiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119LHsiaWQiOiI0OGNlMmUyNS0wNDc4LTQ3OTYtOTA1ZC1kYWZiZGE2NWQ3NDMiLCJ2ZXJzaW9uIjozOCwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiZTE0YWYyMmMtMzBlMy00OTU1LTg0OWYtZGJiNDBjMGMwZGJjIiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiZWFkZDU4MDEtY2Q1Mi00MTNjLWIzZDAtZTExYzNlZWRlMGI5IiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiNzhkNGVhZTgtYWE3NS00NWI5LWE1ZTEtZWYzNWNhYmYzYWU2IiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiNGQ0ZTk5MDgtMDNjYS00MDVmLTgxYzUtZjIwNjI0YmVjMWY3IiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiZGE5MDUxZTYtYjgwZS00NjBiLWIzZDAtZjJmYjM5YjcwMWNhIiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiYTc5YzNlYTItNGYyNS00NTNhLTk4YmEtZmVlMzJmODg0ZjljIiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfV0sIm5vdGljZXMiOltdLCJkc0RhdGFFbGVtZW50cyI6WyJVc2VyQWdlbnQiLCJDb3VudHJ5IiwiSW50ZXJhY3Rpb25UeXBlIl19.CjfeQWIHhBBOQwP-dqKCLnmqq6SV6eyPOOp2zorNl2c7a2C4OzMaYTY-E-M7KS-svmpmAlLUd91nTvVaZIAGQUzmLWDRMp0FLY9aRGq3Ul4gcXtXvt5Zh_uzF9S__I9vkxY8VfdlLV0uWQcq61Y-OdJtYFZQ6c0kXS3-L5Z94wgeecXdPT7BeRlhXdfntNFKWpYbHTyoFAH4ppI86KeibRLTw5arRPRuH8tL4qop4p5GZuRqEy__nxahjC4apm_MFrx18Jfb2ie9RowmDXzueWQP42G6rh0KnOK7LFh9H-bw8wxt_KlmCL0A5xT3vbsfGW97tw2E6hEbk6BYfskZyaNar5wdBKGE3Eb_XIMQ9s28JkxGfxHItumwZOXvwKDu0OjIugxKkYmPNTrgrN7SBmPca_RqhRau7sHAcZxcSvODqTywu_orRVvRTRAl6Q8At36YPpwxJWSH87r4q40R3-u0U_FzxlH07wfek8ObrV9yYHo7osJ31OXB33laybO1RmkqaZCGDVFCFvOkNymA3fXk0HH81GTRkEd4IY_Bls8FOC2-tGOMcvNtpQIX5fFWCSk4o9u1KCjVGvlggY5QPKr2Few3bN351WFzdcnlOkxEHcjUr_xYYQbMzOpJJ9zoXU9J2AWsAFTu9j3OdvzIO0_WRJFzRQFrF4uFksq92_Q","identifier":"5231aa81-e0bf-4e8a-9f6e-9cf75f5ee346","customPayload":{"Interaction":1,"AddDefaultInteraction":false},"isAnonymous":true,"test":false,"purposes":[{"Id":"F5A380EF-65AB-4004-9771-58E1CA9CF294","TransactionType":"NO_CHOICE"},{"Id":"48CE2E25-0478-4796-905D-DAFBDA65D743","TransactionType":"NOTGIVEN"},{"Id":"6A400F2E-1CA5-4BB9-9CDE-5C1EC2F6C255","TransactionType":"NOTGIVEN"}],"dsDataElements":{}}
+HTTP/1.1 201 Created
+Date: Wed, 21 Apr 2021 22:39:32 GMT
+Content-Length: 0
+Connection: keep-alive
+Set-Cookie: __cfduid=d235c5e74f3e942b776b94293201203851619044772; expires=Fri, 21-May-21 22:39:32 GMT; path=/; domain=.onetrust.com; HttpOnly; SameSite=Lax; Secure
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Access-Control-Allow-Origin: *
+CF-Cache-Status: DYNAMIC
+cf-request-id: 09982fc20b00000f5a5c238000000001
+Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+Server: cloudflare
+CF-RAY: 643a1be34a1e0f5a-MXP
+
+
