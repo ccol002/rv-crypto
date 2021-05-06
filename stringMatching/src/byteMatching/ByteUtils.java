@@ -1,5 +1,6 @@
 package byteMatching;
 
+import java.util.List;
 import java.util.Random;
 
 public class ByteUtils {
@@ -191,5 +192,21 @@ private static final char[] HEX_ARRAY = "0123456789abcdef".toCharArray();
 	    }
 	    
 	    return output.toString();
+	}
+	
+	public static boolean filterBytes(byte b)
+	{
+		return b>=32 && b<=126;//drops further characters
+				//b>0;//ascii is 0-127
+	}
+	
+	public static byte[] toByteArray(List<Byte> dump)
+	{
+		byte[] bytes = new byte[dump.size()];
+		int i=0;
+		for(Byte b: dump)
+		    bytes[i++] = b.byteValue();
+		
+		return bytes;
 	}
 }

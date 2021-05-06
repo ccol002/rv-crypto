@@ -21,19 +21,16 @@ public class Dump {
 		
 		//representation += dumpLine;
 		byte[] bytes = ByteUtils.hexStringToByteArray(dumpLine);
-		for (int j = 0; j< bytes.length; j+=2)//note +=2 to skip 1
-			dump.add(bytes[j]);
+		for (int j = 0; j< bytes.length; j+=1)//note +=2 to skip 1 got several matches
+			if (ByteUtils.filterBytes(bytes[j]))//filter in place
+				dump.add(bytes[j]);
 		
 	}
 
 	public byte[] getByteArray()
 	{
-		byte[] bytes = new byte[dump.size()];
-		int i=0;
-		for(Byte b: dump)
-		    bytes[i++] = b.byteValue();
 		
-		return bytes;
+		return ByteUtils.toByteArray(dump);
 	}
 	
 	public List<Byte> getByteList()

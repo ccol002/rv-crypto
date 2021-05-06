@@ -19,7 +19,7 @@ import java.util.List;
 public class FolderProcessing4 {
 
 	
-	private final static long SINK_LENGTH = 100000000;//~100Mb
+	private final static long SINK_LENGTH = 1000000;//~100Mb
 	private static byte[] sinkBytes;
 	private static BufferedReader br;
 	private static long fileSize = 0;
@@ -52,7 +52,11 @@ public class FolderProcessing4 {
 		}
 	}
 	
-	
+	// reads a whole file of bytes such as 
+	// 0000 b501 0500 0000 1989 6196 d07a be94
+	// 032a 681f a504 0105 40b9 7022 b816 d4c5
+	// a37f 77e9 8a22 4b25 a692 091b 8dc6 5a76
+	// 3659 8d97 8118 dd03 e572 428d f148 d32e
 	private static byte[] readAllBytesFromFile(String fileName) throws Exception
 	{
 
@@ -71,8 +75,9 @@ public class FolderProcessing4 {
 				if (length > 0) {//returns -1 at end of file
 					fileSize += bytes.length;
 					for (int i=0; i<length; i++)
-						list.add(bytes[i]);
-					representation += ByteUtils.bytesToHex(bytes);
+						if (ByteUtils.filterBytes(bytes[i]))//filter in place
+							list.add(bytes[i]);
+					representation += ByteUtils.bytesToHex(ByteUtils.toByteArray(list));
 					//System.out.println(fileSize);
 
 				}
@@ -183,19 +188,23 @@ public class FolderProcessing4 {
 			pw.println("Starting Experiment with Threshold "+ ByteSlider.threshold);
 			pw.println("Stopping on first fine-grained match below threshold");
 			pw.println("Buffers sized less than a certain minimum are discarded");
-			pw.println("Filename, Fine-grained tries, Coarse-grained Measure, Fine-grained Measure, offset, Buffer size (bytes), Heap size (bytes), time taken (ms)");
+			pw.println("Filename, Coarse-grained Measure, Fine-grained Measure, offset, Fine-grained tries, Buffer size (bytes), Heap size (bytes), time taken (ms)");
 
 			boolean found = false; //i.e. match not yet found
 			
 			//loop through buffer files in folder
-			while (!found) {
+			while (true) {
 
 				String fileName = String.format("%10s", ""+ (++fileCount)).replace(' ', '0');//pad with zeros
 				String bufferFileName = fileName + "_buffer.bin";
 				
+				int fineGrainedTries = 0;
+				
+				
 				System.out.println("\r\n\r\n************* Processing file " + fileName);
-				pw.println(fileName);
 				pw.flush();
+				pw.print(fileCount);
+
 
 				try {
 				//source file
@@ -208,7 +217,7 @@ public class FolderProcessing4 {
 				{			
 					System.out.println("SKIPPED due to short length");
 					//skip buffers which are very small
-					pw.print(",,,,");
+					pw.println(",buffer too small");
 					continue;//skip this buffer file
 				} else {
 					
@@ -234,7 +243,12 @@ public class FolderProcessing4 {
 							//System.out.println("Sink file: "+ d);
 							ByteSlider ss = new ByteSlider(bufferBytes,sinkBytes);
 							//string matching
-							found = ss.runThrough(pw);
+							found = 
+									ss.runThrough(pw);
+							
+							fineGrainedTries += ss.getFineGrainedTries();
+							
+							
 						}
 						catch (Exception ex)
 						{
@@ -258,12 +272,17 @@ public class FolderProcessing4 {
 
 				
 				System.out.println();
+				pw.print(","+fineGrainedTries);
+				
 				System.out.println("Buffer size (bytes) " + bufferBytes.length);
 				pw.print("," +bufferBytes.length);
 				System.out.println("Heap size (bytes) " + previousFileSize);
 				pw.print("," +previousFileSize);
 				System.out.println("Time taken (ms) " + (System.currentTimeMillis()-lastTimeStamp));
-				pw.println("," +(System.currentTimeMillis()-lastTimeStamp));
+				pw.print("," +(System.currentTimeMillis()-lastTimeStamp));
+				
+				//pw.print("," + ByteUtils.hexToAscii(ByteUtils.bytesToHex(bufferBytes)));
+				pw.println();
 				
 				}catch(Exception ex)
 				{

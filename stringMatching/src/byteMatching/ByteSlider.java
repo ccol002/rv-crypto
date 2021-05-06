@@ -12,6 +12,8 @@ public class ByteSlider {
 	public final static double threshold = 0.1;
 	//0.2 threshold worked fine for sample 0 (0.1 threshold also gave 1 match)
 	
+	private boolean found = false;
+	private int fineGrainedTries = 0;
 	
 	
 	private byte[] shorter;
@@ -35,7 +37,10 @@ public class ByteSlider {
 		}
 	}
 	
-	
+	public int getFineGrainedTries()
+	{
+		return fineGrainedTries;
+	}
 	
 	
 	//coarse-grained string matching
@@ -67,8 +72,8 @@ public class ByteSlider {
 		double normalisedThreshold = threshold * windowLength;
 		
 		
-		boolean found = false;
-		int fineGrainedTries = 0;
+		found = false;
+		fineGrainedTries = 0;
 		
 		boolean matchInProgress = false;
 		int matchProgress = 0;
@@ -152,7 +157,6 @@ public class ByteSlider {
 					//System.out.println(" FOUND TO MATCH ");
 					ByteUtils.displayArray(window);
 					
-					pw.print(","+fineGrainedTries);
 					pw.print(","+distance/(1.0*shorter.length));
 					
 					pw.print(","+fineGrainedDistance);
