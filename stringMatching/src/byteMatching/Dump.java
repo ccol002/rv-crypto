@@ -14,7 +14,7 @@ public class Dump {
 		int i = dumpLine.indexOf("  ")+2;
 		int e = dumpLine.indexOf("  ",i+2);
 		dumpLine = dumpLine.substring(i,e);//drop address
-		dumpLine = dumpLine.replaceAll("\\s","");
+		dumpLine = dumpLine.replaceAll("\\s","");//removing spaces
 		
 		if (dumpLine.length()%2 !=0)
 			throw new Exception("Even length expected but found " + dumpLine);

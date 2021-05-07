@@ -19,7 +19,7 @@ import java.util.List;
 public class FolderProcessing4 {
 
 	
-	private final static long SINK_LENGTH = 1000000;//~100Mb
+	private final static long SINK_LENGTH = 1000000;//this number shouldn't be smaller than the largest buffer (otherwise matching won't be possible)
 	private static byte[] sinkBytes;
 	private static BufferedReader br;
 	private static long fileSize = 0;
@@ -52,7 +52,7 @@ public class FolderProcessing4 {
 		}
 	}
 	
-	// reads a whole file of bytes such as 
+	// reads a whole file of bytes (binary format) such as 
 	// 0000 b501 0500 0000 1989 6196 d07a be94
 	// 032a 681f a504 0105 40b9 7022 b816 d4c5
 	// a37f 77e9 8a22 4b25 a692 091b 8dc6 5a76
@@ -64,7 +64,7 @@ public class FolderProcessing4 {
 		
 		try  {
 			InputStream inputStream = new FileInputStream(fileName);
-			long fileSize = 0;
+			//long size = 0;
 			
 			byte[] bytes = new byte[1000];
 			String representation = "";
@@ -73,7 +73,7 @@ public class FolderProcessing4 {
 			do {
 				length = inputStream.read(bytes);
 				if (length > 0) {//returns -1 at end of file
-					fileSize += bytes.length;
+					//size += bytes.length;
 					for (int i=0; i<length; i++)
 						if (ByteUtils.filterBytes(bytes[i]))//filter in place
 							list.add(bytes[i]);
@@ -110,7 +110,8 @@ public class FolderProcessing4 {
  		//else
  		//	System.out.write(("\r" + fileSize*100/previousFileSize + "%").getBytes());
  		
- 		int thisRun = 0;
+ 		long thisRun = 0;
+ 		
  		while (thisRun < SINK_LENGTH && br.ready()) {
  			
 		try {
@@ -139,7 +140,7 @@ public class FolderProcessing4 {
  		}
 		
  		fileSize += thisRun;
-		//System.out.println("Sink file: "+ d);
+		//System.out.println("Sink file thisRun: "+ thisRun);
 		return d;
 	}
 	
@@ -223,6 +224,7 @@ public class FolderProcessing4 {
 					
 					loadBigFile(folderName + "/"+ "frida.out");//load the big file frida.out
 					
+					found = false; //reset found to try again with this buffer 
 					while (!found)
 					{
 						try {
@@ -267,7 +269,7 @@ public class FolderProcessing4 {
 
 				if (!found)
 				{
-					pw.print(",,,,");
+					pw.print(",,,");
 				}
 
 				

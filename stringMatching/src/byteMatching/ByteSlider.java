@@ -137,7 +137,7 @@ public class ByteSlider {
 				//perhaps consider multiple checking attempts for very long substrings?
 				//NOTE: since we are using matchProgress/2, the fineGrainedDistance obtained doesn't correspond to the last coarseGrained obtained
 				// this explains why sometimes the fineGrainedDistance will be smaller than the coarseGrained one
-				int offset = i-(matchProgress); 
+				int offset = i-(matchProgress/2); 
 				byte[] window = Arrays.copyOfRange(longer, offset,offset+windowLength);
 				double fineGrainedDistance = ByteUtils.taintDistance(shorter, window);
 
@@ -150,7 +150,7 @@ public class ByteSlider {
 				if (fineGrainedDistance <= threshold)
 				{
 					System.out.println("* MATCH after fine-grained tries: " + fineGrainedTries);
-					System.out.println("* Coarse-grained distance: " + distance/(1.0*shorter.length));
+					System.out.println("* Coarse-grained distance: " + distance/(1.0*windowLength));
 					System.out.println("* Fine-grained distance: " + fineGrainedDistance);//note this is already normalised
 					System.out.println("* Offset: " + offset);
 					ByteUtils.displayArray(shorter);
