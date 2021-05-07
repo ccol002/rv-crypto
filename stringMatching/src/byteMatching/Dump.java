@@ -38,6 +38,11 @@ public class Dump {
 		return dump;
 	}
 	
+	public long getLength()
+	{
+		return dump.size();
+	}
+	
 	//should not be called before "setLength()" is called
 	public String toString()
 	{

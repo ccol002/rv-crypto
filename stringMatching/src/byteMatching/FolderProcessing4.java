@@ -112,7 +112,8 @@ public class FolderProcessing4 {
  		
  		long thisRun = 0;
  		
- 		while (thisRun < SINK_LENGTH && br.ready()) {
+ 		//note that with filtering, d.getLength() might be smaller than thisRun
+ 		while (d.getLength() < SINK_LENGTH && br.ready()) {
  			
 		try {
 
@@ -232,6 +233,8 @@ public class FolderProcessing4 {
 							sinkBytes = d.getByteArray();//get next bytes from large file
 
 							if (sinkBytes.length == 0)
+								//this was causing inconsistent "heapsize" reporting
+								//(due to filtering, sometimes the sinkBytes was turning up empty
 								break;
 							//skip this sink if smaller than buffer we are looking for
 							if (sinkBytes.length < bufferBytes.length)
